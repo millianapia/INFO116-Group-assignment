@@ -1,0 +1,21 @@
+Thing
+	Country
+	Whiskey
+
+
+
+
+
+
+
+
+
+----------------
+Properties
+	WhiskeyID
+	Distillery
+	CountryOrigin
+	Type (Malt)
+	Age
+	
+	
