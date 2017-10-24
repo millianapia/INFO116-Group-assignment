@@ -1,6 +1,8 @@
 Thing
 	Country
 	Whiskey
+		Cask (Maturing)
+	Bottle
 
 
 
@@ -17,5 +19,5 @@ Properties
 	CountryOrigin
 	Type (Malt)
 	Age
-	
-	
+	ABV (Alkoholinnhold)
+	Bottle size	
