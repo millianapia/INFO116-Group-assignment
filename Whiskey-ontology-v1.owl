@@ -6,35 +6,58 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.whisky.com/ontologies/whisky.owl> .
 
-<http://www.whisky.com/ontologies/whisky.owl> rdf:type owl:Ontology .
+<http://www.whisky.com/ontologies/whisky.owl> rdf:type owl:Ontology ;
+                                               rdfs:comment "An ontology for the concept whisky" .
 
 #################################################################
 #    Object Properties
 #################################################################
 
+###  http://www.whisky.com/ontologies/whisky.owl#hasTreatment
+:hasTreatment rdf:type owl:ObjectProperty ;
+              rdfs:domain :Whisky ;
+              rdfs:range :WhiskyTreatment .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#producedIn
-:producedIn rdf:type owl:ObjectProperty .
+:producedIn rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Whisky ;
+            rdfs:range :Country .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
+###  http://www.whisky.com/ontologies/whisky.owl#RegionOf
+:RegionOf rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#hasABV
-:hasABV rdf:type owl:DatatypeProperty .
+:hasABV rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasAge
-:hasAge rdf:type owl:DatatypeProperty .
+:hasAge rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasBottlesize
-:hasBottlesize rdf:type owl:DatatypeProperty .
+:hasBottlesize rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty .
 
 
 #################################################################
 #    Classes
 #################################################################
+
+###  http://www.whisky.com/ontologies/whisky.owl#ArtificiallyColored
+:ArtificiallyColored rdf:type owl:Class ;
+                     rdfs:subClassOf :WhiskyTreatment .
+
 
 ###  http://www.whisky.com/ontologies/whisky.owl#BlendWhisky
 :BlendWhisky rdf:type owl:Class ;
@@ -56,12 +79,13 @@
                rdfs:subClassOf :Whisky .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Brand
-:Brand rdf:type owl:Class .
-
-
 ###  http://www.whisky.com/ontologies/whisky.owl#CaskTypes
 :CaskTypes rdf:type owl:Class .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#ChillFiltrated
+:ChillFiltrated rdf:type owl:Class ;
+                rdfs:subClassOf :WhiskyTreatment .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#CornWhisky
@@ -91,6 +115,10 @@
 ###  http://www.whisky.com/ontologies/whisky.owl#PurePotStillWhisky
 :PurePotStillWhisky rdf:type owl:Class ;
                     rdfs:subClassOf :Whisky .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Region
+:Region rdf:type owl:Class .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#RyeWhisky
@@ -125,6 +153,14 @@
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky
 :Whisky rdf:type owl:Class .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#WhiskyBrand
+:WhiskyBrand rdf:type owl:Class .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#WhiskyTreatment
+:WhiskyTreatment rdf:type owl:Class .
 
 
 #################################################################
