@@ -1,4 +1,4 @@
-@prefix : <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#> .
+@prefix : <http://www.whisky.com/ontologies/whisky.owl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -13,178 +13,268 @@
 #    Object Properties
 #################################################################
 
-###  http://www.whisky.com/ontologies/whisky.owl#hasTreatment
-:hasTreatment rdf:type owl:ObjectProperty ;
-              rdfs:domain :Whisky ;
-              rdfs:range :WhiskyTreatment .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasTreatment
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasTreatment> rdf:type owl:ObjectProperty ;
+                                                                                        rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
+                                                                                        rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#producedIn
-:producedIn rdf:type owl:ObjectProperty ,
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn> rdf:type owl:ObjectProperty ,
+                                                                                               owl:FunctionalProperty ;
+                                                                                      rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
+                                                                                      rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> ;
+                                                                                      rdfs:comment "Property to describe which country the given whisky was produced in" .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#distilledBy
+:distilledBy rdf:type owl:ObjectProperty ;
+             owl:inverseOf :distillsWhisky ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:range :Distillery .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#distillsWhisky
+:distillsWhisky rdf:type owl:ObjectProperty ;
+                rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#hasRegion
+:hasRegion rdf:type owl:ObjectProperty ;
+           owl:inverseOf :isRegionOf ;
+           rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> ;
+           rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region> .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#isRegionOf
+:isRegionOf rdf:type owl:ObjectProperty ,
                      owl:FunctionalProperty ;
-            rdfs:domain :Whisky ;
-            rdfs:range :Country .
+            rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region> ;
+            rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  http://www.whisky.com/ontologies/whisky.owl#RegionOf
-:RegionOf rdf:type owl:DatatypeProperty ,
-                   owl:FunctionalProperty .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV> rdf:type owl:DatatypeProperty ,
+                                                                                           owl:FunctionalProperty ;
+                                                                                  rdfs:range xsd:int ;
+                                                                                  rdfs:comment "Property describes the alcohol level (given in percentage)" .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#hasABV
-:hasABV rdf:type owl:DatatypeProperty ,
-                 owl:FunctionalProperty .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasAge
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasAge> rdf:type owl:DatatypeProperty ,
+                                                                                           owl:FunctionalProperty ;
+                                                                                  rdfs:range xsd:int ;
+                                                                                  rdfs:comment "Property describes the age of a whisky-bottle" .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#hasAge
-:hasAge rdf:type owl:DatatypeProperty ,
-                 owl:FunctionalProperty .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasBottlesize
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasBottlesize> rdf:type owl:DatatypeProperty ,
+                                                                                                  owl:FunctionalProperty ;
+                                                                                         rdfs:range xsd:double ;
+                                                                                         rdfs:comment "Property describes the volume on the container of the given whisky (given in litres)" .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#hasBottlesize
-:hasBottlesize rdf:type owl:DatatypeProperty ,
-                        owl:FunctionalProperty .
+###  http://www.whisky.com/ontologies/whisky.owl#hasName
+:hasName rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:string .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.whisky.com/ontologies/whisky.owl#ArtificiallyColored
-:ArtificiallyColored rdf:type owl:Class ;
-                     rdfs:subClassOf :WhiskyTreatment .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#BlendWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#BlendWhisky> rdf:type owl:Class ;
+                                                                                       rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#BlendWhisky
-:BlendWhisky rdf:type owl:Class ;
-             rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#BlendedGrainWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#BlendedGrainWhisky> rdf:type owl:Class ;
+                                                                                              rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#BlendedGrainWhisky
-:BlendedGrainWhisky rdf:type owl:Class ;
-                    rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#BlendedMaltWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#BlendedMaltWhisky> rdf:type owl:Class ;
+                                                                                             rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#BlendedMaltWhisky
-:BlendedMaltWhisky rdf:type owl:Class ;
-                   rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#BourbonWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#BourbonWhisky> rdf:type owl:Class ;
+                                                                                         rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#BourbonWhisky
-:BourbonWhisky rdf:type owl:Class ;
-               rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#CaskTypes
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#CaskTypes> rdf:type owl:Class .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#CaskTypes
-:CaskTypes rdf:type owl:Class .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#CornWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#CornWhisky> rdf:type owl:Class ;
+                                                                                      rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#ChillFiltrated
-:ChillFiltrated rdf:type owl:Class ;
-                rdfs:subClassOf :WhiskyTreatment .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> rdf:type owl:Class .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#CornWhisky
-:CornWhisky rdf:type owl:Class ;
-            rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#GrainWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#GrainWhisky> rdf:type owl:Class ;
+                                                                                       rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Country
-:Country rdf:type owl:Class .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#LiqueurWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#LiqueurWhisky> rdf:type owl:Class ;
+                                                                                         rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#GrainWhisky
-:GrainWhisky rdf:type owl:Class ;
-             rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#OtherWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#OtherWhisky> rdf:type owl:Class ;
+                                                                                       rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#LiqueurWhisky
-:LiqueurWhisky rdf:type owl:Class ;
-               rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#PurePotStillWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#PurePotStillWhisky> rdf:type owl:Class ;
+                                                                                              rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#OtherWhisky
-:OtherWhisky rdf:type owl:Class ;
-             rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region> rdf:type owl:Class .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#PurePotStillWhisky
-:PurePotStillWhisky rdf:type owl:Class ;
-                    rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#RyeWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#RyeWhisky> rdf:type owl:Class ;
+                                                                                     rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Region
-:Region rdf:type owl:Class .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#SingleGrainWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#SingleGrainWhisky> rdf:type owl:Class ;
+                                                                                             rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#RyeWhisky
-:RyeWhisky rdf:type owl:Class ;
-           rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#SingleMaltWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#SingleMaltWhisky> rdf:type owl:Class ;
+                                                                                            rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#SingleGrainWhisky
-:SingleGrainWhisky rdf:type owl:Class ;
-                   rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#SpiritWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#SpiritWhisky> rdf:type owl:Class ;
+                                                                                        rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#SingleMaltWhisky
-:SingleMaltWhisky rdf:type owl:Class ;
-                  rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#TennesseeWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#TennesseeWhisky> rdf:type owl:Class ;
+                                                                                           rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#SpiritWhisky
-:SpiritWhisky rdf:type owl:Class ;
-              rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WheatWhisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WheatWhisky> rdf:type owl:Class ;
+                                                                                       rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#TennesseeWhisky
-:TennesseeWhisky rdf:type owl:Class ;
-                 rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> rdf:type owl:Class .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#WheatWhisky
-:WheatWhisky rdf:type owl:Class ;
-             rdfs:subClassOf :Whisky .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBrand
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBrand> rdf:type owl:Class .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Whisky
-:Whisky rdf:type owl:Class .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment> rdf:type owl:Class .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#WhiskyBrand
-:WhiskyBrand rdf:type owl:Class .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#WhiskyTreatment
-:WhiskyTreatment rdf:type owl:Class .
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery
+:Distillery rdf:type owl:Class .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://www.whisky.com/ontologies/whisky.owl#England
-:England rdf:type owl:NamedIndividual ,
-                  :Country .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#England
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#England> rdf:type owl:NamedIndividual ,
+                                                                                            <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Ireland
-:Ireland rdf:type owl:NamedIndividual ,
-                  :Country .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Ireland
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Ireland> rdf:type owl:NamedIndividual ,
+                                                                                            <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Scotland
-:Scotland rdf:type owl:NamedIndividual ,
-                   :Country .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Scotland
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Scotland> rdf:type owl:NamedIndividual ,
+                                                                                             <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#USA
-:USA rdf:type owl:NamedIndividual ,
-              :Country .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#USA
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#USA> rdf:type owl:NamedIndividual ,
+                                                                                        <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> ;
+                                                                               :hasRegion :Tennessee .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#ArtificialColoring
+:ArtificialColoring rdf:type owl:NamedIndividual ,
+                             <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment> .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Campbeltown
+:Campbeltown rdf:type owl:NamedIndividual ,
+                      <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region> ;
+             :isRegionOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Scotland> .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#ChillFiltration
+:ChillFiltration rdf:type owl:NamedIndividual ,
+                          <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment> .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Tennessee
+:Tennessee rdf:type owl:NamedIndividual ,
+                    <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region> .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Jack_Daniel's
+:s rdf:type owl:NamedIndividual ,
+            <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBrand> ,
+            :Distillery .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Jack_Daniel's_Gentleman_Jack
+:s_Gentleman_Jack rdf:type owl:NamedIndividual ,
+                           <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#TennesseeWhisky> ;
+                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasTreatment> :ChillFiltration ;
+                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn> <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#USA> ;
+                  :distilledBy :s ;
+                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV> "40"^^xsd:int ;
+                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasBottlesize> "0.7"^^xsd:double ;
+                  :hasName "Jack Daniel's Gentleman Jack"^^xsd:string .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#BlendWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#BlendedGrainWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#BlendedMaltWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#BourbonWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#CornWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#GrainWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#LiqueurWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#OtherWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#PurePotStillWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#RyeWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#SingleGrainWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#SingleMaltWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#SpiritWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#TennesseeWhisky>
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WheatWhisky>
+              )
+] .
 
 
 ###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
