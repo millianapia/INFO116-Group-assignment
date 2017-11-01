@@ -15,13 +15,15 @@
 
 ###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasTreatment
 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasTreatment> rdf:type owl:ObjectProperty ;
+                                                                                        owl:inverseOf :treatmentAffects ;
                                                                                         rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
-                                                                                        rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment> .
+                                                                                        rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment> ;
+                                                                                        rdfs:comment "Describes the treatment given to a whisky" .
 
 
 ###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn
 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn> rdf:type owl:ObjectProperty ;
-                                                                                      owl:inverseOf :AreaProduces ;
+                                                                                      owl:inverseOf :areaProduces ;
                                                                                       rdf:type owl:FunctionalProperty ;
                                                                                       rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
                                                                                       rdfs:range [ rdf:type owl:Class ;
@@ -32,40 +34,45 @@
                                                                                       rdfs:comment "Property to describe which country or region the given whisky was produced in" .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#AreaProduces
-:AreaProduces rdf:type owl:ObjectProperty ;
+###  http://www.whisky.com/ontologies/whisky.owl#areaProduces
+:areaProduces rdf:type owl:ObjectProperty ;
               rdfs:domain [ rdf:type owl:Class ;
                             owl:unionOf ( <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country>
                                           <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region>
                                         )
                           ] ;
-              rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
+              rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
+              rdfs:comment "Describes all the whiskies produced in a given area" .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#BottlerProduces
-:BottlerProduces rdf:type owl:ObjectProperty ;
+###  http://www.whisky.com/ontologies/whisky.owl#bottlerProduces
+:bottlerProduces rdf:type owl:ObjectProperty ;
                  owl:inverseOf :hasBottler ;
                  rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBottler> ;
-                 rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
+                 rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
+                 rdfs:comment "Describes all the whiskies that a given bottler bottles" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#distilledBy
 :distilledBy rdf:type owl:ObjectProperty ;
              owl:inverseOf :distillsWhisky ;
              rdf:type owl:FunctionalProperty ;
-             rdfs:range :Distillery .
+             rdfs:range :Distillery ;
+             rdfs:comment "Describes who destilled the given whisky" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#distillsWhisky
 :distillsWhisky rdf:type owl:ObjectProperty ;
-                rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
+                rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
+                rdfs:comment "Describes which whiskies the given destillery destills" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasBottler
 :hasBottler rdf:type owl:ObjectProperty ,
                      owl:FunctionalProperty ;
             rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
-            rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBottler> .
+            rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBottler> ;
+            rdfs:comment "Describes who bottled the given whisky" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasMaturingType
@@ -81,14 +88,16 @@
 :hasRegion rdf:type owl:ObjectProperty ;
            owl:inverseOf :isRegionOf ;
            rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> ;
-           rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region> .
+           rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region> ;
+           rdfs:comment "Describes the regions that are a part of a given country" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#isRegionOf
 :isRegionOf rdf:type owl:ObjectProperty ,
                      owl:FunctionalProperty ;
             rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region> ;
-            rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> .
+            rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> ;
+            rdfs:comment "Describes which country the given region is a part of" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#maturesWhisky
@@ -96,6 +105,13 @@
                rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#MaturingType> ;
                rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
                rdfs:comment "Describes which whiskies have been matured by a given maturingtype" .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#treatmentAffects
+:treatmentAffects rdf:type owl:ObjectProperty ;
+                  rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment> ;
+                  rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
+                  rdfs:comment "Describes the whiskies the given treatment affects" .
 
 
 #################################################################
@@ -124,18 +140,24 @@
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasBottlingDate
-:hasBottlingDate rdf:type owl:DatatypeProperty ;
-                 rdfs:range xsd:dateTime .
+:hasBottlingDate rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:range xsd:dateTime ;
+                 rdfs:comment "Property describes the bottling date of a given whisky (format YYYY-MM-DDThh:mm:ss)" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasDistillationDate
-:hasDistillationDate rdf:type owl:DatatypeProperty ;
-                     rdfs:range xsd:dateTime .
+:hasDistillationDate rdf:type owl:DatatypeProperty ,
+                              owl:FunctionalProperty ;
+                     rdfs:range xsd:dateTime ;
+                     rdfs:comment "Property describes the distillation date of a given whisky (format YYYY-MM-DDThh:mm:ss)" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasName
-:hasName rdf:type owl:DatatypeProperty ;
-         rdfs:range xsd:string .
+:hasName rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Describes the name of a given individual" .
 
 
 #################################################################
