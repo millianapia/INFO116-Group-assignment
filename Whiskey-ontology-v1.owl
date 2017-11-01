@@ -20,11 +20,33 @@
 
 
 ###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn
-<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn> rdf:type owl:ObjectProperty ,
-                                                                                               owl:FunctionalProperty ;
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn> rdf:type owl:ObjectProperty ;
+                                                                                      owl:inverseOf :AreaProduces ;
+                                                                                      rdf:type owl:FunctionalProperty ;
                                                                                       rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
-                                                                                      rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> ;
-                                                                                      rdfs:comment "Property to describe which country the given whisky was produced in" .
+                                                                                      rdfs:range [ rdf:type owl:Class ;
+                                                                                                   owl:unionOf ( <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country>
+                                                                                                                 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region>
+                                                                                                               )
+                                                                                                 ] ;
+                                                                                      rdfs:comment "Property to describe which country or region the given whisky was produced in" .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#AreaProduces
+:AreaProduces rdf:type owl:ObjectProperty ;
+              rdfs:domain [ rdf:type owl:Class ;
+                            owl:unionOf ( <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country>
+                                          <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region>
+                                        )
+                          ] ;
+              rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#BottlerProduces
+:BottlerProduces rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :hasBottler ;
+                 rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBottler> ;
+                 rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#distilledBy
@@ -37,6 +59,22 @@
 ###  http://www.whisky.com/ontologies/whisky.owl#distillsWhisky
 :distillsWhisky rdf:type owl:ObjectProperty ;
                 rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#hasBottler
+:hasBottler rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
+            rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBottler> .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#hasMaturingType
+:hasMaturingType rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :maturesWhisky ;
+                 rdf:type owl:FunctionalProperty ;
+                 rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
+                 rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#MaturingType> ;
+                 rdfs:comment "Describes the maturingtype used on a given whisky" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasRegion
@@ -53,6 +91,13 @@
             rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#maturesWhisky
+:maturesWhisky rdf:type owl:ObjectProperty ;
+               rdfs:domain <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#MaturingType> ;
+               rdfs:range <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> ;
+               rdfs:comment "Describes which whiskies have been matured by a given maturingtype" .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -60,7 +105,7 @@
 ###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV
 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV> rdf:type owl:DatatypeProperty ,
                                                                                            owl:FunctionalProperty ;
-                                                                                  rdfs:range xsd:int ;
+                                                                                  rdfs:range xsd:double ;
                                                                                   rdfs:comment "Property describes the alcohol level (given in percentage)" .
 
 
@@ -76,6 +121,16 @@
                                                                                                   owl:FunctionalProperty ;
                                                                                          rdfs:range xsd:double ;
                                                                                          rdfs:comment "Property describes the volume on the container of the given whisky (given in litres)" .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#hasBottlingDate
+:hasBottlingDate rdf:type owl:DatatypeProperty ;
+                 rdfs:range xsd:dateTime .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#hasDistillationDate
+:hasDistillationDate rdf:type owl:DatatypeProperty ;
+                     rdfs:range xsd:dateTime .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasName
@@ -107,10 +162,6 @@
                                                                                          rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
 
 
-###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#CaskTypes
-<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#CaskTypes> rdf:type owl:Class .
-
-
 ###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#CornWhisky
 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#CornWhisky> rdf:type owl:Class ;
                                                                                       rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
@@ -128,6 +179,10 @@
 ###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#LiqueurWhisky
 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#LiqueurWhisky> rdf:type owl:Class ;
                                                                                          rdfs:subClassOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> .
+
+
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#MaturingType
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#MaturingType> rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#OtherWhisky
@@ -178,8 +233,8 @@
 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Whisky> rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBrand
-<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBrand> rdf:type owl:Class .
+###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBottler
+<http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBottler> rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment
@@ -196,61 +251,111 @@
 
 ###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#England
 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#England> rdf:type owl:NamedIndividual ,
-                                                                                            <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> .
+                                                                                            <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> ;
+                                                                                   :hasName "England"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Ireland
 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Ireland> rdf:type owl:NamedIndividual ,
-                                                                                            <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> .
+                                                                                            <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> ;
+                                                                                   :hasName "Ireland"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Scotland
 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Scotland> rdf:type owl:NamedIndividual ,
-                                                                                             <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> .
+                                                                                             <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> ;
+                                                                                    :hasName "Scotland"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#USA
 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#USA> rdf:type owl:NamedIndividual ,
                                                                                         <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Country> ;
-                                                                               :hasRegion :Tennessee .
+                                                                               :hasRegion :Tennessee ;
+                                                                               :hasName "USA"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#ArtificialColoring
 :ArtificialColoring rdf:type owl:NamedIndividual ,
-                             <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment> .
+                             <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment> ;
+                    :hasName "ArtificialColoring"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Bruichladdich
+:Bruichladdich rdf:type owl:NamedIndividual ,
+                        :Distillery ;
+               :hasName "Bruichladdich"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Campbeltown
 :Campbeltown rdf:type owl:NamedIndividual ,
                       <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region> ;
-             :isRegionOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Scotland> .
+             :isRegionOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Scotland> ;
+             :hasName "Campbeltown"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#ChillFiltration
 :ChillFiltration rdf:type owl:NamedIndividual ,
-                          <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment> .
+                          <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment> ;
+                 :hasName "ChillFiltration"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Douglas_Laing
+:Douglas_Laing rdf:type owl:NamedIndividual ,
+                        <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBottler> ;
+               :hasName "Douglas Laing"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Islay
+:Islay rdf:type owl:NamedIndividual ,
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region> ;
+       :isRegionOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Scotland> ;
+       :hasName "Islay"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#JD_Gentleman_Jack
+:JD_Gentleman_Jack rdf:type owl:NamedIndividual ,
+                            <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#TennesseeWhisky> ;
+                   <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasTreatment> :ChillFiltration ;
+                   <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn> :Tennessee ;
+                   :distilledBy :Jack_Daniels ;
+                   :hasBottler :Jack_Daniels ;
+                   <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV> "40.0"^^xsd:double ;
+                   <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasBottlesize> "0.7"^^xsd:double ;
+                   :hasName "Jack Daniel's Gentleman Jack"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Jack_Daniels
+:Jack_Daniels rdf:type owl:NamedIndividual ,
+                       <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBottler> ,
+                       :Distillery ;
+              :hasName "Jack Daniel's"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#PC_10Years_2005
+:PC_10Years_2005 rdf:type owl:NamedIndividual ,
+                          <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#SingleMaltWhisky> ;
+                 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn> :Islay ;
+                 :distilledBy :Bruichladdich ;
+                 :hasBottler :Douglas_Laing ;
+                 :hasMaturingType :Port ;
+                 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV> "48.4"^^xsd:double ;
+                 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasAge> "10"^^xsd:int ;
+                 <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasBottlesize> "0.7"^^xsd:double ;
+                 :hasBottlingDate "2016-02-01T00:00:00"^^xsd:dateTime ;
+                 :hasDistillationDate "2005-10-01T00:00:00"^^xsd:dateTime ;
+                 :hasName "Port Charlotte 10 Years - 2005" .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Port
+:Port rdf:type owl:NamedIndividual ,
+               <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#MaturingType> ;
+      :hasName "Port"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Tennessee
 :Tennessee rdf:type owl:NamedIndividual ,
-                    <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region> .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Jack_Daniel's
-:s rdf:type owl:NamedIndividual ,
-            <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBrand> ,
-            :Distillery .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Jack_Daniel's_Gentleman_Jack
-:s_Gentleman_Jack rdf:type owl:NamedIndividual ,
-                           <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#TennesseeWhisky> ;
-                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasTreatment> :ChillFiltration ;
-                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn> <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#USA> ;
-                  :distilledBy :s ;
-                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV> "40"^^xsd:int ;
-                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasBottlesize> "0.7"^^xsd:double ;
-                  :hasName "Jack Daniel's Gentleman Jack"^^xsd:string .
+                    <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region> ;
+           :hasName "Tennessee"^^xsd:string .
 
 
 #################################################################
