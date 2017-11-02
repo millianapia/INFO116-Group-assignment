@@ -315,20 +315,71 @@
              :hasName "Campbeltown"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Cask_Sherry-Oloroso
+:Cask_Sherry-Oloroso rdf:type owl:NamedIndividual ,
+                              <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#MaturingType> ;
+                     :hasName "Sherry - Oloroso"^^xsd:string ;
+                     rdfs:comment "The Oloroso sherry has its origins in the south west of Spain. It is a fortified wine with 17-22% ABV and a sugar content of 0-5 grams per liter. With these stats the Oloroso is defined as a dry wine. But many of the Sherry blenders sweeten the wine to make it more luscious and syrup like. Within the wine connoisseurs the Oloroso is handled as a very nutty sherry with dark flavours." .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#ChillFiltration
 :ChillFiltration rdf:type owl:NamedIndividual ,
                           <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyTreatment> ;
                  :hasName "ChillFiltration"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Glenlivet
+:Distillery_Glenlivet rdf:type owl:NamedIndividual ,
+                               :Distillery ;
+                      :hasName "Glenlivet"^^xsd:string .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Lagavulin
-:Distillery_Lagavulin rdf:type owl:NamedIndividual .
+:Distillery_Lagavulin rdf:type owl:NamedIndividual ;
+                      :hasName "Lagavulin"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Laphroaig
+:Distillery_Laphroaig rdf:type owl:NamedIndividual ,
+                               :Distillery ;
+                      :hasName "Laphroaig"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Loch_Lomond
+:Distillery_Loch_Lomond rdf:type owl:NamedIndividual ;
+                        :hasName "Loch Lomond"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Midleton
+:Distillery_Midleton rdf:type owl:NamedIndividual ,
+                              :Distillery ;
+                     :hasName "Midleton"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Douglas_Laing
 :Douglas_Laing rdf:type owl:NamedIndividual ,
-                        <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBottler> ;
+                        <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBottler> ,
+                        :Distillery ;
                :hasName "Douglas Laing"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Glenlivet_Chivas_Brothers_16Years
+:Glenlivet_Chivas_Brothers_16Years rdf:type owl:NamedIndividual ,
+                                            <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#SingleMaltWhisky> ;
+                                   <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn> :Speyside ;
+                                   :hasBottler :Distillery_Glenlivet ;
+                                   <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV> "58.4"^^xsd:double ;
+                                   <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasAge> "16"^^xsd:int ;
+                                   <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasBottlesize> "0.5"^^xsd:double ;
+                                   :hasBottlingDate "2008-01-01T00:00:00"^^xsd:dateTime ;
+                                   :hasDistillationDate "1992-01-01T00:00:00"^^xsd:dateTime ;
+                                   :hasName "16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Highlands
+:Highlands rdf:type owl:NamedIndividual ;
+           :isRegionOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Scotland> ;
+           :hasName "Highlands"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Islay
@@ -357,6 +408,32 @@
               :hasName "Jack Daniel's"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Jameson_18_Years
+:Jameson_18_Years rdf:type owl:NamedIndividual ,
+                           <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#BlendWhisky> ;
+                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasTreatment> :ArtificialColoring ,
+                                                                                                          :ChillFiltration ;
+                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn> <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Ireland> ;
+                  :distilledBy :Distillery_Midleton ;
+                  :hasBottler :Distillery_Midleton ;
+                  :hasMaturingType :Cask_Sherry-Oloroso ;
+                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV> "40.0"^^xsd:double ;
+                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasAge> "18"^^xsd:int ;
+                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasBottlesize> "0.7"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#LL_2002Inchfad
+:LL_2002Inchfad rdf:type owl:NamedIndividual ,
+                         <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#SingleMaltWhisky> ;
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn> :Highlands ;
+                :distilledBy :Distillery_Loch_Lomond ;
+                :hasBottler :Distillery_Loch_Lomond ;
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV> "45.0"^^xsd:double ;
+                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasBottlesize> "0.7"^^xsd:double ;
+                :hasBottlingDate "2007-05-02T00:00:00"^^xsd:dateTime ;
+                :hasDistillationDate "2002-12-18T00:00:00"^^xsd:dateTime .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Lagavulin_16_Years
 :Lagavulin_16_Years rdf:type owl:NamedIndividual ,
                              <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#RyeWhisky> ;
@@ -366,8 +443,23 @@
                     :distilledBy :Distillery_Lagavulin ;
                     :hasBottler :Distillery_Lagavulin ;
                     <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV> "43.0"^^xsd:double ;
+                    <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasAge> "16"^^xsd:int ;
                     <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasBottlesize> "0.7"^^xsd:double ;
                     :hasName "Lagavulin 16 years"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Laphroaig10Years-200CaskStrenght
+:Laphroaig10Years-200CaskStrenght rdf:type owl:NamedIndividual ,
+                                           <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#SingleMaltWhisky> ;
+                                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasTreatment> :ArtificialColoring ;
+                                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn> :Islay ;
+                                  :distilledBy :Distillery_Laphroaig ;
+                                  :hasBottler :Distillery_Laphroaig ;
+                                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV> "58.3"^^xsd:double ;
+                                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasAge> "10"^^xsd:int ;
+                                  <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasBottlesize> "0.7"^^xsd:double ;
+                                  :hasBottlingDate "2010-01-01T00:00:00"^^xsd:dateTime ;
+                                  :hasDistillationDate "2000-01-01T00:00:00"^^xsd:dateTime .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#PC_10Years_2005
@@ -389,6 +481,12 @@
 :Port rdf:type owl:NamedIndividual ,
                <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#MaturingType> ;
       :hasName "Port"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Speyside
+:Speyside rdf:type owl:NamedIndividual ,
+                   <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Region> ;
+          :isRegionOf <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#Scotland> .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Tennessee
