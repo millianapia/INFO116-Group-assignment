@@ -321,6 +321,10 @@
                  :hasName "ChillFiltration"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Lagavulin
+:Distillery_Lagavulin rdf:type owl:NamedIndividual .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Douglas_Laing
 :Douglas_Laing rdf:type owl:NamedIndividual ,
                         <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBottler> ;
@@ -351,6 +355,19 @@
                        <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#WhiskyBottler> ,
                        :Distillery ;
               :hasName "Jack Daniel's"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Lagavulin_16_Years
+:Lagavulin_16_Years rdf:type owl:NamedIndividual ,
+                             <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#RyeWhisky> ;
+                    <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasTreatment> :ArtificialColoring ,
+                                                                                                            :ChillFiltration ;
+                    <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#producedIn> :Islay ;
+                    :distilledBy :Distillery_Lagavulin ;
+                    :hasBottler :Distillery_Lagavulin ;
+                    <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasABV> "43.0"^^xsd:double ;
+                    <http://www.semanticweb.org/jørgen/ontologies/2017/9/untitled-ontology-19#hasBottlesize> "0.7"^^xsd:double ;
+                    :hasName "Lagavulin 16 years"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#PC_10Years_2005
