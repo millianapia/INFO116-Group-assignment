@@ -13,43 +13,23 @@
 #    Object Properties
 #################################################################
 
-###  http://www.whisky.com/ontologies/whisky.owl#hasTreatment
-<http://www.whisky.com/ontologies/whisky.owl#hasTreatment> rdf:type owl:ObjectProperty ;
-                                                                                        owl:inverseOf :treatmentAffects ;
-                                                                                        rdfs:domain <http://www.whisky.com/ontologies/whisky.owl#Whisky> ;
-                                                                                        rdfs:range <http://www.whisky.com/ontologies/whisky.owl#WhiskyTreatment> ;
-                                                                                        rdfs:comment "Describes the treatment given to a whisky" .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#producedIn
-<http://www.whisky.com/ontologies/whisky.owl#producedIn> rdf:type owl:ObjectProperty ;
-                                                                                      owl:inverseOf :areaProduces ;
-                                                                                      rdf:type owl:FunctionalProperty ;
-                                                                                      rdfs:domain <http://www.whisky.com/ontologies/whisky.owl#Whisky> ;
-                                                                                      rdfs:range [ rdf:type owl:Class ;
-                                                                                                   owl:unionOf ( <http://www.whisky.com/ontologies/whisky.owl#Country>
-                                                                                                                 <http://www.whisky.com/ontologies/whisky.owl#Region>
-                                                                                                               )
-                                                                                                 ] ;
-                                                                                      rdfs:comment "Property to describe which country or region the given whisky was produced in" .
-
-
 ###  http://www.whisky.com/ontologies/whisky.owl#areaProduces
 :areaProduces rdf:type owl:ObjectProperty ;
+              owl:inverseOf :producedIn ;
               rdfs:domain [ rdf:type owl:Class ;
-                            owl:unionOf ( <http://www.whisky.com/ontologies/whisky.owl#Country>
-                                          <http://www.whisky.com/ontologies/whisky.owl#Region>
+                            owl:unionOf ( :Country
+                                          :Region
                                         )
                           ] ;
-              rdfs:range <http://www.whisky.com/ontologies/whisky.owl#Whisky> ;
+              rdfs:range :Whisky ;
               rdfs:comment "Describes all the whiskies produced in a given area" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#bottlerProduces
 :bottlerProduces rdf:type owl:ObjectProperty ;
                  owl:inverseOf :hasBottler ;
-                 rdfs:domain <http://www.whisky.com/ontologies/whisky.owl#WhiskyBottler> ;
-                 rdfs:range <http://www.whisky.com/ontologies/whisky.owl#Whisky> ;
+                 rdfs:domain :WhiskyBottler ;
+                 rdfs:range :Whisky ;
                  rdfs:comment "Describes all the whiskies that a given bottler bottles" .
 
 
@@ -63,15 +43,15 @@
 
 ###  http://www.whisky.com/ontologies/whisky.owl#distillsWhisky
 :distillsWhisky rdf:type owl:ObjectProperty ;
-                rdfs:range <http://www.whisky.com/ontologies/whisky.owl#Whisky> ;
+                rdfs:range :Whisky ;
                 rdfs:comment "Describes which whiskies the given destillery destills" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasBottler
 :hasBottler rdf:type owl:ObjectProperty ,
                      owl:FunctionalProperty ;
-            rdfs:domain <http://www.whisky.com/ontologies/whisky.owl#Whisky> ;
-            rdfs:range <http://www.whisky.com/ontologies/whisky.owl#WhiskyBottler> ;
+            rdfs:domain :Whisky ;
+            rdfs:range :WhiskyBottler ;
             rdfs:comment "Describes who bottled the given whisky" .
 
 
@@ -79,38 +59,58 @@
 :hasMaturingType rdf:type owl:ObjectProperty ;
                  owl:inverseOf :maturesWhisky ;
                  rdf:type owl:FunctionalProperty ;
-                 rdfs:domain <http://www.whisky.com/ontologies/whisky.owl#Whisky> ;
-                 rdfs:range <http://www.whisky.com/ontologies/whisky.owl#MaturingType> ;
+                 rdfs:domain :Whisky ;
+                 rdfs:range :MaturingType ;
                  rdfs:comment "Describes the maturingtype used on a given whisky" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasRegion
 :hasRegion rdf:type owl:ObjectProperty ;
            owl:inverseOf :isRegionOf ;
-           rdfs:domain <http://www.whisky.com/ontologies/whisky.owl#Country> ;
-           rdfs:range <http://www.whisky.com/ontologies/whisky.owl#Region> ;
+           rdfs:domain :Country ;
+           rdfs:range :Region ;
            rdfs:comment "Describes the regions that are a part of a given country" .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#hasTreatment
+:hasTreatment rdf:type owl:ObjectProperty ;
+              owl:inverseOf :treatmentAffects ;
+              rdfs:domain :Whisky ;
+              rdfs:range :WhiskyTreatment ;
+              rdfs:comment "Describes the treatment given to a whisky" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#isRegionOf
 :isRegionOf rdf:type owl:ObjectProperty ,
                      owl:FunctionalProperty ;
-            rdfs:domain <http://www.whisky.com/ontologies/whisky.owl#Region> ;
-            rdfs:range <http://www.whisky.com/ontologies/whisky.owl#Country> ;
+            rdfs:domain :Region ;
+            rdfs:range :Country ;
             rdfs:comment "Describes which country the given region is a part of" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#maturesWhisky
 :maturesWhisky rdf:type owl:ObjectProperty ;
-               rdfs:domain <http://www.whisky.com/ontologies/whisky.owl#MaturingType> ;
-               rdfs:range <http://www.whisky.com/ontologies/whisky.owl#Whisky> ;
+               rdfs:domain :MaturingType ;
+               rdfs:range :Whisky ;
                rdfs:comment "Describes which whiskies have been matured by a given maturingtype" .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#producedIn
+:producedIn rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Whisky ;
+            rdfs:range [ rdf:type owl:Class ;
+                         owl:unionOf ( :Country
+                                       :Region
+                                     )
+                       ] ;
+            rdfs:comment "Property to describe which country or region the given whisky was produced in" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#treatmentAffects
 :treatmentAffects rdf:type owl:ObjectProperty ;
-                  rdfs:domain <http://www.whisky.com/ontologies/whisky.owl#WhiskyTreatment> ;
-                  rdfs:range <http://www.whisky.com/ontologies/whisky.owl#Whisky> ;
+                  rdfs:domain :WhiskyTreatment ;
+                  rdfs:range :Whisky ;
                   rdfs:comment "Describes the whiskies the given treatment affects" .
 
 
@@ -119,24 +119,24 @@
 #################################################################
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasABV
-<http://www.whisky.com/ontologies/whisky.owl#hasABV> rdf:type owl:DatatypeProperty ,
-                                                                                           owl:FunctionalProperty ;
-                                                                                  rdfs:range xsd:double ;
-                                                                                  rdfs:comment "Property describes the alcohol level (given in percentage)" .
+:hasABV rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty ;
+        rdfs:range xsd:double ;
+        rdfs:comment "Property describes the alcohol level (given in percentage)" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasAge
-<http://www.whisky.com/ontologies/whisky.owl#hasAge> rdf:type owl:DatatypeProperty ,
-                                                                                           owl:FunctionalProperty ;
-                                                                                  rdfs:range xsd:int ;
-                                                                                  rdfs:comment "Property describes the age of a whisky-bottle" .
+:hasAge rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty ;
+        rdfs:range xsd:int ;
+        rdfs:comment "Property describes the age of a whisky-bottle" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasBottlesize
-<http://www.whisky.com/ontologies/whisky.owl#hasBottlesize> rdf:type owl:DatatypeProperty ,
-                                                                                                  owl:FunctionalProperty ;
-                                                                                         rdfs:range xsd:double ;
-                                                                                         rdfs:comment "Property describes the volume on the container of the given whisky (given in litres)" .
+:hasBottlesize rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:range xsd:double ;
+               rdfs:comment "Property describes the volume on the container of the given whisky (given in litres)" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasBottlingDate
@@ -165,166 +165,134 @@
 #################################################################
 
 ###  http://www.whisky.com/ontologies/whisky.owl#BlendWhisky
-<http://www.whisky.com/ontologies/whisky.owl#BlendWhisky> rdf:type owl:Class ;
-                                                                                       rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
+:BlendWhisky rdf:type owl:Class ;
+             rdfs:subClassOf :Whisky .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#BlendedGrainWhisky
-<http://www.whisky.com/ontologies/whisky.owl#BlendedGrainWhisky> rdf:type owl:Class ;
-                                                                                              rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
+:BlendedGrainWhisky rdf:type owl:Class ;
+                    rdfs:subClassOf :Whisky .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#BlendedMaltWhisky
-<http://www.whisky.com/ontologies/whisky.owl#BlendedMaltWhisky> rdf:type owl:Class ;
-                                                                                             rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
+:BlendedMaltWhisky rdf:type owl:Class ;
+                   rdfs:subClassOf :Whisky .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#BourbonWhisky
-<http://www.whisky.com/ontologies/whisky.owl#BourbonWhisky> rdf:type owl:Class ;
-                                                                                         rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
+:BourbonWhisky rdf:type owl:Class ;
+               rdfs:subClassOf :Whisky .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#CornWhisky
-<http://www.whisky.com/ontologies/whisky.owl#CornWhisky> rdf:type owl:Class ;
-                                                                                      rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
+:CornWhisky rdf:type owl:Class ;
+            rdfs:subClassOf :Whisky .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Country
-<http://www.whisky.com/ontologies/whisky.owl#Country> rdf:type owl:Class .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#GrainWhisky
-<http://www.whisky.com/ontologies/whisky.owl#GrainWhisky> rdf:type owl:Class ;
-                                                                                       rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#LiqueurWhisky
-<http://www.whisky.com/ontologies/whisky.owl#LiqueurWhisky> rdf:type owl:Class ;
-                                                                                         rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#MaturingType
-<http://www.whisky.com/ontologies/whisky.owl#MaturingType> rdf:type owl:Class .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#OtherWhisky
-<http://www.whisky.com/ontologies/whisky.owl#OtherWhisky> rdf:type owl:Class ;
-                                                                                       rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#PurePotStillWhisky
-<http://www.whisky.com/ontologies/whisky.owl#PurePotStillWhisky> rdf:type owl:Class ;
-                                                                                              rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Region
-<http://www.whisky.com/ontologies/whisky.owl#Region> rdf:type owl:Class .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#RyeWhisky
-<http://www.whisky.com/ontologies/whisky.owl#RyeWhisky> rdf:type owl:Class ;
-                                                                                     rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#SingleGrainWhisky
-<http://www.whisky.com/ontologies/whisky.owl#SingleGrainWhisky> rdf:type owl:Class ;
-                                                                                             rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#SingleMaltWhisky
-<http://www.whisky.com/ontologies/whisky.owl#SingleMaltWhisky> rdf:type owl:Class ;
-                                                                                            rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#SpiritWhisky
-<http://www.whisky.com/ontologies/whisky.owl#SpiritWhisky> rdf:type owl:Class ;
-                                                                                        rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#TennesseeWhisky
-<http://www.whisky.com/ontologies/whisky.owl#TennesseeWhisky> rdf:type owl:Class ;
-                                                                                           rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#WheatWhisky
-<http://www.whisky.com/ontologies/whisky.owl#WheatWhisky> rdf:type owl:Class ;
-                                                                                       rdfs:subClassOf <http://www.whisky.com/ontologies/whisky.owl#Whisky> .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Whisky
-<http://www.whisky.com/ontologies/whisky.owl#Whisky> rdf:type owl:Class .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#WhiskyBottler
-<http://www.whisky.com/ontologies/whisky.owl#WhiskyBottler> rdf:type owl:Class .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#WhiskyTreatment
-<http://www.whisky.com/ontologies/whisky.owl#WhiskyTreatment> rdf:type owl:Class .
+:Country rdf:type owl:Class .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery
 :Distillery rdf:type owl:Class .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#GrainWhisky
+:GrainWhisky rdf:type owl:Class ;
+             rdfs:subClassOf :Whisky .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#LiqueurWhisky
+:LiqueurWhisky rdf:type owl:Class ;
+               rdfs:subClassOf :Whisky .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#MaturingType
+:MaturingType rdf:type owl:Class .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#OtherWhisky
+:OtherWhisky rdf:type owl:Class ;
+             rdfs:subClassOf :Whisky .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#PurePotStillWhisky
+:PurePotStillWhisky rdf:type owl:Class ;
+                    rdfs:subClassOf :Whisky .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Region
+:Region rdf:type owl:Class .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#RyeWhisky
+:RyeWhisky rdf:type owl:Class ;
+           rdfs:subClassOf :Whisky .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#SingleGrainWhisky
+:SingleGrainWhisky rdf:type owl:Class ;
+                   rdfs:subClassOf :Whisky .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#SingleMaltWhisky
+:SingleMaltWhisky rdf:type owl:Class ;
+                  rdfs:subClassOf :Whisky .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#SpiritWhisky
+:SpiritWhisky rdf:type owl:Class ;
+              rdfs:subClassOf :Whisky .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#TennesseeWhisky
+:TennesseeWhisky rdf:type owl:Class ;
+                 rdfs:subClassOf :Whisky .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#WheatWhisky
+:WheatWhisky rdf:type owl:Class ;
+             rdfs:subClassOf :Whisky .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky
+:Whisky rdf:type owl:Class .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#WhiskyBottler
+:WhiskyBottler rdf:type owl:Class .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#WhiskyTreatment
+:WhiskyTreatment rdf:type owl:Class .
+
+
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://www.whisky.com/ontologies/whisky.owl#England
-<http://www.whisky.com/ontologies/whisky.owl#England> rdf:type owl:NamedIndividual ,
-                                                                                            <http://www.whisky.com/ontologies/whisky.owl#Country> ;
-                                                                                   :hasName "England"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Ireland
-<http://www.whisky.com/ontologies/whisky.owl#Ireland> rdf:type owl:NamedIndividual ,
-                                                                                            <http://www.whisky.com/ontologies/whisky.owl#Country> ;
-                                                                                   :hasName "Ireland"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Scotland
-<http://www.whisky.com/ontologies/whisky.owl#Scotland> rdf:type owl:NamedIndividual ,
-                                                                                             <http://www.whisky.com/ontologies/whisky.owl#Country> ;
-                                                                                    :hasName "Scotland"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#USA
-<http://www.whisky.com/ontologies/whisky.owl#USA> rdf:type owl:NamedIndividual ,
-                                                                                        <http://www.whisky.com/ontologies/whisky.owl#Country> ;
-                                                                               :hasRegion :Tennessee ;
-                                                                               :hasName "USA"^^xsd:string .
-
-
 ###  http://www.whisky.com/ontologies/whisky.owl#ArtificialColoring
 :ArtificialColoring rdf:type owl:NamedIndividual ,
-                             <http://www.whisky.com/ontologies/whisky.owl#WhiskyTreatment> ;
+                             :WhiskyTreatment ;
                     :hasName "ArtificialColoring"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Bruichladdich
-:Bruichladdich rdf:type owl:NamedIndividual ,
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Bruichladdich
+:Distillery_Bruichladdich rdf:type owl:NamedIndividual ,
                         :Distillery ;
-               :hasName "Bruichladdich"^^xsd:string .
+               :hasName "Distillery_Bruichladdich"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Campbeltown
-:Campbeltown rdf:type owl:NamedIndividual ,
-                      <http://www.whisky.com/ontologies/whisky.owl#Region> ;
-             :isRegionOf <http://www.whisky.com/ontologies/whisky.owl#Scotland> ;
-             :hasName "Campbeltown"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Cask_Sherry-Oloroso
-:Cask_Sherry-Oloroso rdf:type owl:NamedIndividual ,
-                              <http://www.whisky.com/ontologies/whisky.owl#MaturingType> ;
-                     :hasName "Sherry - Oloroso"^^xsd:string ;
-                     rdfs:comment "The Oloroso sherry has its origins in the south west of Spain. It is a fortified wine with 17-22% ABV and a sugar content of 0-5 grams per liter. With these stats the Oloroso is defined as a dry wine. But many of the Sherry blenders sweeten the wine to make it more luscious and syrup like. Within the wine connoisseurs the Oloroso is handled as a very nutty sherry with dark flavours." .
+###  http://www.whisky.com/ontologies/whisky.owl#Region_Campbeltown
+:Region_Campbeltown rdf:type owl:NamedIndividual ,
+                      :Region ;
+             :isRegionOf :Country_Scotland ;
+             :hasName "Region_Campbeltown"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#ChillFiltration
 :ChillFiltration rdf:type owl:NamedIndividual ,
-                          <http://www.whisky.com/ontologies/whisky.owl#WhiskyTreatment> ;
+                          :WhiskyTreatment ;
                  :hasName "ChillFiltration"^^xsd:string .
 
 
@@ -356,143 +324,174 @@
                      :hasName "Midleton"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Douglas_Laing
-:Douglas_Laing rdf:type owl:NamedIndividual ,
-                        <http://www.whisky.com/ontologies/whisky.owl#WhiskyBottler> ,
-                        :Distillery ;
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Douglas_Laing
+:Distillery_Douglas_Laing rdf:type owl:NamedIndividual ,
+                        :Distillery ,
+                        :WhiskyBottler ;
                :hasName "Douglas Laing"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Glenlivet_Chivas_Brothers_16Years
-:Glenlivet_Chivas_Brothers_16Years rdf:type owl:NamedIndividual ,
-                                            <http://www.whisky.com/ontologies/whisky.owl#SingleMaltWhisky> ;
-                                   <http://www.whisky.com/ontologies/whisky.owl#producedIn> :Speyside ;
+###  http://www.whisky.com/ontologies/whisky.owl#Country_England
+:Country_England rdf:type owl:NamedIndividual ,
+                  :Country ;
+         :hasName "Country_England"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Glenlivet_Chivas_Brothers_16Years
+:Whisky_Glenlivet_Chivas_Brothers_16Years rdf:type owl:NamedIndividual ,
+                                            :SingleMaltWhisky ;
                                    :hasBottler :Distillery_Glenlivet ;
-                                   <http://www.whisky.com/ontologies/whisky.owl#hasABV> "58.4"^^xsd:double ;
-                                   <http://www.whisky.com/ontologies/whisky.owl#hasAge> "16"^^xsd:int ;
-                                   <http://www.whisky.com/ontologies/whisky.owl#hasBottlesize> "0.5"^^xsd:double ;
+                                   :producedIn :Region_Speyside ;
+                                   :hasABV "58.4"^^xsd:double ;
+                                   :hasAge "16"^^xsd:int ;
+                                   :hasBottlesize "0.5"^^xsd:double ;
                                    :hasBottlingDate "2008-01-01T00:00:00"^^xsd:dateTime ;
                                    :hasDistillationDate "1992-01-01T00:00:00"^^xsd:dateTime ;
                                    :hasName "16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Highlands
-:Highlands rdf:type owl:NamedIndividual ;
-           :isRegionOf <http://www.whisky.com/ontologies/whisky.owl#Scotland> ;
-           :hasName "Highlands"^^xsd:string .
+###  http://www.whisky.com/ontologies/whisky.owl#Region_Highlands
+:Region_Highlands rdf:type owl:NamedIndividual ;
+           :isRegionOf :Country_Scotland ;
+           :hasName "Region_Highlands"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Islay
-:Islay rdf:type owl:NamedIndividual ,
-                <http://www.whisky.com/ontologies/whisky.owl#Region> ;
-       :isRegionOf <http://www.whisky.com/ontologies/whisky.owl#Scotland> ;
-       :hasName "Islay"^^xsd:string .
+###  http://www.whisky.com/ontologies/whisky.owl#Country_Ireland
+:Country_Ireland rdf:type owl:NamedIndividual ,
+                  :Country ;
+         :hasName "Country_Ireland"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#JD_Gentleman_Jack
-:JD_Gentleman_Jack rdf:type owl:NamedIndividual ,
-                            <http://www.whisky.com/ontologies/whisky.owl#TennesseeWhisky> ;
-                   <http://www.whisky.com/ontologies/whisky.owl#hasTreatment> :ChillFiltration ;
-                   <http://www.whisky.com/ontologies/whisky.owl#producedIn> :Tennessee ;
-                   :distilledBy :Jack_Daniels ;
-                   :hasBottler :Jack_Daniels ;
-                   <http://www.whisky.com/ontologies/whisky.owl#hasABV> "40.0"^^xsd:double ;
-                   <http://www.whisky.com/ontologies/whisky.owl#hasBottlesize> "0.7"^^xsd:double ;
+###  http://www.whisky.com/ontologies/whisky.owl#Region_Islay
+:Region_Islay rdf:type owl:NamedIndividual ,
+                :Region ;
+       :isRegionOf :Country_Scotland ;
+       :hasName "Region_Islay"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_JD_Gentleman_Jack
+:Whisky_JD_Gentleman_Jack rdf:type owl:NamedIndividual ,
+                            :TennesseeWhisky ;
+                   :distilledBy :Distillery_Jack_Daniels ;
+                   :hasBottler :Distillery_Jack_Daniels ;
+                   :hasTreatment :ChillFiltration ;
+                   :producedIn :Region_Tennessee ;
+                   :hasABV "40.0"^^xsd:double ;
+                   :hasBottlesize "0.7"^^xsd:double ;
                    :hasName "Jack Daniel's Gentleman Jack"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Jack_Daniels
-:Jack_Daniels rdf:type owl:NamedIndividual ,
-                       <http://www.whisky.com/ontologies/whisky.owl#WhiskyBottler> ,
-                       :Distillery ;
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Jack_Daniels
+:Distillery_Jack_Daniels rdf:type owl:NamedIndividual ,
+                       :Distillery ,
+                       :WhiskyBottler ;
               :hasName "Jack Daniel's"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Jameson_18_Years
-:Jameson_18_Years rdf:type owl:NamedIndividual ,
-                           <http://www.whisky.com/ontologies/whisky.owl#BlendWhisky> ;
-                  <http://www.whisky.com/ontologies/whisky.owl#hasTreatment> :ArtificialColoring ,
-                                                                                                          :ChillFiltration ;
-                  <http://www.whisky.com/ontologies/whisky.owl#producedIn> <http://www.whisky.com/ontologies/whisky.owl#Ireland> ;
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Jameson_18_Years
+:Whisky_Jameson_18_Years rdf:type owl:NamedIndividual ,
+                           :BlendWhisky ;
                   :distilledBy :Distillery_Midleton ;
                   :hasBottler :Distillery_Midleton ;
-                  :hasMaturingType :Cask_Sherry-Oloroso ;
-                  <http://www.whisky.com/ontologies/whisky.owl#hasABV> "40.0"^^xsd:double ;
-                  <http://www.whisky.com/ontologies/whisky.owl#hasAge> "18"^^xsd:int ;
-                  <http://www.whisky.com/ontologies/whisky.owl#hasBottlesize> "0.7"^^xsd:double .
+                  :hasMaturingType :Maturing_Sherry ;
+                  :hasTreatment :ArtificialColoring ,
+                                :ChillFiltration ;
+                  :producedIn :Country_Ireland ;
+                  :hasABV "40.0"^^xsd:double ;
+                  :hasAge "18"^^xsd:int ;
+                  :hasBottlesize "0.7"^^xsd:double .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#LL_2002Inchfad
-:LL_2002Inchfad rdf:type owl:NamedIndividual ,
-                         <http://www.whisky.com/ontologies/whisky.owl#SingleMaltWhisky> ;
-                <http://www.whisky.com/ontologies/whisky.owl#producedIn> :Highlands ;
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_LL_2002Inchfad
+:Whisky_LL_2002Inchfad rdf:type owl:NamedIndividual ,
+                         :SingleMaltWhisky ;
                 :distilledBy :Distillery_Loch_Lomond ;
                 :hasBottler :Distillery_Loch_Lomond ;
-                <http://www.whisky.com/ontologies/whisky.owl#hasABV> "45.0"^^xsd:double ;
-                <http://www.whisky.com/ontologies/whisky.owl#hasBottlesize> "0.7"^^xsd:double ;
+                :producedIn :Region_Highlands ;
+                :hasABV "45.0"^^xsd:double ;
+                :hasBottlesize "0.7"^^xsd:double ;
                 :hasBottlingDate "2007-05-02T00:00:00"^^xsd:dateTime ;
                 :hasDistillationDate "2002-12-18T00:00:00"^^xsd:dateTime .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Lagavulin_16_Years
-:Lagavulin_16_Years rdf:type owl:NamedIndividual ,
-                             <http://www.whisky.com/ontologies/whisky.owl#RyeWhisky> ;
-                    <http://www.whisky.com/ontologies/whisky.owl#hasTreatment> :ArtificialColoring ,
-                                                                                                            :ChillFiltration ;
-                    <http://www.whisky.com/ontologies/whisky.owl#producedIn> :Islay ;
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Lagavulin_16_Years
+:Whisky_Lagavulin_16_Years rdf:type owl:NamedIndividual ,
+                             :RyeWhisky ;
                     :distilledBy :Distillery_Lagavulin ;
                     :hasBottler :Distillery_Lagavulin ;
-                    <http://www.whisky.com/ontologies/whisky.owl#hasABV> "43.0"^^xsd:double ;
-                    <http://www.whisky.com/ontologies/whisky.owl#hasAge> "16"^^xsd:int ;
-                    <http://www.whisky.com/ontologies/whisky.owl#hasBottlesize> "0.7"^^xsd:double ;
+                    :hasTreatment :ArtificialColoring ,
+                                  :ChillFiltration ;
+                    :producedIn :Region_Islay ;
+                    :hasABV "43.0"^^xsd:double ;
+                    :hasAge "16"^^xsd:int ;
+                    :hasBottlesize "0.7"^^xsd:double ;
                     :hasName "Lagavulin 16 years"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Laphroaig10Years-200CaskStrenght
-:Laphroaig10Years-200CaskStrenght rdf:type owl:NamedIndividual ,
-                                           <http://www.whisky.com/ontologies/whisky.owl#SingleMaltWhisky> ;
-                                  <http://www.whisky.com/ontologies/whisky.owl#hasTreatment> :ArtificialColoring ;
-                                  <http://www.whisky.com/ontologies/whisky.owl#producedIn> :Islay ;
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Laphroaig_10_Years_2000Cask
+:Whisky_Laphroaig_10_Years_2000Cask rdf:type owl:NamedIndividual ,
+                                           :SingleMaltWhisky ;
                                   :distilledBy :Distillery_Laphroaig ;
                                   :hasBottler :Distillery_Laphroaig ;
-                                  <http://www.whisky.com/ontologies/whisky.owl#hasABV> "58.3"^^xsd:double ;
-                                  <http://www.whisky.com/ontologies/whisky.owl#hasAge> "10"^^xsd:int ;
-                                  <http://www.whisky.com/ontologies/whisky.owl#hasBottlesize> "0.7"^^xsd:double ;
+                                  :hasTreatment :ArtificialColoring ;
+                                  :producedIn :Region_Islay ;
+                                  :hasABV "58.3"^^xsd:double ;
+                                  :hasAge "10"^^xsd:int ;
+                                  :hasBottlesize "0.7"^^xsd:double ;
                                   :hasBottlingDate "2010-01-01T00:00:00"^^xsd:dateTime ;
                                   :hasDistillationDate "2000-01-01T00:00:00"^^xsd:dateTime .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#PC_10Years_2005
-:PC_10Years_2005 rdf:type owl:NamedIndividual ,
-                          <http://www.whisky.com/ontologies/whisky.owl#SingleMaltWhisky> ;
-                 <http://www.whisky.com/ontologies/whisky.owl#producedIn> :Islay ;
-                 :distilledBy :Bruichladdich ;
-                 :hasBottler :Douglas_Laing ;
-                 :hasMaturingType :Port ;
-                 <http://www.whisky.com/ontologies/whisky.owl#hasABV> "48.4"^^xsd:double ;
-                 <http://www.whisky.com/ontologies/whisky.owl#hasAge> "10"^^xsd:int ;
-                 <http://www.whisky.com/ontologies/whisky.owl#hasBottlesize> "0.7"^^xsd:double ;
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_PC_10Years_2005
+:Whisky_PC_10Years_2005 rdf:type owl:NamedIndividual ,
+                          :SingleMaltWhisky ;
+                 :distilledBy :Distillery_Bruichladdich ;
+                 :hasBottler :Distillery_Douglas_Laing ;
+                 :hasMaturingType :Maturing_Port ;
+                 :producedIn :Region_Islay ;
+                 :hasABV "48.4"^^xsd:double ;
+                 :hasAge "10"^^xsd:int ;
+                 :hasBottlesize "0.7"^^xsd:double ;
                  :hasBottlingDate "2016-02-01T00:00:00"^^xsd:dateTime ;
                  :hasDistillationDate "2005-10-01T00:00:00"^^xsd:dateTime ;
-                 :hasName "Port Charlotte 10 Years - 2005"^^xsd:string .
+                 :hasName "Maturing_Port Charlotte 10 Years - 2005"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Port
-:Port rdf:type owl:NamedIndividual ,
-               <http://www.whisky.com/ontologies/whisky.owl#MaturingType> ;
-      :hasName "Port"^^xsd:string .
+###  http://www.whisky.com/ontologies/whisky.owl#Maturing_Port
+:Maturing_Port rdf:type owl:NamedIndividual ,
+               :MaturingType ;
+      :hasName "Maturing_Port"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Speyside
-:Speyside rdf:type owl:NamedIndividual ,
-                   <http://www.whisky.com/ontologies/whisky.owl#Region> ;
-          :isRegionOf <http://www.whisky.com/ontologies/whisky.owl#Scotland> .
+###  http://www.whisky.com/ontologies/whisky.owl#Country_Scotland
+:Country_Scotland rdf:type owl:NamedIndividual ,
+                   :Country ;
+          :hasName "Country_Scotland"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Tennessee
-:Tennessee rdf:type owl:NamedIndividual ,
-                    <http://www.whisky.com/ontologies/whisky.owl#Region> ;
-           :hasName "Tennessee"^^xsd:string .
+###  http://www.whisky.com/ontologies/whisky.owl#Maturing_Sherry
+:Maturing_Sherry rdf:type owl:NamedIndividual ,
+                 :MaturingType ;
+        :hasName "Maturing_Sherry"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Region_Speyside
+:Region_Speyside rdf:type owl:NamedIndividual ,
+                   :Region ;
+          :isRegionOf :Country_Scotland .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Region_Tennessee
+:Region_Tennessee rdf:type owl:NamedIndividual ,
+                    :Region ;
+           :hasName "Region_Tennessee"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Country_USA
+:Country_USA rdf:type owl:NamedIndividual ,
+              :Country ;
+     :hasRegion :Region_Tennessee ;
+     :hasName "Country_USA"^^xsd:string .
 
 
 #################################################################
@@ -500,21 +499,21 @@
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://www.whisky.com/ontologies/whisky.owl#BlendWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#BlendedGrainWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#BlendedMaltWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#BourbonWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#CornWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#GrainWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#LiqueurWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#OtherWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#PurePotStillWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#RyeWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#SingleGrainWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#SingleMaltWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#SpiritWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#TennesseeWhisky>
-                <http://www.whisky.com/ontologies/whisky.owl#WheatWhisky>
+  owl:members ( :BlendWhisky
+                :BlendedGrainWhisky
+                :BlendedMaltWhisky
+                :BourbonWhisky
+                :CornWhisky
+                :GrainWhisky
+                :LiqueurWhisky
+                :OtherWhisky
+                :PurePotStillWhisky
+                :RyeWhisky
+                :SingleGrainWhisky
+                :SingleMaltWhisky
+                :SpiritWhisky
+                :TennesseeWhisky
+                :WheatWhisky
               )
 ] .
 
