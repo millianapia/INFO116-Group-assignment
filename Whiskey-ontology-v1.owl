@@ -277,29 +277,61 @@
                     :hasName "ArtificialColoring"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Bruichladdich
-:Distillery_Bruichladdich rdf:type owl:NamedIndividual ,
-                        :Distillery ;
-               :hasName "Distillery_Bruichladdich"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Region_Campbeltown
-:Region_Campbeltown rdf:type owl:NamedIndividual ,
-                      :Region ;
-             :isRegionOf :Country_Scotland ;
-             :hasName "Region_Campbeltown"^^xsd:string .
-
-
 ###  http://www.whisky.com/ontologies/whisky.owl#ChillFiltration
 :ChillFiltration rdf:type owl:NamedIndividual ,
                           :WhiskyTreatment ;
                  :hasName "ChillFiltration"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Country_England
+:Country_England rdf:type owl:NamedIndividual ,
+                          :Country ;
+                 :hasName "Country_England"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Country_Ireland
+:Country_Ireland rdf:type owl:NamedIndividual ,
+                          :Country ;
+                 :hasName "Country_Ireland"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Country_Scotland
+:Country_Scotland rdf:type owl:NamedIndividual ,
+                           :Country ;
+                  :hasName "Country_Scotland"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Country_USA
+:Country_USA rdf:type owl:NamedIndividual ,
+                      :Country ;
+             :hasRegion :Region_Tennessee ;
+             :hasName "Country_USA"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Bruichladdich
+:Distillery_Bruichladdich rdf:type owl:NamedIndividual ,
+                                   :Distillery ;
+                          :hasName "Distillery_Bruichladdich"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Douglas_Laing
+:Distillery_Douglas_Laing rdf:type owl:NamedIndividual ,
+                                   :Distillery ,
+                                   :WhiskyBottler ;
+                          :hasName "Douglas Laing"^^xsd:string .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Glenlivet
 :Distillery_Glenlivet rdf:type owl:NamedIndividual ,
                                :Distillery ;
                       :hasName "Glenlivet"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Jack_Daniels
+:Distillery_Jack_Daniels rdf:type owl:NamedIndividual ,
+                                  :Distillery ,
+                                  :WhiskyBottler ;
+                         :hasName "Jack Daniel's"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Lagavulin
@@ -324,174 +356,145 @@
                      :hasName "Midleton"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Douglas_Laing
-:Distillery_Douglas_Laing rdf:type owl:NamedIndividual ,
-                        :Distillery ,
-                        :WhiskyBottler ;
-               :hasName "Douglas Laing"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Country_England
-:Country_England rdf:type owl:NamedIndividual ,
-                  :Country ;
-         :hasName "Country_England"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Glenlivet_Chivas_Brothers_16Years
-:Whisky_Glenlivet_Chivas_Brothers_16Years rdf:type owl:NamedIndividual ,
-                                            :SingleMaltWhisky ;
-                                   :hasBottler :Distillery_Glenlivet ;
-                                   :producedIn :Region_Speyside ;
-                                   :hasABV "58.4"^^xsd:double ;
-                                   :hasAge "16"^^xsd:int ;
-                                   :hasBottlesize "0.5"^^xsd:double ;
-                                   :hasBottlingDate "2008-01-01T00:00:00"^^xsd:dateTime ;
-                                   :hasDistillationDate "1992-01-01T00:00:00"^^xsd:dateTime ;
-                                   :hasName "16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Region_Highlands
-:Region_Highlands rdf:type owl:NamedIndividual ;
-           :isRegionOf :Country_Scotland ;
-           :hasName "Region_Highlands"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Country_Ireland
-:Country_Ireland rdf:type owl:NamedIndividual ,
-                  :Country ;
-         :hasName "Country_Ireland"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Region_Islay
-:Region_Islay rdf:type owl:NamedIndividual ,
-                :Region ;
-       :isRegionOf :Country_Scotland ;
-       :hasName "Region_Islay"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Whisky_JD_Gentleman_Jack
-:Whisky_JD_Gentleman_Jack rdf:type owl:NamedIndividual ,
-                            :TennesseeWhisky ;
-                   :distilledBy :Distillery_Jack_Daniels ;
-                   :hasBottler :Distillery_Jack_Daniels ;
-                   :hasTreatment :ChillFiltration ;
-                   :producedIn :Region_Tennessee ;
-                   :hasABV "40.0"^^xsd:double ;
-                   :hasBottlesize "0.7"^^xsd:double ;
-                   :hasName "Jack Daniel's Gentleman Jack"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Jack_Daniels
-:Distillery_Jack_Daniels rdf:type owl:NamedIndividual ,
-                       :Distillery ,
-                       :WhiskyBottler ;
-              :hasName "Jack Daniel's"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Jameson_18_Years
-:Whisky_Jameson_18_Years rdf:type owl:NamedIndividual ,
-                           :BlendWhisky ;
-                  :distilledBy :Distillery_Midleton ;
-                  :hasBottler :Distillery_Midleton ;
-                  :hasMaturingType :Maturing_Sherry ;
-                  :hasTreatment :ArtificialColoring ,
-                                :ChillFiltration ;
-                  :producedIn :Country_Ireland ;
-                  :hasABV "40.0"^^xsd:double ;
-                  :hasAge "18"^^xsd:int ;
-                  :hasBottlesize "0.7"^^xsd:double .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Whisky_LL_2002Inchfad
-:Whisky_LL_2002Inchfad rdf:type owl:NamedIndividual ,
-                         :SingleMaltWhisky ;
-                :distilledBy :Distillery_Loch_Lomond ;
-                :hasBottler :Distillery_Loch_Lomond ;
-                :producedIn :Region_Highlands ;
-                :hasABV "45.0"^^xsd:double ;
-                :hasBottlesize "0.7"^^xsd:double ;
-                :hasBottlingDate "2007-05-02T00:00:00"^^xsd:dateTime ;
-                :hasDistillationDate "2002-12-18T00:00:00"^^xsd:dateTime .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Lagavulin_16_Years
-:Whisky_Lagavulin_16_Years rdf:type owl:NamedIndividual ,
-                             :RyeWhisky ;
-                    :distilledBy :Distillery_Lagavulin ;
-                    :hasBottler :Distillery_Lagavulin ;
-                    :hasTreatment :ArtificialColoring ,
-                                  :ChillFiltration ;
-                    :producedIn :Region_Islay ;
-                    :hasABV "43.0"^^xsd:double ;
-                    :hasAge "16"^^xsd:int ;
-                    :hasBottlesize "0.7"^^xsd:double ;
-                    :hasName "Lagavulin 16 years"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Laphroaig_10_Years_2000Cask
-:Whisky_Laphroaig_10_Years_2000Cask rdf:type owl:NamedIndividual ,
-                                           :SingleMaltWhisky ;
-                                  :distilledBy :Distillery_Laphroaig ;
-                                  :hasBottler :Distillery_Laphroaig ;
-                                  :hasTreatment :ArtificialColoring ;
-                                  :producedIn :Region_Islay ;
-                                  :hasABV "58.3"^^xsd:double ;
-                                  :hasAge "10"^^xsd:int ;
-                                  :hasBottlesize "0.7"^^xsd:double ;
-                                  :hasBottlingDate "2010-01-01T00:00:00"^^xsd:dateTime ;
-                                  :hasDistillationDate "2000-01-01T00:00:00"^^xsd:dateTime .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Whisky_PC_10Years_2005
-:Whisky_PC_10Years_2005 rdf:type owl:NamedIndividual ,
-                          :SingleMaltWhisky ;
-                 :distilledBy :Distillery_Bruichladdich ;
-                 :hasBottler :Distillery_Douglas_Laing ;
-                 :hasMaturingType :Maturing_Port ;
-                 :producedIn :Region_Islay ;
-                 :hasABV "48.4"^^xsd:double ;
-                 :hasAge "10"^^xsd:int ;
-                 :hasBottlesize "0.7"^^xsd:double ;
-                 :hasBottlingDate "2016-02-01T00:00:00"^^xsd:dateTime ;
-                 :hasDistillationDate "2005-10-01T00:00:00"^^xsd:dateTime ;
-                 :hasName "Maturing_Port Charlotte 10 Years - 2005"^^xsd:string .
-
-
 ###  http://www.whisky.com/ontologies/whisky.owl#Maturing_Port
 :Maturing_Port rdf:type owl:NamedIndividual ,
-               :MaturingType ;
-      :hasName "Maturing_Port"^^xsd:string .
-
-
-###  http://www.whisky.com/ontologies/whisky.owl#Country_Scotland
-:Country_Scotland rdf:type owl:NamedIndividual ,
-                   :Country ;
-          :hasName "Country_Scotland"^^xsd:string .
+                        :MaturingType ;
+               :hasName "Maturing_Port"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Maturing_Sherry
 :Maturing_Sherry rdf:type owl:NamedIndividual ,
-                 :MaturingType ;
-        :hasName "Maturing_Sherry"^^xsd:string .
+                          :MaturingType ;
+                 :hasName "Maturing_Sherry"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Region_Campbeltown
+:Region_Campbeltown rdf:type owl:NamedIndividual ,
+                             :Region ;
+                    :isRegionOf :Country_Scotland ;
+                    :hasName "Region_Campbeltown"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Region_Highlands
+:Region_Highlands rdf:type owl:NamedIndividual ;
+                  :isRegionOf :Country_Scotland ;
+                  :hasName "Region_Highlands"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Region_Islay
+:Region_Islay rdf:type owl:NamedIndividual ,
+                       :Region ;
+              :isRegionOf :Country_Scotland ;
+              :hasName "Region_Islay"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Region_Speyside
 :Region_Speyside rdf:type owl:NamedIndividual ,
-                   :Region ;
-          :isRegionOf :Country_Scotland .
+                          :Region ;
+                 :isRegionOf :Country_Scotland .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Region_Tennessee
 :Region_Tennessee rdf:type owl:NamedIndividual ,
-                    :Region ;
-           :hasName "Region_Tennessee"^^xsd:string .
+                           :Region ;
+                  :hasName "Region_Tennessee"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Country_USA
-:Country_USA rdf:type owl:NamedIndividual ,
-              :Country ;
-     :hasRegion :Region_Tennessee ;
-     :hasName "Country_USA"^^xsd:string .
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Glenlivet_Chivas_Brothers_16Years
+:Whisky_Glenlivet_Chivas_Brothers_16Years rdf:type owl:NamedIndividual ,
+                                                   :SingleMaltWhisky ;
+                                          :hasBottler :Distillery_Glenlivet ;
+                                          :producedIn :Region_Speyside ;
+                                          :hasABV "58.4"^^xsd:double ;
+                                          :hasAge "16"^^xsd:int ;
+                                          :hasBottlesize "0.5"^^xsd:double ;
+                                          :hasBottlingDate "2008-01-01T00:00:00"^^xsd:dateTime ;
+                                          :hasDistillationDate "1992-01-01T00:00:00"^^xsd:dateTime ;
+                                          :hasName "16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_JD_Gentleman_Jack
+:Whisky_JD_Gentleman_Jack rdf:type owl:NamedIndividual ,
+                                   :TennesseeWhisky ;
+                          :distilledBy :Distillery_Jack_Daniels ;
+                          :hasBottler :Distillery_Jack_Daniels ;
+                          :hasTreatment :ChillFiltration ;
+                          :producedIn :Region_Tennessee ;
+                          :hasABV "40.0"^^xsd:double ;
+                          :hasBottlesize "0.7"^^xsd:double ;
+                          :hasName "Jack Daniel's Gentleman Jack"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Jameson_18_Years
+:Whisky_Jameson_18_Years rdf:type owl:NamedIndividual ,
+                                  :BlendWhisky ;
+                         :distilledBy :Distillery_Midleton ;
+                         :hasBottler :Distillery_Midleton ;
+                         :hasMaturingType :Maturing_Sherry ;
+                         :hasTreatment :ArtificialColoring ,
+                                       :ChillFiltration ;
+                         :producedIn :Country_Ireland ;
+                         :hasABV "40.0"^^xsd:double ;
+                         :hasAge "18"^^xsd:int ;
+                         :hasBottlesize "0.7"^^xsd:double ;
+                         :hasName "Jameson 18 Years"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_LL_2002Inchfad
+:Whisky_LL_2002Inchfad rdf:type owl:NamedIndividual ,
+                                :SingleMaltWhisky ;
+                       :distilledBy :Distillery_Loch_Lomond ;
+                       :hasBottler :Distillery_Loch_Lomond ;
+                       :producedIn :Region_Highlands ;
+                       :hasABV "45.0"^^xsd:double ;
+                       :hasBottlesize "0.7"^^xsd:double ;
+                       :hasBottlingDate "2007-05-02T00:00:00"^^xsd:dateTime ;
+                       :hasDistillationDate "2002-12-18T00:00:00"^^xsd:dateTime ;
+                       :hasName "Loch Lomond - 2002 Inchfad"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Lagavulin_16_Years
+:Whisky_Lagavulin_16_Years rdf:type owl:NamedIndividual ,
+                                    :RyeWhisky ;
+                           :distilledBy :Distillery_Lagavulin ;
+                           :hasBottler :Distillery_Lagavulin ;
+                           :hasTreatment :ArtificialColoring ,
+                                         :ChillFiltration ;
+                           :producedIn :Region_Islay ;
+                           :hasABV "43.0"^^xsd:double ;
+                           :hasAge "16"^^xsd:int ;
+                           :hasBottlesize "0.7"^^xsd:double ;
+                           :hasName "Lagavulin 16 years"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Laphroaig_10_Years_2000Cask
+:Whisky_Laphroaig_10_Years_2000Cask rdf:type owl:NamedIndividual ,
+                                             :SingleMaltWhisky ;
+                                    :distilledBy :Distillery_Laphroaig ;
+                                    :hasBottler :Distillery_Laphroaig ;
+                                    :hasTreatment :ArtificialColoring ;
+                                    :producedIn :Region_Islay ;
+                                    :hasABV "58.3"^^xsd:double ;
+                                    :hasAge "10"^^xsd:int ;
+                                    :hasBottlesize "0.7"^^xsd:double ;
+                                    :hasBottlingDate "2010-01-01T00:00:00"^^xsd:dateTime ;
+                                    :hasDistillationDate "2000-01-01T00:00:00"^^xsd:dateTime ;
+                                    :hasName "Laphroaig 10 Years - 2000 Cask Strength"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_PC_10Years_2005
+:Whisky_PC_10Years_2005 rdf:type owl:NamedIndividual ,
+                                 :SingleMaltWhisky ;
+                        :distilledBy :Distillery_Bruichladdich ;
+                        :hasBottler :Distillery_Douglas_Laing ;
+                        :hasMaturingType :Maturing_Port ;
+                        :producedIn :Region_Islay ;
+                        :hasABV "48.4"^^xsd:double ;
+                        :hasAge "10"^^xsd:int ;
+                        :hasBottlesize "0.7"^^xsd:double ;
+                        :hasBottlingDate "2016-02-01T00:00:00"^^xsd:dateTime ;
+                        :hasDistillationDate "2005-10-01T00:00:00"^^xsd:dateTime ;
+                        :hasName "Maturing_Port Charlotte 10 Years - 2005"^^xsd:string .
 
 
 #################################################################
