@@ -288,6 +288,12 @@
                  :hasName "England"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Country_Germany
+:Country_Germany rdf:type owl:NamedIndividual ,
+                          :Country ;
+                 :hasName "Germany"^^xsd:string .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Country_Ireland
 :Country_Ireland rdf:type owl:NamedIndividual ,
                           :Country ;
@@ -393,6 +399,13 @@
                                :Distillery ,
                                :WhiskyBottler ;
                       :hasName "Miyagikyo"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Slyrs
+:Distillery_Slyrs rdf:type owl:NamedIndividual ,
+                           :Distillery ,
+                           :WhiskyBottler ;
+                  :hasName "Slyrs"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Yamazaki
@@ -645,6 +658,22 @@
                         :hasBottlingDate "2016-02-01T00:00:00"^^xsd:dateTime ;
                         :hasDistillationDate "2005-10-01T00:00:00"^^xsd:dateTime ;
                         :hasName "Port Charlotte 10 Years - 2005"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Slyrs_3Years
+:Whisky_Slyrs_3Years rdf:type owl:NamedIndividual ,
+                              :SingleMaltWhisky ;
+                     :distilledBy :Distillery_Slyrs ;
+                     :hasBottler :Distillery_Slyrs ;
+                     :hasMaturingType :Maturing_Oak ;
+                     :hasTreatment :ChillFiltration ;
+                     :producedIn :Country_Germany ;
+                     :hasABV "43.0"^^xsd:double ;
+                     :hasAge "3"^^xsd:int ;
+                     :hasBottlesize "0.7"^^xsd:double ;
+                     :hasBottlingDate "2011-01-01T00:00:00"^^xsd:dateTime ;
+                     :hasDistillationDate "2008-01-01T00:00:00"^^xsd:dateTime ;
+                     :hasName "Slyrs 3 Years - 2008"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Suntory_18Years_Yamazaki
