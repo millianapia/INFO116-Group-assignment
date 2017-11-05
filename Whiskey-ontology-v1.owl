@@ -58,7 +58,6 @@
 ###  http://www.whisky.com/ontologies/whisky.owl#hasMaturingType
 :hasMaturingType rdf:type owl:ObjectProperty ;
                  owl:inverseOf :maturesWhisky ;
-                 rdf:type owl:FunctionalProperty ;
                  rdfs:domain :Whisky ;
                  rdfs:range :MaturingType ;
                  rdfs:comment "Describes the maturingtype used on a given whisky" .
@@ -286,32 +285,38 @@
 ###  http://www.whisky.com/ontologies/whisky.owl#Country_England
 :Country_England rdf:type owl:NamedIndividual ,
                           :Country ;
-                 :hasName "Country_England"^^xsd:string .
+                 :hasName "England"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Country_Ireland
 :Country_Ireland rdf:type owl:NamedIndividual ,
                           :Country ;
-                 :hasName "Country_Ireland"^^xsd:string .
+                 :hasName "Ireland"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Country_Japan
+:Country_Japan rdf:type owl:NamedIndividual ,
+                        :Country ;
+               :hasName "Japan"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Country_Scotland
 :Country_Scotland rdf:type owl:NamedIndividual ,
                            :Country ;
-                  :hasName "Country_Scotland"^^xsd:string .
+                  :hasName "Scotland"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Country_USA
 :Country_USA rdf:type owl:NamedIndividual ,
                       :Country ;
              :hasRegion :Region_Tennessee ;
-             :hasName "Country_USA"^^xsd:string .
+             :hasName "USA"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Bruichladdich
 :Distillery_Bruichladdich rdf:type owl:NamedIndividual ,
                                    :Distillery ;
-                          :hasName "Distillery_Bruichladdich"^^xsd:string .
+                          :hasName "Bruichladdich"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Douglas_Laing
@@ -327,11 +332,31 @@
                       :hasName "Glenlivet"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Heaven_Hill
+:Distillery_Heaven_Hill rdf:type owl:NamedIndividual ,
+                                 :Distillery ,
+                                 :WhiskyBottler ;
+                        :hasName "Heaven Hill"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Highland_Park
+:Distillery_Highland_Park rdf:type owl:NamedIndividual ,
+                                   :Distillery ,
+                                   :WhiskyBottler .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Jack_Daniels
 :Distillery_Jack_Daniels rdf:type owl:NamedIndividual ,
                                   :Distillery ,
                                   :WhiskyBottler ;
                          :hasName "Jack Daniel's"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Jim_Beam
+:Distillery_Jim_Beam rdf:type owl:NamedIndividual ,
+                              :Distillery ,
+                              :WhiskyBottler ;
+                     :hasName "Jim Beam"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Lagavulin
@@ -350,59 +375,143 @@
                         :hasName "Loch Lomond"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Makers_Mark
+:Distillery_Makers_Mark rdf:type owl:NamedIndividual ,
+                                 :Distillery ,
+                                 :WhiskyBottler ;
+                        :hasName "Maker's Mark"^^xsd:string .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Midleton
 :Distillery_Midleton rdf:type owl:NamedIndividual ,
                               :Distillery ;
                      :hasName "Midleton"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Miyagikyo
+:Distillery_Miyagikyo rdf:type owl:NamedIndividual ,
+                               :Distillery ,
+                               :WhiskyBottler ;
+                      :hasName "Miyagikyo"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Yamazaki
+:Distillery_Yamazaki rdf:type owl:NamedIndividual ,
+                              :Distillery ,
+                              :WhiskyBottler ;
+                     :hasName "Yamazaki"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Maturing_Bourbon
+:Maturing_Bourbon rdf:type owl:NamedIndividual ,
+                           :MaturingType ;
+                  :hasName "Bourbon"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Maturing_Oak
+:Maturing_Oak rdf:type owl:NamedIndividual ,
+                       :MaturingType ;
+              :hasName "Oak"^^xsd:string .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Maturing_Port
 :Maturing_Port rdf:type owl:NamedIndividual ,
                         :MaturingType ;
-               :hasName "Maturing_Port"^^xsd:string .
+               :hasName "Port"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Maturing_Sherry
 :Maturing_Sherry rdf:type owl:NamedIndividual ,
                           :MaturingType ;
-                 :hasName "Maturing_Sherry"^^xsd:string .
+                 :hasName "Sherry"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Maturing_Virgin
+:Maturing_Virgin rdf:type owl:NamedIndividual ,
+                          :MaturingType ;
+                 :hasName "Virgin"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Region_Campbeltown
 :Region_Campbeltown rdf:type owl:NamedIndividual ,
                              :Region ;
                     :isRegionOf :Country_Scotland ;
-                    :hasName "Region_Campbeltown"^^xsd:string .
+                    :hasName "Campbeltown"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Region_Highlands
-:Region_Highlands rdf:type owl:NamedIndividual ;
+:Region_Highlands rdf:type owl:NamedIndividual ,
+                           :Region ;
                   :isRegionOf :Country_Scotland ;
-                  :hasName "Region_Highlands"^^xsd:string .
+                  :hasName "Highlands"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Region_Islands
+:Region_Islands rdf:type owl:NamedIndividual ,
+                         :Region ;
+                :isRegionOf :Country_Scotland ;
+                :hasName "Islands"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Region_Islay
 :Region_Islay rdf:type owl:NamedIndividual ,
                        :Region ;
               :isRegionOf :Country_Scotland ;
-              :hasName "Region_Islay"^^xsd:string .
+              :hasName "Islay"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Region_Kentucky
+:Region_Kentucky rdf:type owl:NamedIndividual ,
+                          :Region ;
+                 :isRegionOf :Country_USA ;
+                 :hasName "Kentucky"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Region_Speyside
 :Region_Speyside rdf:type owl:NamedIndividual ,
                           :Region ;
-                 :isRegionOf :Country_Scotland .
+                 :isRegionOf :Country_Scotland ;
+                 :hasName "Speyside"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Region_Tennessee
 :Region_Tennessee rdf:type owl:NamedIndividual ,
                            :Region ;
-                  :hasName "Region_Tennessee"^^xsd:string .
+                  :hasName "Tennessee"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Bakers_7Years
+:Whisky_Bakers_7Years rdf:type owl:NamedIndividual ,
+                               :BourbonWhisky ;
+                      :distilledBy :Distillery_Jim_Beam ;
+                      :hasBottler :Distillery_Jim_Beam ;
+                      :hasMaturingType :Maturing_Virgin ;
+                      :hasTreatment :ChillFiltration ;
+                      :producedIn :Region_Kentucky ;
+                      :hasABV "53.5"^^xsd:double ;
+                      :hasAge "7"^^xsd:int ;
+                      :hasBottlesize "0.75"^^xsd:double ;
+                      :hasName "Bakers 7 Years Case Proof"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_EC_12Years
+:Whisky_EC_12Years rdf:type owl:NamedIndividual ,
+                            :BourbonWhisky ;
+                   :distilledBy :Distillery_Heaven_Hill ;
+                   :hasBottler :Distillery_Heaven_Hill ;
+                   :hasMaturingType :Maturing_Oak ;
+                   :hasTreatment :ChillFiltration ;
+                   :producedIn :Region_Kentucky ;
+                   :hasABV "47.0"^^xsd:double ;
+                   :hasAge "12"^^xsd:int ;
+                   :hasBottlesize "0.7"^^xsd:double ;
+                   :hasName "Elijah Craig 12 Years"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Glenlivet_Chivas_Brothers_16Years
 :Whisky_Glenlivet_Chivas_Brothers_16Years rdf:type owl:NamedIndividual ,
                                                    :SingleMaltWhisky ;
+                                          :distilledBy :Distillery_Glenlivet ;
                                           :hasBottler :Distillery_Glenlivet ;
                                           :producedIn :Region_Speyside ;
                                           :hasABV "58.4"^^xsd:double ;
@@ -411,6 +520,19 @@
                                           :hasBottlingDate "2008-01-01T00:00:00"^^xsd:dateTime ;
                                           :hasDistillationDate "1992-01-01T00:00:00"^^xsd:dateTime ;
                                           :hasName "16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_HP_18Years
+:Whisky_HP_18Years rdf:type owl:NamedIndividual ,
+                            :SingleMaltWhisky ;
+                   :distilledBy :Distillery_Highland_Park ;
+                   :hasBottler :Distillery_Highland_Park ;
+                   :hasMaturingType :Maturing_Sherry ;
+                   :hasTreatment :ChillFiltration ;
+                   :producedIn :Region_Islands ;
+                   :hasAge "18"^^xsd:int ;
+                   :hasBottlesize "0.7"^^xsd:double ;
+                   :hasName "Highland Park 18 Years"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_JD_Gentleman_Jack
@@ -455,9 +577,11 @@
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Lagavulin_16_Years
 :Whisky_Lagavulin_16_Years rdf:type owl:NamedIndividual ,
-                                    :RyeWhisky ;
+                                    :SingleMaltWhisky ;
                            :distilledBy :Distillery_Lagavulin ;
                            :hasBottler :Distillery_Lagavulin ;
+                           :hasMaturingType :Maturing_Bourbon ,
+                                            :Maturing_Sherry ;
                            :hasTreatment :ArtificialColoring ,
                                          :ChillFiltration ;
                            :producedIn :Region_Islay ;
@@ -482,6 +606,32 @@
                                     :hasName "Laphroaig 10 Years - 2000 Cask Strength"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Makers_Mark_Red_Seal
+:Whisky_Makers_Mark_Red_Seal rdf:type owl:NamedIndividual ,
+                                      :BourbonWhisky ;
+                             :distilledBy :Distillery_Makers_Mark ;
+                             :hasBottler :Distillery_Makers_Mark ;
+                             :hasMaturingType :Maturing_Oak ;
+                             :hasTreatment :ChillFiltration ;
+                             :producedIn :Region_Kentucky ;
+                             :hasABV "45.0"^^xsd:double ;
+                             :hasBottlesize "0.7"^^xsd:double ;
+                             :hasName "Maker's Mark Red Seal"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Nikka_FromTheBarrel
+:Whisky_Nikka_FromTheBarrel rdf:type owl:NamedIndividual ,
+                                     :BlendWhisky ;
+                            :distilledBy :Distillery_Miyagikyo ;
+                            :hasBottler :Distillery_Miyagikyo ;
+                            :hasTreatment :ArtificialColoring ,
+                                          :ChillFiltration ;
+                            :producedIn :Country_Japan ;
+                            :hasABV "51.4"^^xsd:double ;
+                            :hasBottlesize "0.5"^^xsd:double ;
+                            :hasName "Nikka From the Barrel"^^xsd:string .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_PC_10Years_2005
 :Whisky_PC_10Years_2005 rdf:type owl:NamedIndividual ,
                                  :SingleMaltWhisky ;
@@ -494,7 +644,21 @@
                         :hasBottlesize "0.7"^^xsd:double ;
                         :hasBottlingDate "2016-02-01T00:00:00"^^xsd:dateTime ;
                         :hasDistillationDate "2005-10-01T00:00:00"^^xsd:dateTime ;
-                        :hasName "Maturing_Port Charlotte 10 Years - 2005"^^xsd:string .
+                        :hasName "Port Charlotte 10 Years - 2005"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Suntory_18Years_Yamazaki
+:Whisky_Suntory_18Years_Yamazaki rdf:type owl:NamedIndividual ,
+                                          :SingleMaltWhisky ;
+                                 :distilledBy :Distillery_Yamazaki ;
+                                 :hasBottler :Distillery_Yamazaki ;
+                                 :hasTreatment :ArtificialColoring ,
+                                               :ChillFiltration ;
+                                 :producedIn :Country_Japan ;
+                                 :hasABV "43.0"^^xsd:double ;
+                                 :hasAge "18"^^xsd:int ;
+                                 :hasBottlesize "0.7"^^xsd:double ;
+                                 :hasName "Suntory 18 Years Yamazaki"^^xsd:string .
 
 
 #################################################################
