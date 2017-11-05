@@ -319,6 +319,12 @@
              :hasName "USA"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_BlendScotch
+:Distillery_BlendScotch rdf:type owl:NamedIndividual ,
+                                 :Distillery ;
+                        :hasName "Blend-Scotch"^^xsd:string .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Bruichladdich
 :Distillery_Bruichladdich rdf:type owl:NamedIndividual ,
                                    :Distillery ;
@@ -660,6 +666,19 @@
                         :hasName "Port Charlotte 10 Years - 2005"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Scallywag
+:Whisky_Scallywag rdf:type owl:NamedIndividual ,
+                           :BlendedMaltWhisky ;
+                  :distilledBy :Distillery_BlendScotch ;
+                  :hasBottler :Distillery_Douglas_Laing ;
+                  :hasMaturingType :Maturing_Bourbon ,
+                                   :Maturing_Sherry ;
+                  :producedIn :Country_Scotland ;
+                  :hasABV "46.0"^^xsd:double ;
+                  :hasBottlesize "0.7"^^xsd:double ;
+                  :hasName "Scallywag"^^xsd:string .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Slyrs_3Years
 :Whisky_Slyrs_3Years rdf:type owl:NamedIndividual ,
                               :SingleMaltWhisky ;
@@ -688,6 +707,17 @@
                                  :hasAge "18"^^xsd:int ;
                                  :hasBottlesize "0.7"^^xsd:double ;
                                  :hasName "Suntory 18 Years Yamazaki"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Timorous_Beastie
+:Whisky_Timorous_Beastie rdf:type owl:NamedIndividual ,
+                                  :BlendedMaltWhisky ;
+                         :distilledBy :Distillery_BlendScotch ;
+                         :hasBottler :Distillery_Douglas_Laing ;
+                         :producedIn :Country_Scotland ;
+                         :hasABV "46.8"^^xsd:double ;
+                         :hasBottlesize "0.7"^^xsd:double ;
+                         :hasName "Timorous Beastie"^^xsd:string .
 
 
 #################################################################
