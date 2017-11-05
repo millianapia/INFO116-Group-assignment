@@ -276,12 +276,11 @@
                     :hasName "ArtificialColoring"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#ChillFiltration
-:ChillFiltration rdf:type owl:NamedIndividual ,
-                          :WhiskyTreatment ;
-                 :hasName "ChillFiltration"^^xsd:string .
+###  http://www.whisky.com/ontologies/whisky.owl#Blend-Scotch
+:Blend-Scotch rdf:type owl:NamedIndividual .
 
 
+<<<<<<< HEAD
 ###  http://www.whisky.com/ontologies/whisky.owl#Country_England
 :Country_England rdf:type owl:NamedIndividual ,
                           :Country ;
@@ -317,13 +316,45 @@
 :Distillery_Bruichladdich rdf:type owl:NamedIndividual ,
                                    :Distillery ;
                           :hasName "Bruichladdich"^^xsd:string .
+=======
+###  http://www.whisky.com/ontologies/whisky.owl#Bruichladdich
+:Bruichladdich rdf:type owl:NamedIndividual ,
+                        :Distillery ;
+               :hasName "Bruichladdich"^^xsd:string .
 
 
-###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Douglas_Laing
-:Distillery_Douglas_Laing rdf:type owl:NamedIndividual ,
-                                   :Distillery ,
-                                   :WhiskyBottler ;
-                          :hasName "Douglas Laing"^^xsd:string .
+###  http://www.whisky.com/ontologies/whisky.owl#Campbeltown
+:Campbeltown rdf:type owl:NamedIndividual ,
+                      :Region ;
+             :isRegionOf :Scotland ;
+             :hasName "Campbeltown"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Cask_Sherry-Oloroso
+:Cask_Sherry-Oloroso rdf:type owl:NamedIndividual ,
+                              :MaturingType ;
+                     :hasName "Sherry - Oloroso"^^xsd:string ;
+                     rdfs:comment "The Oloroso sherry has its origins in the south west of Spain. It is a fortified wine with 17-22% ABV and a sugar content of 0-5 grams per liter. With these stats the Oloroso is defined as a dry wine. But many of the Sherry blenders sweeten the wine to make it more luscious and syrup like. Within the wine connoisseurs the Oloroso is handled as a very nutty sherry with dark flavours." .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#ChillFiltration
+:ChillFiltration rdf:type owl:NamedIndividual ,
+                          :WhiskyTreatment ;
+                 :hasName "ChillFiltration"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Compass_Box
+:Compass_Box rdf:type owl:NamedIndividual .
+>>>>>>> eaa22dbf68fea3cf5bfeafed93e4fbc55e564627
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Compass_Box_Hedonism
+:Compass_Box_Hedonism rdf:type owl:NamedIndividual ,
+                               :BlendedGrainWhisky ;
+                      :hasBottler :Compass_Box ;
+                      :hasRegion :Scotland ;
+                      :hasABV "43.0"^^xsd:double ;
+                      :hasBottlesize "0.7"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Glenlivet
@@ -332,6 +363,7 @@
                       :hasName "Glenlivet"^^xsd:string .
 
 
+<<<<<<< HEAD
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Heaven_Hill
 :Distillery_Heaven_Hill rdf:type owl:NamedIndividual ,
                                  :Distillery ,
@@ -359,6 +391,8 @@
                      :hasName "Jim Beam"^^xsd:string .
 
 
+=======
+>>>>>>> eaa22dbf68fea3cf5bfeafed93e4fbc55e564627
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Lagavulin
 :Distillery_Lagavulin rdf:type owl:NamedIndividual ;
                       :hasName "Lagavulin"^^xsd:string .
@@ -388,6 +422,7 @@
                      :hasName "Midleton"^^xsd:string .
 
 
+<<<<<<< HEAD
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Miyagikyo
 :Distillery_Miyagikyo rdf:type owl:NamedIndividual ,
                                :Distillery ,
@@ -659,6 +694,199 @@
                                  :hasAge "18"^^xsd:int ;
                                  :hasBottlesize "0.7"^^xsd:double ;
                                  :hasName "Suntory 18 Years Yamazaki"^^xsd:string .
+=======
+###  http://www.whisky.com/ontologies/whisky.owl#Douglas_Laing
+:Douglas_Laing rdf:type owl:NamedIndividual ,
+                        :Distillery ,
+                        :WhiskyBottler ;
+               :hasName "Douglas Laing"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#England
+:England rdf:type owl:NamedIndividual ,
+                  :Country ;
+         :hasName "England"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#First_Fill_american_Oak_Casks
+:First_Fill_american_Oak_Casks rdf:type owl:NamedIndividual .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Glenlivet_Chivas_Brothers_16Years
+:Glenlivet_Chivas_Brothers_16Years rdf:type owl:NamedIndividual ,
+                                            :SingleMaltWhisky ;
+                                   :hasBottler :Distillery_Glenlivet ;
+                                   :producedIn :Speyside ;
+                                   :hasABV "58.4"^^xsd:double ;
+                                   :hasAge "16"^^xsd:int ;
+                                   :hasBottlesize "0.5"^^xsd:double ;
+                                   :hasBottlingDate "2008-01-01T00:00:00"^^xsd:dateTime ;
+                                   :hasDistillationDate "1992-01-01T00:00:00"^^xsd:dateTime ;
+                                   :hasName "16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Highlands
+:Highlands rdf:type owl:NamedIndividual ;
+           :isRegionOf :Scotland ;
+           :hasName "Highlands"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Ireland
+:Ireland rdf:type owl:NamedIndividual ,
+                  :Country ;
+         :hasName "Ireland"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Islay
+:Islay rdf:type owl:NamedIndividual ,
+                :Region ;
+       :isRegionOf :Scotland ;
+       :hasName "Islay"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#JD_Gentleman_Jack
+:JD_Gentleman_Jack rdf:type owl:NamedIndividual ,
+                            :TennesseeWhisky ;
+                   :distilledBy :Jack_Daniels ;
+                   :hasBottler :Jack_Daniels ;
+                   :hasTreatment :ChillFiltration ;
+                   :producedIn :Tennessee ;
+                   :hasABV "40.0"^^xsd:double ;
+                   :hasBottlesize "0.7"^^xsd:double ;
+                   :hasName "Jack Daniel's Gentleman Jack"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Jack_Daniels
+:Jack_Daniels rdf:type owl:NamedIndividual ,
+                       :Distillery ,
+                       :WhiskyBottler ;
+              :hasName "Jack Daniel's"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Jameson_18_Years
+:Jameson_18_Years rdf:type owl:NamedIndividual ,
+                           :BlendWhisky ;
+                  :distilledBy :Distillery_Midleton ;
+                  :hasBottler :Distillery_Midleton ;
+                  :hasMaturingType :Cask_Sherry-Oloroso ;
+                  :hasTreatment :ArtificialColoring ,
+                                :ChillFiltration ;
+                  :producedIn :Ireland ;
+                  :hasABV "40.0"^^xsd:double ;
+                  :hasAge "18"^^xsd:int ;
+                  :hasBottlesize "0.7"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Japan
+:Japan rdf:type owl:NamedIndividual ,
+                :Country .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#LL_2002Inchfad
+:LL_2002Inchfad rdf:type owl:NamedIndividual ,
+                         :SingleMaltWhisky ;
+                :distilledBy :Distillery_Loch_Lomond ;
+                :hasBottler :Distillery_Loch_Lomond ;
+                :producedIn :Highlands ;
+                :hasABV "45.0"^^xsd:double ;
+                :hasBottlesize "0.7"^^xsd:double ;
+                :hasBottlingDate "2007-05-02T00:00:00"^^xsd:dateTime ;
+                :hasDistillationDate "2002-12-18T00:00:00"^^xsd:dateTime .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Lagavulin_16_Years
+:Lagavulin_16_Years rdf:type owl:NamedIndividual ,
+                             :RyeWhisky ;
+                    :distilledBy :Distillery_Lagavulin ;
+                    :hasBottler :Distillery_Lagavulin ;
+                    :hasTreatment :ArtificialColoring ,
+                                  :ChillFiltration ;
+                    :producedIn :Islay ;
+                    :hasABV "43.0"^^xsd:double ;
+                    :hasAge "16"^^xsd:int ;
+                    :hasBottlesize "0.7"^^xsd:double ;
+                    :hasName "Lagavulin 16 years"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Laphroaig10Years-200CaskStrenght
+:Laphroaig10Years-200CaskStrenght rdf:type owl:NamedIndividual ,
+                                           :SingleMaltWhisky ;
+                                  :distilledBy :Distillery_Laphroaig ;
+                                  :hasBottler :Distillery_Laphroaig ;
+                                  :hasTreatment :ArtificialColoring ;
+                                  :producedIn :Islay ;
+                                  :hasABV "58.3"^^xsd:double ;
+                                  :hasAge "10"^^xsd:int ;
+                                  :hasBottlesize "0.7"^^xsd:double ;
+                                  :hasBottlingDate "2010-01-01T00:00:00"^^xsd:dateTime ;
+                                  :hasDistillationDate "2000-01-01T00:00:00"^^xsd:dateTime .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Other_bottler
+:Other_bottler rdf:type owl:NamedIndividual .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#PC_10Years_2005
+:PC_10Years_2005 rdf:type owl:NamedIndividual ,
+                          :SingleMaltWhisky ;
+                 :distilledBy :Bruichladdich ;
+                 :hasBottler :Douglas_Laing ;
+                 :hasMaturingType :Port ;
+                 :producedIn :Islay ;
+                 :hasABV "48.4"^^xsd:double ;
+                 :hasAge "10"^^xsd:int ;
+                 :hasBottlesize "0.7"^^xsd:double ;
+                 :hasBottlingDate "2016-02-01T00:00:00"^^xsd:dateTime ;
+                 :hasDistillationDate "2005-10-01T00:00:00"^^xsd:dateTime ;
+                 :hasName "Port Charlotte 10 Years - 2005"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Port
+:Port rdf:type owl:NamedIndividual ,
+               :MaturingType ;
+      :hasName "Port"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Scotland
+:Scotland rdf:type owl:NamedIndividual ,
+                   :Country ;
+          :hasName "Scotland"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Speyside
+:Speyside rdf:type owl:NamedIndividual ,
+                   :Region ;
+          :isRegionOf :Scotland .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Tennessee
+:Tennessee rdf:type owl:NamedIndividual ,
+                    :Region ;
+           :hasName "Tennessee"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#USA
+:USA rdf:type owl:NamedIndividual ,
+              :Country ;
+     :hasRegion :Tennessee ;
+     :hasName "USA"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#White_Oak
+:White_Oak rdf:type owl:NamedIndividual .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#10_Years__OKINOKA
+:_Years__OKINOKA rdf:type owl:NamedIndividual ,
+                          :BlendedGrainWhisky ;
+                 :distilledBy :White_Oak ;
+                 :hasBottler :Other_bottler ;
+                 :producedIn :Japan ;
+                 :hasABV "43.0"^^xsd:double ;
+                 :hasAge "10"^^xsd:int ;
+                 :hasBottlesize "0.5"^^xsd:double ;
+                 :hasName "10 years TOKINOKA"^^xsd:string .
+>>>>>>> eaa22dbf68fea3cf5bfeafed93e4fbc55e564627
 
 
 #################################################################
