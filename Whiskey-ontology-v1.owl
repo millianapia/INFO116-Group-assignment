@@ -152,6 +152,16 @@
                      rdfs:comment "Property describes the distillation date of a given whisky (format YYYY-MM-DDThh:mm:ss)" .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#hasFinish
+:hasFinish rdf:type owl:DatatypeProperty ;
+           rdfs:range xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#hasFinishValue
+:hasFinishValue rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#hasName
 :hasName rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
@@ -159,11 +169,30 @@
          rdfs:comment "Describes the name of a given individual" .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#hasNosing
+:hasNosing rdf:type owl:DatatypeProperty ;
+           rdfs:range xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#hasNosingValue
+:hasNosingValue rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#hasRating
 :hasRating rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf owl:topDataProperty ;
            rdfs:range xsd:double ;
            rdfs:comment "This is rating is an aggregate from a whisky-forum" .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#hasTaste
+:hasTaste rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#hasTasteValue
+:hasTasteValue rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty .
 
 
 #################################################################
