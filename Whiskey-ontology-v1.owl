@@ -159,6 +159,13 @@
          rdfs:comment "Describes the name of a given individual" .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#hasRating
+:hasRating rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:range xsd:double ;
+           rdfs:comment "This is rating is an aggregate from a whisky-forum" .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -510,7 +517,8 @@
                       :hasABV "53.5"^^xsd:double ;
                       :hasAge "7"^^xsd:int ;
                       :hasBottlesize "0.75"^^xsd:double ;
-                      :hasName "Bakers 7 Years Case Proof"^^xsd:string .
+                      :hasName "Bakers 7 Years Case Proof"^^xsd:string ;
+                      :hasRating "4.1"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_EC_12Years
@@ -524,7 +532,8 @@
                    :hasABV "47.0"^^xsd:double ;
                    :hasAge "12"^^xsd:int ;
                    :hasBottlesize "0.7"^^xsd:double ;
-                   :hasName "Elijah Craig 12 Years"^^xsd:string .
+                   :hasName "Elijah Craig 12 Years"^^xsd:string ;
+                   :hasRating "3.8"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Glenlivet_Chivas_Brothers_16Years
@@ -538,7 +547,8 @@
                                           :hasBottlesize "0.5"^^xsd:double ;
                                           :hasBottlingDate "2008-01-01T00:00:00"^^xsd:dateTime ;
                                           :hasDistillationDate "1992-01-01T00:00:00"^^xsd:dateTime ;
-                                          :hasName "16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^xsd:string .
+                                          :hasName "16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^xsd:string ;
+                                          :hasRating "5.0"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_HP_18Years
@@ -551,7 +561,8 @@
                    :producedIn :Region_Islands ;
                    :hasAge "18"^^xsd:int ;
                    :hasBottlesize "0.7"^^xsd:double ;
-                   :hasName "Highland Park 18 Years"^^xsd:string .
+                   :hasName "Highland Park 18 Years"^^xsd:string ;
+                   :hasRating "4.5"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_JD_Gentleman_Jack
@@ -563,7 +574,8 @@
                           :producedIn :Region_Tennessee ;
                           :hasABV "40.0"^^xsd:double ;
                           :hasBottlesize "0.7"^^xsd:double ;
-                          :hasName "Jack Daniel's Gentleman Jack"^^xsd:string .
+                          :hasName "Jack Daniel's Gentleman Jack"^^xsd:string ;
+                          :hasRating "2.8"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Jameson_18_Years
@@ -578,7 +590,8 @@
                          :hasABV "40.0"^^xsd:double ;
                          :hasAge "18"^^xsd:int ;
                          :hasBottlesize "0.7"^^xsd:double ;
-                         :hasName "Jameson 18 Years"^^xsd:string .
+                         :hasName "Jameson 18 Years"^^xsd:string ;
+                         :hasRating "4.6"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_LL_2002Inchfad
@@ -591,7 +604,8 @@
                        :hasBottlesize "0.7"^^xsd:double ;
                        :hasBottlingDate "2007-05-02T00:00:00"^^xsd:dateTime ;
                        :hasDistillationDate "2002-12-18T00:00:00"^^xsd:dateTime ;
-                       :hasName "Loch Lomond - 2002 Inchfad"^^xsd:string .
+                       :hasName "Loch Lomond - 2002 Inchfad"^^xsd:string ;
+                       :hasRating "5.0"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Lagavulin_16_Years
@@ -607,7 +621,8 @@
                            :hasABV "43.0"^^xsd:double ;
                            :hasAge "16"^^xsd:int ;
                            :hasBottlesize "0.7"^^xsd:double ;
-                           :hasName "Lagavulin 16 years"^^xsd:string .
+                           :hasName "Lagavulin 16 years"^^xsd:string ;
+                           :hasRating "4.5"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Laphroaig_10_Years_2000Cask
@@ -622,7 +637,8 @@
                                     :hasBottlesize "0.7"^^xsd:double ;
                                     :hasBottlingDate "2010-01-01T00:00:00"^^xsd:dateTime ;
                                     :hasDistillationDate "2000-01-01T00:00:00"^^xsd:dateTime ;
-                                    :hasName "Laphroaig 10 Years - 2000 Cask Strength"^^xsd:string .
+                                    :hasName "Laphroaig 10 Years - 2000 Cask Strength"^^xsd:string ;
+                                    :hasRating "3.7"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Makers_Mark_Red_Seal
@@ -635,7 +651,8 @@
                              :producedIn :Region_Kentucky ;
                              :hasABV "45.0"^^xsd:double ;
                              :hasBottlesize "0.7"^^xsd:double ;
-                             :hasName "Maker's Mark Red Seal"^^xsd:string .
+                             :hasName "Maker's Mark Red Seal"^^xsd:string ;
+                             :hasRating "3.2"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Nikka_FromTheBarrel
@@ -648,7 +665,8 @@
                             :producedIn :Country_Japan ;
                             :hasABV "51.4"^^xsd:double ;
                             :hasBottlesize "0.5"^^xsd:double ;
-                            :hasName "Nikka From the Barrel"^^xsd:string .
+                            :hasName "Nikka From the Barrel"^^xsd:string ;
+                            :hasRating "3.9"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_PC_10Years_2005
@@ -663,7 +681,8 @@
                         :hasBottlesize "0.7"^^xsd:double ;
                         :hasBottlingDate "2016-02-01T00:00:00"^^xsd:dateTime ;
                         :hasDistillationDate "2005-10-01T00:00:00"^^xsd:dateTime ;
-                        :hasName "Port Charlotte 10 Years - 2005"^^xsd:string .
+                        :hasName "Port Charlotte 10 Years - 2005"^^xsd:string ;
+                        :hasRating "4.0"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Scallywag
@@ -676,7 +695,8 @@
                   :producedIn :Country_Scotland ;
                   :hasABV "46.0"^^xsd:double ;
                   :hasBottlesize "0.7"^^xsd:double ;
-                  :hasName "Scallywag"^^xsd:string .
+                  :hasName "Scallywag"^^xsd:string ;
+                  :hasRating "3.5"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Slyrs_3Years
@@ -692,7 +712,8 @@
                      :hasBottlesize "0.7"^^xsd:double ;
                      :hasBottlingDate "2011-01-01T00:00:00"^^xsd:dateTime ;
                      :hasDistillationDate "2008-01-01T00:00:00"^^xsd:dateTime ;
-                     :hasName "Slyrs 3 Years - 2008"^^xsd:string .
+                     :hasName "Slyrs 3 Years - 2008"^^xsd:string ;
+                     :hasRating "4.2"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Suntory_18Years_Yamazaki
@@ -706,7 +727,8 @@
                                  :hasABV "43.0"^^xsd:double ;
                                  :hasAge "18"^^xsd:int ;
                                  :hasBottlesize "0.7"^^xsd:double ;
-                                 :hasName "Suntory 18 Years Yamazaki"^^xsd:string .
+                                 :hasName "Suntory 18 Years Yamazaki"^^xsd:string ;
+                                 :hasRating "4.7"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Timorous_Beastie
@@ -717,7 +739,8 @@
                          :producedIn :Country_Scotland ;
                          :hasABV "46.8"^^xsd:double ;
                          :hasBottlesize "0.7"^^xsd:double ;
-                         :hasName "Timorous Beastie"^^xsd:string .
+                         :hasName "Timorous Beastie"^^xsd:string ;
+                         :hasRating "3.1"^^xsd:double .
 
 
 #################################################################
