@@ -288,6 +288,12 @@
                  :hasName "ChillFiltration"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Country_Belgium
+:Country_Belgium rdf:type owl:NamedIndividual ,
+                          :Country ;
+                 :hasName "Belgium"^^xsd:string .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Country_England
 :Country_England rdf:type owl:NamedIndividual ,
                           :Country ;
@@ -316,6 +322,12 @@
 :Country_Scotland rdf:type owl:NamedIndividual ,
                            :Country ;
                   :hasName "Scotland"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Country_Switzerland
+:Country_Switzerland rdf:type owl:NamedIndividual ,
+                              :Country ;
+                     :hasName "Switzerland"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Country_USA
@@ -413,6 +425,17 @@
                       :hasName "Miyagikyo"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Owl
+:Distillery_Owl rdf:type owl:NamedIndividual ;
+                :hasName "Owl Distillery"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Santis
+:Distillery_Santis rdf:type owl:NamedIndividual ,
+                            :Distillery ;
+                   :hasName "Säntis Distillery" .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Slyrs
 :Distillery_Slyrs rdf:type owl:NamedIndividual ,
                            :Distillery ,
@@ -457,11 +480,24 @@
                  :hasName "Virgin"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Region_Appenzell
+:Region_Appenzell rdf:type owl:NamedIndividual ;
+                  :isRegionOf :Country_Switzerland ;
+                  :hasName "Appenzell"^^xsd:string .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Region_Campbeltown
 :Region_Campbeltown rdf:type owl:NamedIndividual ,
                              :Region ;
                     :isRegionOf :Country_Scotland ;
                     :hasName "Campbeltown"^^xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Region_Fexhe-le-Haut-Clocher
+:Region_Fexhe-le-Haut-Clocher rdf:type owl:NamedIndividual ,
+                                       :Region ;
+                              :isRegionOf :Country_Belgium ;
+                              :hasName "Fexhe-le-Haut-Clocher"^^xsd:string .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Region_Highlands
@@ -518,6 +554,20 @@
                       :hasBottlesize "0.75"^^xsd:double ;
                       :hasName "Bakers 7 Years Case Proof"^^xsd:string ;
                       :hasRating "4.1"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Belgian_Owl_3_Years
+:Whisky_Belgian_Owl_3_Years rdf:type owl:NamedIndividual ,
+                                     :SingleMaltWhisky ;
+                            :distilledBy :Distillery_Owl ;
+                            :hasBottler :Distillery_Owl ;
+                            :hasMaturingType :Maturing_Oak ;
+                            :producedIn :Region_Fexhe-le-Haut-Clocher ;
+                            :hasABV "46.0"^^xsd:double ;
+                            :hasBottlesize "0.5"^^xsd:double ;
+                            :hasBottlingDate "2012-01-01T00:00:00"^^xsd:dateTime ;
+                            :hasName "Belgian Owl 3 Years"^^xsd:string ;
+                            :hasRating "3.8"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_EC_12Years
@@ -682,6 +732,22 @@
                         :hasDistillationDate "2005-10-01T00:00:00"^^xsd:dateTime ;
                         :hasName "Port Charlotte 10 Years - 2005"^^xsd:string ;
                         :hasRating "4.0"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Santis_Malt_3_Years_Dreifaltigkeit
+:Whisky_Santis_Malt_3_Years_Dreifaltigkeit rdf:type owl:NamedIndividual ,
+                                                    :BlendedGrainWhisky ;
+                                           :distilledBy :Distillery_Santis ;
+                                           :hasBottler :Distillery_Santis ;
+                                           :hasMaturingType :Maturing_Oak ;
+                                           :producedIn :Region_Appenzell ;
+                                           :hasABV "52.0"^^xsd:double ;
+                                           :hasAge "3"^^xsd:int ;
+                                           :hasBottlesize "0.7"^^xsd:double ;
+                                           :hasBottlingDate "2014-01-01T00:00:00"^^xsd:dateTime ;
+                                           :hasDistillationDate "2011-01-01T00:00:00"^^xsd:dateTime ;
+                                           :hasName "Säntis Malt 3 Years - 2011 Dreifaltikeit"^^xsd:string ;
+                                           :hasRating "3.6"^^xsd:double .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Scallywag
