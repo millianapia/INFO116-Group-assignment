@@ -55,6 +55,12 @@
             rdfs:comment "Describes who bottled the given whisky" .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#hasFinishSpecification
+:hasFinishSpecification rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Whisky ;
+                        rdfs:range :Specification .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#hasMaturingType
 :hasMaturingType rdf:type owl:ObjectProperty ;
                  owl:inverseOf :maturesWhisky ;
@@ -63,12 +69,24 @@
                  rdfs:comment "Describes the maturingtype used on a given whisky" .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#hasNosingSpecification
+:hasNosingSpecification rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Whisky ;
+                        rdfs:range :Specification .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#hasRegion
 :hasRegion rdf:type owl:ObjectProperty ;
            owl:inverseOf :isRegionOf ;
            rdfs:domain :Country ;
            rdfs:range :Region ;
            rdfs:comment "Describes the regions that are a part of a given country" .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#hasTasteSpecification
+:hasTasteSpecification rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Whisky ;
+                       rdfs:range :Specification .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasTreatment
@@ -165,6 +183,16 @@
            rdfs:comment "This is rating is an aggregate from a whisky-forum" .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#hasSpecificationContent
+:hasSpecificationContent rdf:type owl:DatatypeProperty ;
+                         rdfs:range xsd:string .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#hasSpecificationValue
+:hasSpecificationValue rdf:type owl:DatatypeProperty ;
+                       rdfs:range xsd:double .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -243,6 +271,10 @@
 ###  http://www.whisky.com/ontologies/whisky.owl#SingleMaltWhisky
 :SingleMaltWhisky rdf:type owl:Class ;
                   rdfs:subClassOf :Whisky .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Specification
+:Specification rdf:type owl:Class .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#SpiritWhisky
@@ -541,6 +573,83 @@
                   :hasName "Tennessee"^^xsd:string .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#Specification_Iodine_1_5
+:Specification_Iodine_1_5 rdf:type owl:NamedIndividual ,
+                                   :Specification ;
+                          :hasSpecificationContent "Iodine"^^xsd:string ;
+                          :hasSpecificationValue "1.5"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Specification_Malt_2
+:Specification_Malt_2 rdf:type owl:NamedIndividual ,
+                               :Specification ;
+                      :hasSpecificationContent "Malt"^^xsd:string ;
+                      :hasSpecificationValue "2.0"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Specification_Oak_2
+:Specification_Oak_2 rdf:type owl:NamedIndividual ,
+                              :Specification ;
+                     :hasSpecificationContent "Oak"^^xsd:string ;
+                     :hasSpecificationValue "2.0"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Specification_PeatSmoke_4
+:Specification_PeatSmoke_4 rdf:type owl:NamedIndividual ,
+                                    :Specification ;
+                           :hasSpecificationContent "Peat Smoke"^^xsd:string ;
+                           :hasSpecificationValue "4.0"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Specification_PeatSmoke_5
+:Specification_PeatSmoke_5 rdf:type owl:NamedIndividual ,
+                                    :Specification ;
+                           :hasSpecificationContent "Peat Smoke"^^xsd:string ;
+                           :hasSpecificationValue "5.0"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Specification_Salt_1_5
+:Specification_Salt_1_5 rdf:type owl:NamedIndividual ,
+                                 :Specification ;
+                        :hasSpecificationContent "Salt"^^xsd:string ;
+                        :hasSpecificationValue "1.5"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Specification_Seaweed_2_5
+:Specification_Seaweed_2_5 rdf:type owl:NamedIndividual ,
+                                    :Specification ;
+                           :hasSpecificationContent "Seaweed"^^xsd:string ;
+                           :hasSpecificationValue "2.5"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Specification_Spices_1_5
+:Specification_Spices_1_5 rdf:type owl:NamedIndividual ,
+                                   :Specification ;
+                          :hasSpecificationContent "Spices"^^xsd:string ;
+                          :hasSpecificationValue "1.5"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Specification_Sweet_2
+:Specification_Sweet_2 rdf:type owl:NamedIndividual ,
+                                :Specification ;
+                       :hasSpecificationContent "Sweet"^^xsd:string ;
+                       :hasSpecificationValue "2.0"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Specification_Sweet_2_5
+:Specification_Sweet_2_5 rdf:type owl:NamedIndividual ,
+                                  :Specification ;
+                         :hasSpecificationContent "Sweet"^^xsd:string ;
+                         :hasSpecificationValue "2.5"^^xsd:double .
+
+
+###  http://www.whisky.com/ontologies/whisky.owl#Specification_Sweet_3
+:Specification_Sweet_3 rdf:type owl:NamedIndividual ,
+                                :Specification ;
+                       :hasSpecificationContent "Sweet"^^xsd:string ;
+                       :hasSpecificationValue "3.0"^^xsd:double .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky_Bakers_7Years
 :Whisky_Bakers_7Years rdf:type owl:NamedIndividual ,
                                :BourbonWhisky ;
@@ -606,6 +715,7 @@
                    :distilledBy :Distillery_Highland_Park ;
                    :hasBottler :Distillery_Highland_Park ;
                    :hasMaturingType :Maturing_Sherry ;
+                   :hasNosingSpecification :Specification_PeatSmoke_4 ;
                    :hasTreatment :ChillFiltration ;
                    :producedIn :Region_Islands ;
                    :hasAge "18"^^xsd:int ;
@@ -662,8 +772,20 @@
                                     :SingleMaltWhisky ;
                            :distilledBy :Distillery_Lagavulin ;
                            :hasBottler :Distillery_Lagavulin ;
+                           :hasFinishSpecification :Specification_Malt_2 ,
+                                                   :Specification_Oak_2 ,
+                                                   :Specification_PeatSmoke_5 ,
+                                                   :Specification_Sweet_2 ;
                            :hasMaturingType :Maturing_Bourbon ,
                                             :Maturing_Sherry ;
+                           :hasNosingSpecification :Specification_Iodine_1_5 ,
+                                                   :Specification_PeatSmoke_5 ,
+                                                   :Specification_Seaweed_2_5 ,
+                                                   :Specification_Sweet_2_5 ;
+                           :hasTasteSpecification :Specification_PeatSmoke_5 ,
+                                                  :Specification_Salt_1_5 ,
+                                                  :Specification_Spices_1_5 ,
+                                                  :Specification_Sweet_3 ;
                            :hasTreatment :ArtificialColoring ,
                                          :ChillFiltration ;
                            :producedIn :Region_Islay ;
