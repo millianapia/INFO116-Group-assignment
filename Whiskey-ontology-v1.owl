@@ -422,7 +422,9 @@
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Lagavulin
-:Distillery_Lagavulin rdf:type owl:NamedIndividual ;
+:Distillery_Lagavulin rdf:type owl:NamedIndividual ,
+                               :Distillery ,
+                               :WhiskyBottler ;
                       :hasName "Lagavulin"^^xsd:string .
 
 
@@ -433,7 +435,9 @@
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Loch_Lomond
-:Distillery_Loch_Lomond rdf:type owl:NamedIndividual ;
+:Distillery_Loch_Lomond rdf:type owl:NamedIndividual ,
+                                 :Distillery ,
+                                 :WhiskyBottler ;
                         :hasName "Loch Lomond"^^xsd:string .
 
 
@@ -458,7 +462,8 @@
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery_Owl
-:Distillery_Owl rdf:type owl:NamedIndividual ;
+:Distillery_Owl rdf:type owl:NamedIndividual ,
+                         :Distillery ;
                 :hasName "Owl Distillery"^^xsd:string .
 
 
@@ -656,6 +661,9 @@
                       :distilledBy :Distillery_Jim_Beam ;
                       :hasBottler :Distillery_Jim_Beam ;
                       :hasMaturingType :Maturing_Virgin ;
+                      :hasTasteSpecification :Specification_PeatSmoke_5 ,
+                                             :Specification_Spices_1_5 ,
+                                             :Specification_Sweet_3 ;
                       :hasTreatment :ChillFiltration ;
                       :producedIn :Region_Kentucky ;
                       :hasABV "53.5"^^xsd:double ;
