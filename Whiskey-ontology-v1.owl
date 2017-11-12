@@ -37,12 +37,14 @@
 :distilledBy rdf:type owl:ObjectProperty ;
              owl:inverseOf :distillsWhisky ;
              rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Whisky ;
              rdfs:range :Distillery ;
              rdfs:comment "Describes who destilled the given whisky" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#distillsWhisky
 :distillsWhisky rdf:type owl:ObjectProperty ;
+                rdfs:domain :Distillery ;
                 rdfs:range :Whisky ;
                 rdfs:comment "Describes which whiskies the given destillery destills" .
 
@@ -58,7 +60,8 @@
 ###  http://www.whisky.com/ontologies/whisky.owl#hasFinishSpecification
 :hasFinishSpecification rdf:type owl:ObjectProperty ;
                         rdfs:domain :Whisky ;
-                        rdfs:range :Specification .
+                        rdfs:range :Specification ;
+                        rdfs:comment "Connects a given whisky to Finish-Specification individual, which will describe a finish-aspect of a whisky" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasMaturingType
@@ -72,7 +75,8 @@
 ###  http://www.whisky.com/ontologies/whisky.owl#hasNosingSpecification
 :hasNosingSpecification rdf:type owl:ObjectProperty ;
                         rdfs:domain :Whisky ;
-                        rdfs:range :Specification .
+                        rdfs:range :Specification ;
+                        rdfs:comment "Connects a given whisky to Nosing-Specification individual, which will describe a nosing-aspect of a whisky" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasRegion
@@ -86,7 +90,8 @@
 ###  http://www.whisky.com/ontologies/whisky.owl#hasTasteSpecification
 :hasTasteSpecification rdf:type owl:ObjectProperty ;
                        rdfs:domain :Whisky ;
-                       rdfs:range :Specification .
+                       rdfs:range :Specification ;
+                       rdfs:comment "Connects a given whisky to Taste-Specification individual, which will describe a taste-aspect of a whisky" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasTreatment
@@ -138,6 +143,7 @@
 ###  http://www.whisky.com/ontologies/whisky.owl#hasABV
 :hasABV rdf:type owl:DatatypeProperty ,
                  owl:FunctionalProperty ;
+        rdfs:domain :Whisky ;
         rdfs:range xsd:double ;
         rdfs:comment "Property describes the alcohol level of a whisky (given in percentage)" .
 
@@ -145,6 +151,7 @@
 ###  http://www.whisky.com/ontologies/whisky.owl#hasAge
 :hasAge rdf:type owl:DatatypeProperty ,
                  owl:FunctionalProperty ;
+        rdfs:domain :Whisky ;
         rdfs:range xsd:int ;
         rdfs:comment "Property describes the age of a whisky-bottle" .
 
@@ -152,6 +159,7 @@
 ###  http://www.whisky.com/ontologies/whisky.owl#hasBottlesize
 :hasBottlesize rdf:type owl:DatatypeProperty ,
                         owl:FunctionalProperty ;
+               rdfs:domain :Whisky ;
                rdfs:range xsd:double ;
                rdfs:comment "Property describes the volume on the container of the given whisky (given in litres)" .
 
@@ -159,6 +167,7 @@
 ###  http://www.whisky.com/ontologies/whisky.owl#hasBottlingDate
 :hasBottlingDate rdf:type owl:DatatypeProperty ,
                           owl:FunctionalProperty ;
+                 rdfs:domain :Whisky ;
                  rdfs:range xsd:dateTime ;
                  rdfs:comment "Property describes the bottling date of a given whisky (format YYYY-MM-DDThh:mm:ss)" .
 
@@ -166,6 +175,7 @@
 ###  http://www.whisky.com/ontologies/whisky.owl#hasDistillationDate
 :hasDistillationDate rdf:type owl:DatatypeProperty ,
                               owl:FunctionalProperty ;
+                     rdfs:domain :Whisky ;
                      rdfs:range xsd:dateTime ;
                      rdfs:comment "Property describes the distillation date of a given whisky (format YYYY-MM-DDThh:mm:ss)" .
 
@@ -179,18 +189,23 @@
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasRating
 :hasRating rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Whisky ;
            rdfs:range xsd:double ;
            rdfs:comment "This is rating is an aggregate from a whisky-forum" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasSpecificationContent
 :hasSpecificationContent rdf:type owl:DatatypeProperty ;
-                         rdfs:range xsd:string .
+                         rdfs:domain :Specification ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "Descibes the content of a specification, example; \"peat smoke\", \"spices\", \"seaweed\" and so on." .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#hasSpecificationValue
 :hasSpecificationValue rdf:type owl:DatatypeProperty ;
-                       rdfs:range xsd:double .
+                       rdfs:domain :Specification ;
+                       rdfs:range xsd:double ;
+                       rdfs:comment "Gives the value of a given specification" .
 
 
 #################################################################
