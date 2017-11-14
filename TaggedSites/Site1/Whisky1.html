@@ -6,7 +6,7 @@
   <title>Highland Park 12 Years - Whisky.com</title>
 </head>
 
-<body vocab="http://www.whisky.com/ontologies/whisky.owl#">
+<body vocab="http://www.whisky.com/ontologies/whisky.owl#" prefix="sch: http://schema.org/">
   <div class="details_metadata" typeof="SingleMaltWhisky">
     <h1>
       <span class="flaschenIdentifier" property="hasName">
@@ -18,10 +18,12 @@
     </h1>
 
     <div class="initial_desc">
-      <p><span property="hasRating">3.7</span> (624)<span class="separator">,</span></p>
+      <p property="sch:aggregateRating"
+     typeof="sch:AggregateRating">
+     <span property="sch:ratingValue">3.7</span> (<span property="sch:ratingCount">624</span>)</p>
 
       <div class="description">
-        <p>In 1979 Highland Park protected their standard bottling, the 12-year-old single malt, with a copyright. Today it is still the most important malt in the range of the distillery.</p>
+        <p property="sch:description">In 1979 Highland Park protected their standard bottling, the 12-year-old single malt, with a copyright. Today it is still the most important malt in the range of the distillery.</p>
       </div>
     </div>
 
@@ -34,23 +36,23 @@
         <tr class="uid">
           <td colspan="2">
             <label>Whisky-ID:</label>
-            <span class="value">97</span>
+            <span class="value" property="sch:productID">97</span>
           </td>
         </tr>
 
         <tr class="brennerei">
           <td colspan="2">
             <label>Distillery:</label>
-                <span property="distilledBy" typeof="Distillery"><p property="hasName">Highland Park</p></span>
+            <span property="distilledBy" typeof="Distillery"><p property="hasName">Highland Park</p></span>
           </td>
         </tr>
 
         <tr>
           <td colspan="2">
             <label>Country, Region:</label>
-									<span property="producedIn" typeof="Region"><p property="hasName">Islands</p>
+            <span property="producedIn" typeof="Region"><p property="hasName">Islands</p>
                     <span property="isRegionOf" typeof="Country"><p property="hasName">Scotland</p></span>
-                  </span>
+            </span>
           </td>
         </tr>
 
