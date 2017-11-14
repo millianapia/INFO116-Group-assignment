@@ -4,6 +4,46 @@
 <head>
   <meta charset="utf-8">
   <title>Highland Park 12 Years - Whisky.com</title>
+  <!-- EXAMPLE OF ONTOLOGY JSON-LD MARKUP -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://www.whisky.com/ontologies/whisky.owl#",
+      "@type": "SingleMaltWhisky",
+      "url": "https://www.whisky.com/whisky-database/details/highland-park.html?tx_datamintsflaschendb_pi4[sammlungReferer]=13983#geschmacksbeschreibungen_anchor",
+      "hasAge": "12",
+      "hasABV": "40",
+      "hasBottlesize": "0.7",
+      "hasName": "Highland Park 12 Years",
+      "hasMaturingType": {
+        "@type": "MaturingType",
+        "hasName": "Bourbon"
+      },
+      "hasMaturingType": {
+        "@type": "MaturingType",
+        "hasName": "Sherry"
+      },
+      "hasTreatment": {
+        "@type": "WhiskyTreatment",
+        "hasName": "ChillFiltration"
+      },
+      "producedIn": {
+        "@type": "Region",
+        "hasName": "Islands",
+        "isRegionOf": {
+          "@type": "Country",
+          "hasName": "Scotland"
+        }
+      },
+      "distilledBy": {
+        "@type": "Distillery",
+        "hasName": "Highland Park"
+      },
+      "hasBottler": {
+        "@type": "WhiskyBottler",
+        "hasName": "Highland Park"
+      }
+    }
+  </script>
 </head>
 
 <body vocab="http://www.whisky.com/ontologies/whisky.owl#" prefix="sch: http://schema.org/">
@@ -18,9 +58,8 @@
     </h1>
 
     <div class="initial_desc">
-      <p property="sch:aggregateRating"
-     typeof="sch:AggregateRating">
-     <span property="sch:ratingValue">3.7</span> (<span property="sch:ratingCount">624</span>)</p>
+      <p property="sch:aggregateRating" typeof="sch:AggregateRating">
+        <span property="sch:ratingValue">3.7</span> (<span property="sch:ratingCount">624</span>)</p>
 
       <div class="description">
         <p property="sch:description">In 1979 Highland Park protected their standard bottling, the 12-year-old single malt, with a copyright. Today it is still the most important malt in the range of the distillery.</p>
