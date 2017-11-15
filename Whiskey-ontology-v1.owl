@@ -245,11 +245,13 @@
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Country
-:Country rdf:type owl:Class .
+:Country rdf:type owl:Class ;
+         rdfs:comment "The territory of a nation or state" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Distillery
-:Distillery rdf:type owl:Class .
+:Distillery rdf:type owl:Class ;
+            rdfs:comment "An establishment were distilling of whiskies takes place" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#GrainWhisky
@@ -263,7 +265,8 @@
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#MaturingType
-:MaturingType rdf:type owl:Class .
+:MaturingType rdf:type owl:Class ;
+              rdfs:comment "The type of cask a whisky has been stored on" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#OtherWhisky
@@ -277,7 +280,8 @@
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Region
-:Region rdf:type owl:Class .
+:Region rdf:type owl:Class ;
+        rdfs:comment "A part of a country" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#RyeWhisky
@@ -296,7 +300,8 @@
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Specification
-:Specification rdf:type owl:Class .
+:Specification rdf:type owl:Class ;
+               rdfs:comment "Specifies certain properties about whiskies" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#SpiritWhisky
@@ -315,15 +320,18 @@
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#Whisky
-:Whisky rdf:type owl:Class .
+:Whisky rdf:type owl:Class ;
+        rdfs:comment "An alcoholic liquor distilled from grain" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#WhiskyBottler
-:WhiskyBottler rdf:type owl:Class .
+:WhiskyBottler rdf:type owl:Class ;
+               rdfs:comment "An establishment which bottles whiskies" .
 
 
 ###  http://www.whisky.com/ontologies/whisky.owl#WhiskyTreatment
-:WhiskyTreatment rdf:type owl:Class .
+:WhiskyTreatment rdf:type owl:Class ;
+                 rdfs:comment "A process having a certain effect on a given whisky" .
 
 
 #################################################################
