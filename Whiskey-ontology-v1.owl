@@ -180,6 +180,13 @@
                      rdfs:comment "Property describes the distillation date of a given whisky (format YYYY-MM-DDThh:mm:ss)" .
 
 
+###  http://www.whisky.com/ontologies/whisky.owl#hasID
+:hasID rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Whisky ;
+       rdfs:range xsd:string ;
+       rdfs:comment "An indentifier for a given whisky, distinguishes the whisky from others in the same domain" .
+
+
 ###  http://www.whisky.com/ontologies/whisky.owl#hasName
 :hasName rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
