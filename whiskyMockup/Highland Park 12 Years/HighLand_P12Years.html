@@ -7,8 +7,9 @@
   <link rel="stylesheet" type="text/css" href="whiskyCSS.css">
 </head>
 
-<body>
-  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+<body vocab="http://www.whisky.com/ontologies/whisky.owl#" prefix="sch: http://schema.org/">
+  <!-- The content inside the table describes a SingleMaltWhisky -->
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" typeof="SingleMaltWhisky">
     <tr>
       <td height="125" colspan="2"><img src="logo.png" width="342" height="80" /></td>
       <td height="125" colspan="3" class="test">&nbsp;</td>
@@ -27,7 +28,8 @@
     </tr>
     <tr>
       <td width="18%" height="309" rowspan="17">&nbsp;</td>
-      <td colspan="3" rowspan="2" class="header">Highland Park 12 Years</td>
+      <!-- The name of the whisky is "Highland Park 12 Years" -->
+      <td colspan="3" rowspan="2" class="header" property="hasName">Highland Park 12 Years</td>
       <td height="44" class="block">About the distillery</td>
     </tr>
     <tr>
@@ -36,7 +38,8 @@
     <tr>
       <td width="100" height="152" rowspan="7"><img src="whiskypic.jpg" /></td>
       <td>
-        <p>3.7 (624)</p>
+        <!-- The whisky has an aggregate rating of 3.7 -->
+        <p><span property="hasRating">3.7</span> (624)</p>
       </td>
       <td height="32" colspan="2" class="block">Details about this bottle</td>
       <td rowspan="7">&nbsp;</td>
@@ -50,42 +53,58 @@
     <tr>
       <td height="29" class="blockToDetails">Distillery:</td>
       <td height="29" class="blockToDetails">
-        <p>Highland Park</p>
+        <!-- Whisky is distilled by a distillery named "Highland Park" -->
+        <span property="distilledBy" typeof="Distillery">
+          <p property="hasName">Highland Park</p>
+        </span>
       </td>
     </tr>
     <tr>
       <td height="32" class="blockToDetails">Country, Region:</td>
       <td height="32" class="blockToDetails">
-        <p>Scotland, Islands</p>
+        <!-- Whisky is produced in the region Islands, which is
+             a region in Scotland -->
+        <span property="producedIn" typeof="Region">
+          <p>
+            <span property="isRegionOf" typeof="Country">
+              <span property="hasName">Scotland</span>
+        </span>,
+        <span property="hasName">Islands</span>
+        </p>
+        </span>
       </td>
     </tr>
     <tr>
       <td height="30" class="blockToDetails">Type:</td>
       <td height="30" class="blockToDetails">
+        <!-- Type of whisky declared at top (table) -->
         <p>Single Malt</p>
       </td>
     </tr>
     <tr>
       <td height="35" class="blockToDetails">Age:</td>
       <td height="35" class="blockToDetails">
-        <p>12 Years</p>
+        <!-- The whisky's age is 12 years -->
+        <p><span property="hasAge">12</span> Years</p>
       </td>
     </tr>
     <tr>
       <td height="44" class="blockToDetails">ABV:</td>
       <td height="44" class="blockToDetails">
-        <p>40%</p>
+        <!-- Whisky has a alcohol percentage 40% -->
+        <p><span property="hasABV">40</span>%</p>
       </td>
     </tr>
     <tr>
       <td height="44" class="blockToDetails">Bottle size:</td>
       <td height="44" class="blockToDetails">
-        <p>0.7 l</p>
+        <!-- Whisky has a bottle size of 0.7 litres -->
+        <p><span property="hasBottleSize">0.7</span> l</p>
       </td>
     </tr>
     <tr>
       <td height="44" class="blockToDetails">Bottler:</td>
-      <!--  -->
+      <!-- Original bottling means that the distillery is the bottler -->
       <td height="44" class="blockToDetails">
         <p>Original bottling</p>
       </td>
@@ -93,12 +112,23 @@
     <tr>
       <td height="44" class="blockToDetails">Maturing:</td>
       <td height="44" class="blockToDetails">
-        <p>Bourbon, Sherry</p>
+        <p>
+          <span property="hasMaturingType" typeof="MaturingType">
+            <span property="hasName">Bourbon</span>
+          </span>,
+          <span property="hasMaturingType" typeof="MaturingType" property="hasName">
+            <span property="hasName">Sherry</span>
+          </span>
+        </p>
       </td>
     </tr>
     <tr>
       <td height="44" class="blockToDetails">Post treatment:</td>
       <td height="44" class="blockToDetails">
+        <!-- The whisky has a been treated with ChillFiltration -->
+        <span property="hasTreatment" typeof="WhiskyTreatment">
+          <span property="hasName" content="ChillFiltration"></span>
+        </span>
         <img title="Chill filtration - With" alt="Chill filtration - With" src="snowflake.png" width="16" height="17">
         <img title="Artifical colouring - Without" alt="Artifical colouring - Without" src="stain-crossed.png" width="20" height="20">
       </td>
@@ -118,22 +148,79 @@
     </tr>
     <tr>
       <td height="44" class="blockToDetails">
-        <p>Peat Smoke:</p><img title "Peat Smoke" alt="Peat Smoke 5" src="Specifications/ps_5.png">
-        <p>Sherry:</p><img title "Sherry" alt="Sherry 3" src="Specifications/sherry_3.png">
-        <p>Heather:</p><img title "Heather" alt="Heather 2.5" src="Specifications/heather_25.png">
-        <p>Sweet:</p><img title "Sweet" alt="Sweet 2.5" src="Specifications/sweet_25.png">
+        <!-- The whisky has a certain smell -->
+        <span property="hasNosingSpecification" typeof="Specification">
+          <!-- describe the smell -->
+          <p><span property="hasSpecificationContent">Peat Smoke</span>:</p>
+          <img title "Peat Smoke" alt="Peat Smoke 5" src="Specifications/ps_5.png">
+          <!-- describe the value presented by the picture -->
+          <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sherry</span>:</p>
+          <img title "Sherry" alt="Sherry 3" src="Specifications/sherry_3.png">
+          <span property="hasSpecificationValue" content="3"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Heather</span>:</p>
+          <img title "Heather" alt="Heather 2.5" src="Specifications/heather_25.png">
+          <span property="hasSpecificationValue" content="2.5"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sweet</span>:</p>
+          <img title "Sweet" alt="Sweet 2.5" src="Specifications/sweet_25.png">
+          <span property="hasSpecificationValue" content="2.5"></span>
+        </span>
       </td>
       <td height="44" class="blockToDetails">
-        <p>Peat Smoke:</p><img title "Peat Smoke" alt="Peat Smoke 5" src="Specifications/ps_5.png">
-        <p>Sweet:</p><img title "Sweet" alt="Sweet 3" src="Specifications/sweet_3.png">
-        <p>Malt:</p><img title "Malt" alt="Malt 3" src="Specifications/malt_3.png">
-        <p>Sherry:</p><img title "Sherry" alt="Sherry 2" src="Specifications/sherry_2.png">
+        <!-- The whisky has a certain taste -->
+        <span property="hasTasteSpecification" typeof="Specification">
+          <!-- describe the taste -->
+          <p><span property="hasSpecificationContent">Peat Smoke</span>:</p>
+          <img title "Peat Smoke" alt="Peat Smoke 5" src="Specifications/ps_5.png">
+          <!-- describe the value presented by the picture -->
+          <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sweet</span>:</p>
+          <img title "Sweet" alt="Sweet 3" src="Specifications/sweet_3.png">
+          <span property="hasSpecificationValue" content="3"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Malt</span>:</p>
+          <img title "Malt" alt="Malt 3" src="Specifications/malt_3.png">
+          <span property="hasSpecificationValue" content="3"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sherry</span>:</p>
+          <img title "Sherry" alt="Sherry 2" src="Specifications/sherry_2.png">
+          <span property="hasSpecificationValue" content="2"></span>
+        </span>
       </td>
       <td height="44" class="blockToDetails">
-        <p>Peat Smoke:</p><img title "Peat Smoke" alt="Peat Smoke 5" src="Specifications/ps_5.png">
-        <p>Malt:</p><img title "Malt" alt="Malt 2.5" src="Specifications/malt_25.png">
-        <p>Spices:</p><img title "Spices" alt="Spices 2" src="Specifications/spices_2.png">
-        <p>Heather:</p><img title "Heather" alt="Heather 2" src="Specifications/heather_2.png">
+        <!-- The whisky has a certain finish -->
+        <span property="hasFinishSpecification" typeof="Specification">
+          <!-- describe the finish -->
+          <p><span property="hasSpecificationContent">Peat Smoke</span>:</p>
+          <img title "Peat Smoke" alt="Peat Smoke 5" src="Specifications/ps_5.png">
+          <!-- describe the value presented by the picture -->
+          <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Malt</span>:</p>
+          <img title "Malt" alt="Malt 2.5" src="Specifications/malt_25.png">
+          <span property="hasSpecificationValue" content="2.5"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Spices</span>:</p>
+          <img title "Spices" alt="Spices 2" src="Specifications/spices_2.png">
+          <span property="hasSpecificationValue" content="2"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Heather</span>:</p>
+          <img title "Heather" alt="Heather 2" src="Specifications/heather_2.png">
+          <span property="hasSpecificationValue" content="2"></span>
+        </span>
       </td>
     </tr>
     <tr>
