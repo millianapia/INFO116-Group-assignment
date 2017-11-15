@@ -5,7 +5,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Whisky</title>
   <link rel="stylesheet" type="text/css" href="whiskyCSS.css">
-  <!-- JSON-LD MARKUP FOR DESCRIBING THE WHISKY
+
+  <!-- JSON-LD MARKUP FOR DESCRIBING THE WHISKY WITH SCHEMA.ORG
        local-files are used as hypothetical urls -->
   <script type="application/ld+json">
     {
@@ -30,10 +31,53 @@
       "
     }
   </script>
+
+  <!-- JSON-LD MARKUP FOR DESCRIBING THE WHISKY WITH OUR ONTOLOGY
+       local-files are used as hypothetical urls -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://www.whisky.com/ontologies/whisky.owl#",
+      "@type": "SingleMaltWhisky",
+      "url": "HighLand_P12Years.html",
+      "hasAge": "12",
+      "hasABV": "40",
+      "hasBottlesize": "0.7",
+      "hasName": "Highland Park 12 Years",
+      "hasMaturingType": {
+        "@type": "MaturingType",
+        "hasName": "Bourbon"
+      },
+      "hasMaturingType": {
+        "@type": "MaturingType",
+        "hasName": "Sherry"
+      },
+      "hasTreatment": {
+        "@type": "WhiskyTreatment",
+        "hasName": "ChillFiltration"
+      },
+      "producedIn": {
+        "@type": "Region",
+        "hasName": "Islands",
+        "isRegionOf": {
+          "@type": "Country",
+          "hasName": "Scotland"
+        }
+      },
+      "distilledBy": {
+        "@type": "Distillery",
+        "hasName": "Highland Park"
+      },
+      "hasBottler": {
+        "@type": "WhiskyBottler",
+        "hasName": "Highland Park"
+      }
+    }
+  </script>
+
 </head>
 
-<body vocab="http://www.whisky.com/ontologies/whisky.owl#">
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" typeof="SingleMaltWhisky">
+<body vocab="http://www.whisky.com/ontologies/whisky.owl#" prefix="sch: http://schema.org/">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" typeof="SingleMaltWhisky sch:Product">
     <tr>
       <td height="125" colspan="2"><img src="logo.png" width="342" height="80" /></td>
       <td height="125" colspan="5" class="test">&nbsp;</td>
@@ -53,16 +97,29 @@
     <tr>
       <td width="226" height="309" rowspan="17">&nbsp;</td>
       <!-- The name of the whisky is "Highland Park 12 Years" -->
-      <td colspan="4" class="header" property="hasName">Highland Park 12 Years</td>
+      <td colspan="4" class="header" property="hasName sch:name">Highland Park 12 Years</td>
       <td width="39" height="41">&nbsp;</td>
       <td width="348" height="41" class="block">About the distillery<img src="../608668861c5d867a901944ca93d49276.png" width="375" height="237" /></td>
     </tr>
     <tr>
       <td width="20%">
-        <p>In 1979 Highland Park protected their standard bottling, the 12-year-old single malt, with a copyright. Today it is still the most important malt in the range of the distillery.</p>
-        <!-- The aggreagate rating of the whisky -->
+
+        <!-- The description of the whisky -->
+        <p property="sch:description">In 1979 Highland Park protected their
+          standard bottling, the 12-year-old single malt, with a copyright.
+          Today it is still the most important malt in the range of the distillery.
+        </p>
+
         <img src="rating.png" />
+        <!-- The aggreagate rating of the whisky -->
         <p id="rating"><span property="hasRating">3.7</span> (624)</p>
+
+        <!-- The aggreagate rating of the whisky; schema -->
+        <span property="sch:aggregateRating" typeof="sch:AggregateRating">
+          <span property="sch:ratingValue" content="3.7"></span>
+          <span property="sch:ratingCount" content="624"></span>
+        </span>
+
       </td>
     </tr>
     <tr>
@@ -72,7 +129,8 @@
     <tr>
       <td width="150" height="22" class="blockToDetails">WhiskeyID:</td>
       <td width="602" height="22" class="blockToDetails">
-        <p>97</p>
+        <!-- The id belonging to the whisky -->
+        <p property="hasID sch:productID">97</p>
       </td>
     </tr>
     <tr>
@@ -80,7 +138,7 @@
       <td height="29" class="blockToDetails">
         <!-- Whisky is distilled by a distillery named "Highland Park" -->
         <span property="distilledBy" typeof="Distillery">
-          <p property="hasName">Highland Park</p>
+          <p property="hasName sch:manufacturer sch:brand">Highland Park</p>
         </span>
       </td>
     </tr>
