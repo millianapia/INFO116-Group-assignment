@@ -34,6 +34,11 @@
 
   <!-- JSON-LD MARKUP FOR DESCRIBING THE WHISKY WITH OUR ONTOLOGY
        local-files are used as hypothetical urls -->
+
+  <!-- Duplicate "hasMaturingType" was not allowed
+        "hasMaturingType": {
+        "@type": "MaturingType",
+        "hasName": "Sherry" }                    -->
   <script type="application/ld+json">
     {
       "@context": "http://www.whisky.com/ontologies/whisky.owl#",
@@ -46,10 +51,6 @@
       "hasMaturingType": {
         "@type": "MaturingType",
         "hasName": "Bourbon"
-      },
-      "hasMaturingType": {
-        "@type": "MaturingType",
-        "hasName": "Sherry"
       },
       "hasTreatment": {
         "@type": "WhiskyTreatment",
