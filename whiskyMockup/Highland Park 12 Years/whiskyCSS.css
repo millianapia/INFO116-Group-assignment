@@ -95,3 +95,6 @@ block {
 .header span {
 	font-size: 16px;
 }
+#rating {
+	display:inline;
+}
