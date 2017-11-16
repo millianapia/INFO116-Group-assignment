@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Whisky</title>
+  <link rel="stylesheet" type="text/css" href="whiskyCSS.css">
+
+  <!-- JSON-LD MARKUP FOR DESCRIBING THE WHISKY WITH SCHEMA.ORG
+       local-files are used as hypothetical urls -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Product",
+      "url": "Jameson_18_Years.html",
+      "productID": "1330",
+      "brand": "Jameson",
+      "name": "Jameson 18 Years",
+      "image": "jameson.jpg",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.6",
+        "ratingCount": "38",
+        "bestRating": "5"
+      },
+      "description": "Matured for 18 years in hand-selected oak casks from Europe and America, this rare whiskey is finished in first-fill bourbon barrels. This rite of passage introduces subtle traces of vanilla to an exceptionally balanced, mellow whiskey with a lingering finale of wood, spice and toffee. An elder statesman of our portfolio, each bottle of this unique whiskey is individually numbered."
+    }
+  </script>
+
+  <!-- JSON-LD MARKUP FOR DESCRIBING THE WHISKY WITH OUR ONTOLOGY
+       local-files are used as hypothetical urls -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://www.whisky.com/ontologies/whisky.owl#",
+      "@type": "BlendWhisky",
+      "url": "Jameson_18_Years.html",
+      "hasAge": "18",
+      "hasABV": "40",
+      "hasBottlesize": "0.7",
+      "hasName": "Jameson 18 Years",
+      "hasMaturingType": {
+        "@type": "MaturingType",
+        "hasName": "Sherry - Oloroso"
+      },
+      "hasTreatment": [{ "@type": "WhiskyTreatment", "hasName": "ChillFiltration"}, {"@type": "MaturingType","hasName": "Sherry" }],
+      "producedIn": {
+        "@type": "Region",
+        "hasName": "Midleton",
+        "isRegionOf": {
+          "@type": "Country",
+          "hasName": "Ireland"
+        }
+      },
+      "distilledBy": {
+        "@type": "Distillery",
+        "hasName": "Midleton"
+      },
+      "hasBottler": {
+        "@type": "WhiskyBottler",
+        "hasName": "Midleton"
+      }
+    }
+  </script>
+
+</head>
+
+<body vocab="http://www.whisky.com/ontologies/whisky.owl#" prefix="sch: http://schema.org/">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" typeof="BlendWhisky sch:Product">
+    <tr>
+      <td height="125" colspan="2"><img src="logo.png" width="342" height="80" /></td>
+      <td height="125" colspan="5" class="test">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="50" colspan="2">&nbsp;</td>
+      <td colspan="5" class="test"> <img src="7cfd60ac211bdd8cae564f12d4ab7a1b.png" width="500" height="50" /></td>
+    </tr>
+    <tr>
+      <td height="55" colspan="2" class="whiskyMenu"><img src="40f18a6b4109961c7a4261987e216f37.png" width="454" height="33" /></td>
+      <td height="55" colspan="5" class="whiskyMenu">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="34" colspan="4">&nbsp;</td>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="226" height="309" rowspan="17">&nbsp;</td>
+      <!-- The name of the whisky is "Highland Park 12 Years" -->
+      <td colspan="4" class="header" property="hasName sch:name">Jameson 18 Years</td>
+      <td width="39" height="41">&nbsp;</td>
+      <td width="348" height="41" class="block">About the distillery<img src="../608668861c5d867a901944ca93d49276.png" width="375" height="237" /></td>
+    </tr>
+    <tr>
+      <td width="20%">
+
+        <!-- The description of the whisky -->
+        <p property="sch:description">Matured for 18 years in hand-selected oak casks from Europe and America, this rare whiskey is finished in first-fill bourbon barrels. This rite of passage introduces subtle traces of vanilla to an exceptionally balanced, mellow whiskey with a lingering finale of wood, spice and toffee. An elder statesman of our portfolio, each bottle of this unique whiskey is individually numbered.
+        </p>
+
+        <img src="rating.png" />
+        <!-- The aggreagate rating of the whisky -->
+        <p id="rating"><span property="hasRating">4.6</span> (38)</p>
+
+        <!-- The aggreagate rating of the whisky; schema -->
+        <span property="sch:aggregateRating" typeof="sch:AggregateRating">
+          <span property="sch:ratingValue" content="4.6"></span>
+          <span property="sch:ratingCount" content="38"></span>
+        </span>
+
+      </td>
+    </tr>
+    <tr>
+      <td width="238" height="152" rowspan="12">
+        <!-- Image depicting the whisky -->
+        <img property="sch:image" src="jameson.jpg"/>
+      </td>
+      <td height="28" colspan="3" class="block">Details about this bottle</td>
+    </tr>
+    <tr>
+      <td width="150" height="22" class="blockToDetails">WhiskeyID:</td>
+      <td width="602" height="22" class="blockToDetails">
+        <!-- The id belonging to the whisky -->
+        <p property="hasID sch:productID">1330</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="29" class="blockToDetails">Distillery:</td>
+      <td height="29" class="blockToDetails">
+        <!-- Whisky is distilled by a distillery named "Midleton" -->
+        <span property="distilledBy" typeof="Distillery">
+          <p property="hasName">Midleton</p>
+        </span>
+         <!-- sch:Product has brand and manufacturer -->
+        <span property="sch:manufacturer sch:brand" content="Highland Park"></span>
+      </td>
+    </tr>
+    <tr>
+      <td height="32" class="blockToDetails">Country, Region:</td>
+      <td height="32" class="blockToDetails">
+        <!-- Whisky is produced in the region Midleton, which is
+             a region in Ireland -->
+        <span property="producedIn" typeof="Region">
+          <p>
+            <span property="isRegionOf" typeof="Country">
+              <span property="hasName">Ireland</span>
+        </span>,
+        <span property="hasName">Midleton</span>
+        </p>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td height="30" class="blockToDetails">Type:</td>
+      <td height="30" class="blockToDetails">
+        <!-- Type of whisky declared at top (table) -->
+        <p>Sherry - Oloroso</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="35" class="blockToDetails">Age:</td>
+      <td height="35" class="blockToDetails">
+        <!-- The whisky's age is 18 years -->
+        <p><span property="hasAge">18</span> Years</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">ABV:</td>
+      <!-- Whisky has a alcohol percentage 40% -->
+
+      <td height="44" class="blockToDetails">
+        <p><span property="hasABV">40</span>%</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">Bottle size:</td>
+      <td height="44" class="blockToDetails">
+        <!-- Whisky has a bottle size of 0.7 litres -->
+        <p><span property="hasBottleSize">0.7</span> l</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">Bottler:</td>
+      <td height="44" class="blockToDetails">
+        <!-- Original bottling means that the distillery is the bottler -->
+        <p>Original bottling</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">Maturing</td>
+      <td height="44" class="blockToDetails">
+        <p>
+          <span property="hasMaturingType" typeof="MaturingType">
+            <span property="hasName">Sherry - Oloroso</span>
+          </span>,
+          <span property="hasMaturingType" typeof="MaturingType" property="hasName">
+            <span property="hasName">Sherry</span>
+          </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td height="28" class="blockToDetails">Post treatment:</td>
+      <td height="28" class="blockToDetails">
+        <!-- The whisky has a been treated with ChillFiltration -->
+        <span property="hasTreatment" typeof="WhiskyTreatment">
+          <span property="hasName" content="ChillFiltration"></span>
+        </span>
+        <img title="Chill filtration - With" alt="Chill filtration - With" src="snowflake.png" width="16" height="17">
+        <img title="Artifical colouring - With" alt="Artifical colouring - With" src="stain.png" width="20" height="20">
+      </td>
+    </tr>
+    <tr>
+      <td height="30" colspan="2">&nbsp;</td>
+      <td height="30">&nbsp;</td>
+      <td width="39">&nbsp;</td>
+      <td width="348" class="block">Top 10 collected</td>
+      <td height="30">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="26" class="block">Average tasting notes</td>
+      <td height="26" class="block">&nbsp;</td>
+      <td height="26" class="block">&nbsp;</td>
+      <td colspan="2" rowspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="33" class="blockToDetails">Nosing</td>
+      <td height="33" class="blockToDetails">Tasting</td>
+      <td height="33" class="blockToDetails">Finish</td>
+    </tr>
+    <tr>
+
+      <td height="44" class="blockToDetails">
+        <!-- The whisky has a certain smell -->
+        <span property="hasNosingSpecification" typeof="Specification">
+          <!-- describe the smell -->
+          <p><span property="hasSpecificationContent">Oak</span>:</p>
+        <img title "Oak" alt="Oak" src="Specifications/oak.png">
+        <!-- describe the value presented by the picture -->
+        <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sherry</span>:</p>
+        <img title "Sherry" alt="Sherry 4" src="Specifications/sherry_4.png">
+        <span property="hasSpecificationValue" content="4"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Fruit</span>:</p>
+        <img title "Fruit" alt="Fruit 1.5" src="Specifications/fruit_1.5.png">
+        <span property="hasSpecificationValue" content="1.5"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Caramel</span>:</p>
+        <img title "Caramel" alt="Caramel 1.5" src="Specifications/caramel_1.5.png">
+        <span property="hasSpecificationValue" content="1.5"></span>
+        </span>
+      </td>
+
+      <td height="44" class="blockToDetails">
+        <!-- The whisky has a certain taste -->
+        <span property="hasTasteSpecification" typeof="Specification">
+          <!-- describe the taste -->
+          <p><span property="hasSpecificationContent">Sherry</span>:</p>
+        <img title "Sherry" alt="Sherry 5" src="Specifications/sherry_5.png">
+        <!-- describe the value presented by the picture -->
+        <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Spices</span>:</p>
+        <img title "Spices" alt="Spices 4" src="Specifications/spices_4.png">
+        <span property="hasSpecificationValue" content="4"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Fruit</span>:</p>
+        <img title "Fruit" alt="Fruit 2" src="Specifications/fruit_2.png">
+        <span property="hasSpecificationValue" content="2"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Nuts</span>:</p>
+        <img title "Nuts" alt="Nuts 2" src="Specifications/nuts_2.png">
+        <span property="hasSpecificationValue" content="2"></span>
+        </span>
+      </td>
+
+      <td height="44" class="blockToDetails">
+        <!-- The whisky has a certain finish -->
+        <span property="hasFinishSpecification" typeof="Specification">
+          <!-- describe the finish -->
+          <p><span property="hasSpecificationContent">Spices</span>:</p>
+        <img title "Spices" alt="Spices 5" src="Specifications/spices_5.png">
+        <!-- describe the value presented by the picture -->
+        <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Oak</span>:</p>
+        <img title "Oak" alt="Oak 4" src="Specifications/oak_4.png">
+        <span property="hasSpecificationValue" content="4"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sweet</span>:</p>
+        <img title "Sweet" alt="Sweet 3" src="Specifications/sweet_3.png">
+        <span property="hasSpecificationValue" content="3"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Fruit</span>:</p>
+        <img title "Fruit" alt="Fruit 1" src="Specifications/fruit_1.png">
+        <span property="hasSpecificationValue" content="1"></span>
+        </span>
+      </td>
+
+    </tr>
+
+
+    <tr>
+      <td height="365" colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="23" colspan="6" class="block">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="208" colspan="6" class="bottom">
+        <p class="bottom">Copyright © 1994-2017<br /> Whisky.com Media GmbH &amp; Co. KG <br /> Am Grundwassersee 4 · DE 82402 Seeshaupt · Germany<br />
+          <a href="https://www.whisky.com/information/about-us/legal-notice.html" title="Öffnet internen Link im aktuellen Fenster">Legal Notice</a></p>
+        <p><a href="https://www.whisky.com/information/about-us/media-kit.html" title="Advertising on Whisky.com">Advertising on Whisky.com</a></p>
+      </td>
+      <td width="4" height="208" class="bottom">&nbsp;</td>
+    </tr>
+  </table>
+</body>
+
+</html>
