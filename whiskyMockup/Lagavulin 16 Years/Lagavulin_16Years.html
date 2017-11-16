@@ -82,7 +82,7 @@
     </tr>
     <tr>
       <td width="226" height="309" rowspan="17">&nbsp;</td>
-      <!-- The name of the whisky is "Highland Park 12 Years" -->
+      <!-- The name of the whisky/sch:Product is "Highland Park 12 Years" -->
       <td colspan="4" class="header" property="hasName sch:name">Lagavulin 16 Years</td>
       <td width="39" height="41">&nbsp;</td>
       <td width="348" height="41" class="block">About the distillery<img src="map.png" width="375" height="237" /></td>
@@ -90,9 +90,9 @@
     <tr>
       <td width="20%">
 
-        <!-- The description of the whisky -->
-        <p property="sch:description">The Lagavulin 16 is an Islay classic with a high peat content. 
-          The stills of the distillery are pear-shaped, so all the flavours are kept in the malt. 
+        <!-- The description of the sch:Product -->
+        <p property="sch:description">The Lagavulin 16 is an Islay classic with a high peat content.
+          The stills of the distillery are pear-shaped, so all the flavours are kept in the malt.
           The Lagavulin 16 single malt is matured in bourbon and sherry casks.
         </p>
 
@@ -100,7 +100,7 @@
         <!-- The aggreagate rating of the whisky -->
         <p id="rating"><span property="hasRating">4.5</span> (841)</p>
 
-        <!-- The aggreagate rating of the whisky; schema -->
+        <!-- The aggreagate rating of the sch:Product -->
         <span property="sch:aggregateRating" typeof="sch:AggregateRating">
           <span property="sch:ratingValue" content="3.7"></span>
           <span property="sch:ratingCount" content="624"></span>
@@ -118,7 +118,7 @@
     <tr>
       <td width="150" height="22" class="blockToDetails">WhiskeyID:</td>
       <td width="602" height="22" class="blockToDetails">
-        <!-- The id belonging to the whisky -->
+        <!-- The id belonging to the whisky/sch:Product -->
         <p property="hasID sch:productID">6</p>
       </td>
     </tr>
@@ -127,8 +127,10 @@
       <td height="29" class="blockToDetails">
         <!-- Whisky is distilled by a distillery named "Lagavulin" -->
         <span property="distilledBy" typeof="Distillery">
-          <p property="hasName sch:manufacturer sch:brand">Lagavulin</p>
+          <p property="hasName">Lagavulin</p>
         </span>
+        <!-- sch:Product has brand and manufacturer -->
+        <span property="sch:manufacturer sch:brand" content="Lagavulin"></span>
       </td>
     </tr>
     <tr>
@@ -179,6 +181,9 @@
       <td height="44" class="blockToDetails">Bottler:</td>
       <td height="44" class="blockToDetails">
         <!-- Original bottling means that the distillery is the bottler -->
+        <span property="hasBottler" typeof="WhiskyBottler">
+          <span property="hasName" content="Lagavulin"></span>
+        </span>
         <p>Original bottling</p>
       </td>
     </tr>
@@ -198,9 +203,12 @@
     <tr>
       <td height="28" class="blockToDetails">Post treatment:</td>
       <td height="28" class="blockToDetails">
-        <!-- The whisky has a been treated with ChillFiltration -->
+        <!-- The whisky has a been treated with ChillFiltration & ArtificalColouring -->
         <span property="hasTreatment" typeof="WhiskyTreatment">
           <span property="hasName" content="ChillFiltration"></span>
+        </span>
+        <span property="hasTreatment" typeof="WhiskyTreatment">
+          <span property="hasName" content="ArtificalColouring"></span>
         </span>
         <img title="Chill filtration - With" alt="Chill filtration - With" src="snowflake.png" width="16" height="17">
         <img title="Artifical colouring - With" alt="Artifical colouring - With" src="stain.png" width="20" height="20">
