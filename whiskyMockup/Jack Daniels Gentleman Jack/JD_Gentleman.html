@@ -42,7 +42,7 @@
         "@type": "MaturingType",
         "hasName": "Virgin"
       },
-      "hasTreatment": [{ "@type": "WhiskyTreatment", "hasName": "ChillFiltration"}, {"@type": "MaturingType","hasName": "Sherry" }],
+      "hasTreatment": [{ "@type": "WhiskyTreatment", "hasName": "ChillFiltration"}],
       "producedIn": {
         "@type": "Region",
         "hasName": "Tennessee",
@@ -125,7 +125,7 @@
     <tr>
       <td height="29" class="blockToDetails">Distillery:</td>
       <td height="29" class="blockToDetails">
-        <!-- Whisky is distilled by a distillery named "Highland Park" -->
+        <!-- Whisky is distilled by a distillery named "Jack Daniel's" -->
         <span property="distilledBy" typeof="Distillery">
           <p property="hasName">Jack Daniel's</p>
         </span>
@@ -183,11 +183,8 @@
       <td height="44" class="blockToDetails">Maturing</td>
       <td height="44" class="blockToDetails">
         <p>
-          <!-- The whisky has been matured with types; Bourbon & Sherry -->
+          <!-- The whisky has been matured with type; Virgin -->
           <span property="hasMaturingType" typeof="MaturingType">
-            <span property="hasName">Virgin</span>
-          </span>,
-          <span property="hasMaturingType" typeof="MaturingType" property="hasName">
             <span property="hasName">Virgin</span>
           </span>
         </p>
