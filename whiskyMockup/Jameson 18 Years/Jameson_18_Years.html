@@ -42,7 +42,13 @@
         "@type": "MaturingType",
         "hasName": "Sherry - Oloroso"
       },
-      "hasTreatment": [{ "@type": "WhiskyTreatment", "hasName": "ChillFiltration"}, {"@type": "WhiskyTreatment", "hasName": "ArtificialColoring"}],
+      "hasTreatment": [{
+        "@type": "WhiskyTreatment",
+        "hasName": "ChillFiltration"
+      }, {
+        "@type": "WhiskyTreatment",
+        "hasName": "ArtificialColoring"
+      }],
       "producedIn": {
         "@type": "Region",
         "hasName": "Midleton",
@@ -93,7 +99,8 @@
       <td width="20%">
 
         <!-- The description of the sch:Product -->
-        <p property="sch:description">Matured for 18 years in hand-selected oak casks from Europe and America, this rare whiskey is finished in first-fill bourbon barrels. This rite of passage introduces subtle traces of vanilla to an exceptionally balanced, mellow whiskey with a lingering finale of wood, spice and toffee. An elder statesman of our portfolio, each bottle of this unique whiskey is individually numbered.
+        <p property="sch:description">Matured for 18 years in hand-selected oak casks from Europe and America, this rare whiskey is finished in first-fill bourbon barrels. This rite of passage introduces subtle traces of vanilla to an exceptionally balanced, mellow whiskey with a
+          lingering finale of wood, spice and toffee. An elder statesman of our portfolio, each bottle of this unique whiskey is individually numbered.
         </p>
 
         <img src="rating.png" />
@@ -103,7 +110,7 @@
         <!-- The aggreagate rating of the sch:Product -->
         <span property="sch:aggregateRating" typeof="sch:AggregateRating">
           <span property="sch:ratingValue" content="4.6"></span>
-          <span property="sch:ratingCount" content="38"></span>
+        <span property="sch:ratingCount" content="38"></span>
         </span>
 
       </td>
@@ -111,7 +118,7 @@
     <tr>
       <td width="238" height="152" rowspan="12">
         <!-- Image depicting the sch:Product -->
-        <img property="sch:image" src="jameson.jpg"/>
+        <img property="sch:image" src="jameson.jpg" />
       </td>
       <td height="28" colspan="3" class="block">Details about this bottle</td>
     </tr>
@@ -129,8 +136,9 @@
         <span property="distilledBy" typeof="Distillery">
           <p property="hasName">Midleton</p>
         </span>
-         <!-- sch:Product has brand and manufacturer -->
-        <span property="sch:manufacturer sch:brand" content="Highland Park"></span>
+        <!-- sch:Product has brand and manufacturer -->
+        <span property="sch:manufacturer" content="Midleton"></span>
+        <span property="sch:brand" content="Jameson"></span>
       </td>
     </tr>
     <tr>
@@ -138,14 +146,12 @@
       <td height="32" class="blockToDetails">
         <!-- Whisky is produced in the region Midleton, which is
              a region in Ireland -->
-        <span property="producedIn" typeof="Region">
-          <p>
-            <span property="isRegionOf" typeof="Country">
+        <p>
+          <span property="producedIn" typeof="Country">
               <span property="hasName">Ireland</span>
-        </span>,
-        <span property="hasName">Midleton</span>
+          </span>
         </p>
-        </span>
+
       </td>
     </tr>
     <tr>
@@ -165,7 +171,6 @@
     <tr>
       <td height="44" class="blockToDetails">ABV:</td>
       <!-- Whisky has a alcohol percentage 40% -->
-
       <td height="44" class="blockToDetails">
         <p><span property="hasABV">40</span>%</p>
       </td>
@@ -231,7 +236,6 @@
       <td height="33" class="blockToDetails">Finish</td>
     </tr>
     <tr>
-
       <td height="44" class="blockToDetails">
         <!-- The whisky has a certain smell -->
         <span property="hasNosingSpecification" typeof="Specification">
@@ -309,7 +313,6 @@
         <span property="hasSpecificationValue" content="1"></span>
         </span>
       </td>
-
     </tr>
 
 
