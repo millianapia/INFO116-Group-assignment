@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Whisky</title>
+  <link rel="stylesheet" type="text/css" href="whiskyCSS.css">
+
+  <!-- JSON-LD MARKUP FOR DESCRIBING THE WHISKY WITH SCHEMA.ORG
+       local-files are used as hypothetical urls -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Product",
+      "url": "JD_Gentleman.html",
+      "productID": "103",
+      "brand": "Jack Daniels",
+      "manufacturer": "Jack Daniels",
+      "name": "Jack Daniel's Gentleman Jack",
+      "image": "JD_Gentl.png",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "2.8",
+        "ratingCount": "101",
+        "bestRating": "5"
+      },
+      "description": "Gentleman Jack is a double-filtered Jack Daniel's. It's filtered before maturation and a second time before bottling. This results in a sweet, mild and remarkably smooth whiskey."
+    }
+  </script>
+
+  <!-- JSON-LD MARKUP FOR DESCRIBING THE WHISKY WITH OUR ONTOLOGY
+       local-files are used as hypothetical urls -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://www.whisky.com/ontologies/whisky.owl#",
+      "@type": "TennesseeWhisky",
+      "url": "JD_Gentleman.html",
+      "hasABV": "40",
+      "hasBottlesize": "0.7",
+      "hasName": "Jack Daniels Gentleman Jack",
+      "hasMaturingType": {
+        "@type": "MaturingType",
+        "hasName": "Virgin"
+      },
+      "hasTreatment": [{ "@type": "WhiskyTreatment", "hasName": "ChillFiltration"}, {"@type": "MaturingType","hasName": "Sherry" }],
+      "producedIn": {
+        "@type": "Region",
+        "hasName": "Tennessee",
+        "isRegionOf": {
+          "@type": "Country",
+          "hasName": "USA"
+        }
+      },
+      "distilledBy": {
+        "@type": "Distillery",
+        "hasName": "Jack Daniel's"
+      },
+      "hasBottler": {
+        "@type": "WhiskyBottler",
+        "hasName": "Jack Daniel's"
+      }
+    }
+  </script>
+
+</head>
+
+<body vocab="http://www.whisky.com/ontologies/whisky.owl#" prefix="sch: http://schema.org/">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" typeof="SingleMaltWhisky sch:Product">
+    <tr>
+      <td height="125" colspan="2"><img src="logo.png" width="342" height="80" /></td>
+      <td height="125" colspan="5" class="test">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="50" colspan="2">&nbsp;</td>
+      <td colspan="5" class="test"> <img src="7cfd60ac211bdd8cae564f12d4ab7a1b.png" width="500" height="50" /></td>
+    </tr>
+    <tr>
+      <td height="55" colspan="2" class="whiskyMenu"><img src="40f18a6b4109961c7a4261987e216f37.png" width="454" height="33" /></td>
+      <td height="55" colspan="5" class="whiskyMenu">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="34" colspan="4">&nbsp;</td>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="226" height="309" rowspan="17">&nbsp;</td>
+      <!-- The name of the whisky/sch:Product is "Jack Daniel's Gentleman Jack" -->
+      <td colspan="4" class="header" property="hasName sch:name">Jack Daniel's Gentleman Jack</td>
+      <td width="39" height="41">&nbsp;</td>
+      <td width="348" height="41" class="block">About the distillery<img src="../608668861c5d867a901944ca93d49276.png" width="375" height="237" /></td>
+    </tr>
+    <tr>
+      <td width="20%">
+
+        <!-- The description of sch:Product -->
+        <p property="sch:description">Gentleman Jack is a double-filtered Jack Daniel's. It's filtered before maturation and a second time before bottling. This results in a sweet, mild and remarkably smooth whiskey.
+        </p>
+
+        <img src="rating.png" />
+        <!-- The aggreagate rating of the whisky -->
+        <p id="rating"><span property="hasRating">2.8</span> (101)</p>
+
+        <!-- The aggreagate rating of the sch:Product -->
+        <span property="sch:aggregateRating" typeof="sch:AggregateRating">
+          <span property="sch:ratingValue" content="2.8"></span>
+          <span property="sch:ratingCount" content="101"></span>
+        </span>
+
+      </td>
+    </tr>
+    <tr>
+      <td width="238" height="152" rowspan="12">
+        <!-- sch:Product has image depicting the product -->
+        <img property="sch:image" src="JD_Gentl.jpg"/>
+      </td>
+      <td height="28" colspan="3" class="block">Details about this bottle</td>
+    </tr>
+    <tr>
+      <td width="150" height="22" class="blockToDetails">WhiskeyID:</td>
+      <td width="602" height="22" class="blockToDetails">
+        <!-- The id belonging to the whisky (and sch:Product) -->
+        <p property="hasID sch:productID">103</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="29" class="blockToDetails">Distillery:</td>
+      <td height="29" class="blockToDetails">
+        <!-- Whisky is distilled by a distillery named "Highland Park" -->
+        <span property="distilledBy" typeof="Distillery">
+          <p property="hasName">Jack Daniel's</p>
+        </span>
+        <!-- sch:Product has brand and manufacturer -->
+        <span property="sch:manufacturer sch:brand" content="Jack Daniel's"></span>
+      </td>
+    </tr>
+    <tr>
+      <td height="32" class="blockToDetails">Country, Region:</td>
+      <td height="32" class="blockToDetails">
+        <!-- Whisky is produced in the region Tennessee, which is
+             a region in USA -->
+        <span property="producedIn" typeof="Region">
+          <p>
+            <span property="isRegionOf" typeof="Country">
+              <span property="hasName">USA</span>
+        </span>,
+        <span property="hasName">Tennessee</span>
+        </p>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td height="30" class="blockToDetails">Type:</td>
+      <td height="30" class="blockToDetails">
+        <!-- Type of whisky declared at top (table) -->
+        <p>Tennessee</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">ABV:</td>
+      <!-- Whisky has a alcohol percentage 40% -->
+      <td height="44" class="blockToDetails">
+        <p><span property="hasABV">40</span>%</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">Bottle size:</td>
+      <td height="44" class="blockToDetails">
+        <!-- Whisky has a bottle size of 0.7 litres -->
+        <p><span property="hasBottleSize">0.7</span> l</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">Bottler:</td>
+      <td height="44" class="blockToDetails">
+        <!-- Original bottling means that the distillery is the bottler -->
+        <span property="hasBottler" typeof="WhiskyBottler">
+          <span property="hasName" content="Jack Daniel's"></span>
+        </span>
+        <p>Original bottling</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">Maturing</td>
+      <td height="44" class="blockToDetails">
+        <p>
+          <!-- The whisky has been matured with types; Bourbon & Sherry -->
+          <span property="hasMaturingType" typeof="MaturingType">
+            <span property="hasName">Virgin</span>
+          </span>,
+          <span property="hasMaturingType" typeof="MaturingType" property="hasName">
+            <span property="hasName">Virgin</span>
+          </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td height="28" class="blockToDetails">Post treatment:</td>
+      <td height="28" class="blockToDetails">
+        <!-- The whisky has a been treated with ChillFiltration -->
+        <span property="hasTreatment" typeof="WhiskyTreatment">
+          <span property="hasName" content="ChillFiltration"></span>
+        </span>
+        <img title="Chill filtration - With" alt="Chill filtration - With" src="snowflake.png" width="16" height="17">
+        <img title="Artifical colouring - Without" alt="Artifical colouring - Without" src="stain-crossed.png" width="20" height="20">
+      </td>
+    </tr>
+    <tr>
+      <td height="30" colspan="2">&nbsp;</td>
+      <td height="30">&nbsp;</td>
+      <td width="39">&nbsp;</td>
+      <td width="348" class="block">Top 10 collected</td>
+      <td height="30">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="26" class="block">Average tasting notes</td>
+      <td height="26" class="block">&nbsp;</td>
+      <td height="26" class="block">&nbsp;</td>
+      <td colspan="2" rowspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="33" class="blockToDetails">Nosing</td>
+      <td height="33" class="blockToDetails">Tasting</td>
+      <td height="33" class="blockToDetails">Finish</td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">
+        <!-- The whisky has a certain smell -->
+        <span property="hasNosingSpecification" typeof="Specification">
+          <!-- describe the smell -->
+          <p><span property="hasSpecificationContent">Peat Smoke</span>:</p>
+        <img title "Peat Smoke" alt="Peat Smoke 5" src="Specifications/ps_5.png">
+        <!-- describe the value presented by the picture -->
+        <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sherry</span>:</p>
+        <img title "Sherry" alt="Sherry 3" src="Specifications/sherry_3.png">
+        <span property="hasSpecificationValue" content="3"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Heather</span>:</p>
+        <img title "Heather" alt="Heather 2.5" src="Specifications/heather_25.png">
+        <span property="hasSpecificationValue" content="2.5"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sweet</span>:</p>
+        <img title "Sweet" alt="Sweet 2.5" src="Specifications/sweet_25.png">
+        <span property="hasSpecificationValue" content="2.5"></span>
+        </span>
+      </td>
+
+      <td height="44" class="blockToDetails">
+        <!-- The whisky has a certain taste -->
+        <span property="hasTasteSpecification" typeof="Specification">
+          <!-- describe the taste -->
+          <p><span property="hasSpecificationContent">Peat Smoke</span>:</p>
+        <img title "Peat Smoke" alt="Peat Smoke 5" src="Specifications/ps_5.png">
+        <!-- describe the value presented by the picture -->
+        <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sweet</span>:</p>
+        <img title "Sweet" alt="Sweet 3" src="Specifications/sweet_3.png">
+        <span property="hasSpecificationValue" content="3"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Malt</span>:</p>
+        <img title "Malt" alt="Malt 3" src="Specifications/malt_3.png">
+        <span property="hasSpecificationValue" content="3"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sherry</span>:</p>
+        <img title "Sherry" alt="Sherry 2" src="Specifications/sherry_2.png">
+        <span property="hasSpecificationValue" content="2"></span>
+        </span>
+      </td>
+
+      <td height="44" class="blockToDetails">
+        <!-- The whisky has a certain finish -->
+        <span property="hasFinishSpecification" typeof="Specification">
+          <!-- describe the finish -->
+          <p><span property="hasSpecificationContent">Peat Smoke</span>:</p>
+        <img title "Peat Smoke" alt="Peat Smoke 5" src="Specifications/ps_5.png">
+        <!-- describe the value presented by the picture -->
+        <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Malt</span>:</p>
+        <img title "Malt" alt="Malt 2.5" src="Specifications/malt_25.png">
+        <span property="hasSpecificationValue" content="2.5"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Spices</span>:</p>
+        <img title "Spices" alt="Spices 2" src="Specifications/spices_2.png">
+        <span property="hasSpecificationValue" content="2"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Heather</span>:</p>
+        <img title "Heather" alt="Heather 2" src="Specifications/heather_2.png">
+        <span property="hasSpecificationValue" content="2"></span>
+        </span>
+      </td>
+    </tr>
+
+    <tr>
+      <td height="365" colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="23" colspan="6" class="block">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="208" colspan="6" class="bottom">
+        <p class="bottom">Copyright © 1994-2017<br /> Whisky.com Media GmbH &amp; Co. KG <br /> Am Grundwassersee 4 · DE 82402 Seeshaupt · Germany<br />
+          <a href="https://www.whisky.com/information/about-us/legal-notice.html" title="Öffnet internen Link im aktuellen Fenster">Legal Notice</a></p>
+        <p><a href="https://www.whisky.com/information/about-us/media-kit.html" title="Advertising on Whisky.com">Advertising on Whisky.com</a></p>
+      </td>
+      <td width="4" height="208" class="bottom">&nbsp;</td>
+    </tr>
+  </table>
+</body>
+
+</html>
