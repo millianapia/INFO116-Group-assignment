@@ -85,7 +85,7 @@
     </tr>
     <tr>
       <td width="226" height="309" rowspan="17">&nbsp;</td>
-      <!-- The name of the whisky is "Highland Park 12 Years" -->
+      <!-- The name of the whisky/sch:Product is "Highland Park 12 Years" -->
       <td colspan="4" class="header" property="hasName sch:name">Highland Park 12 Years</td>
       <td width="39" height="41">&nbsp;</td>
       <td width="348" height="41" class="block">About the distillery<img src="../608668861c5d867a901944ca93d49276.png" width="375" height="237" /></td>
@@ -93,7 +93,7 @@
     <tr>
       <td width="20%">
 
-        <!-- The description of the whisky -->
+        <!-- The description of sch:Product -->
         <p property="sch:description">In 1979 Highland Park protected their
           standard bottling, the 12-year-old single malt, with a copyright.
           Today it is still the most important malt in the range of the distillery.
@@ -103,7 +103,7 @@
         <!-- The aggreagate rating of the whisky -->
         <p id="rating"><span property="hasRating">3.7</span> (624)</p>
 
-        <!-- The aggreagate rating of the whisky; schema -->
+        <!-- The aggreagate rating of the sch:Product -->
         <span property="sch:aggregateRating" typeof="sch:AggregateRating">
           <span property="sch:ratingValue" content="3.7"></span>
           <span property="sch:ratingCount" content="624"></span>
@@ -113,7 +113,7 @@
     </tr>
     <tr>
       <td width="238" height="152" rowspan="12">
-        <!-- Image depicting the whisky -->
+        <!-- sch:Product has image depicting the product -->
         <img property="sch:image" src="whiskypic.jpg"/>
       </td>
       <td height="28" colspan="3" class="block">Details about this bottle</td>
@@ -121,7 +121,7 @@
     <tr>
       <td width="150" height="22" class="blockToDetails">WhiskeyID:</td>
       <td width="602" height="22" class="blockToDetails">
-        <!-- The id belonging to the whisky -->
+        <!-- The id belonging to the whisky (and sch:Product) -->
         <p property="hasID sch:productID">97</p>
       </td>
     </tr>
@@ -130,8 +130,10 @@
       <td height="29" class="blockToDetails">
         <!-- Whisky is distilled by a distillery named "Highland Park" -->
         <span property="distilledBy" typeof="Distillery">
-          <p property="hasName sch:manufacturer sch:brand">Highland Park</p>
+          <p property="hasName">Highland Park</p>
         </span>
+        <!-- sch:Product has brand and manufacturer -->
+        <span property="sch:manufacturer sch:brand" content="Highland Park"></span>
       </td>
     </tr>
     <tr>
@@ -166,7 +168,6 @@
     <tr>
       <td height="44" class="blockToDetails">ABV:</td>
       <!-- Whisky has a alcohol percentage 40% -->
-
       <td height="44" class="blockToDetails">
         <p><span property="hasABV">40</span>%</p>
       </td>
@@ -182,6 +183,9 @@
       <td height="44" class="blockToDetails">Bottler:</td>
       <td height="44" class="blockToDetails">
         <!-- Original bottling means that the distillery is the bottler -->
+        <span property="hasBottler" typeof="WhiskyBottler">
+          <span property="hasName" content="Highland Park"></span>
+        </span>
         <p>Original bottling</p>
       </td>
     </tr>
@@ -189,6 +193,7 @@
       <td height="44" class="blockToDetails">Maturing</td>
       <td height="44" class="blockToDetails">
         <p>
+          <!-- The whisky has been matured with types; Bourbon & Sherry -->
           <span property="hasMaturingType" typeof="MaturingType">
             <span property="hasName">Bourbon</span>
           </span>,
@@ -228,7 +233,6 @@
       <td height="33" class="blockToDetails">Finish</td>
     </tr>
     <tr>
-
       <td height="44" class="blockToDetails">
         <!-- The whisky has a certain smell -->
         <span property="hasNosingSpecification" typeof="Specification">
@@ -306,9 +310,7 @@
         <span property="hasSpecificationValue" content="2"></span>
         </span>
       </td>
-
     </tr>
-
 
     <tr>
       <td height="365" colspan="3">&nbsp;</td>
