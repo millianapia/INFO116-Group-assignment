@@ -42,7 +42,7 @@
         "@type": "MaturingType",
         "hasName": "Sherry - Oloroso"
       },
-      "hasTreatment": [{ "@type": "WhiskyTreatment", "hasName": "ChillFiltration"}, {"@type": "MaturingType","hasName": "Sherry" }],
+      "hasTreatment": [{ "@type": "WhiskyTreatment", "hasName": "ChillFiltration"}, {"@type": "WhiskyTreatment", "hasName": "ArtificialColoring"}],
       "producedIn": {
         "@type": "Region",
         "hasName": "Midleton",
@@ -84,7 +84,7 @@
     </tr>
     <tr>
       <td width="226" height="309" rowspan="17">&nbsp;</td>
-      <!-- The name of the whisky is "Highland Park 12 Years" -->
+      <!-- The name of the whisky/sch:Product is "Jameson 18 Years" -->
       <td colspan="4" class="header" property="hasName sch:name">Jameson 18 Years</td>
       <td width="39" height="41">&nbsp;</td>
       <td width="348" height="41" class="block">About the distillery<img src="../608668861c5d867a901944ca93d49276.png" width="375" height="237" /></td>
@@ -92,7 +92,7 @@
     <tr>
       <td width="20%">
 
-        <!-- The description of the whisky -->
+        <!-- The description of the sch:Product -->
         <p property="sch:description">Matured for 18 years in hand-selected oak casks from Europe and America, this rare whiskey is finished in first-fill bourbon barrels. This rite of passage introduces subtle traces of vanilla to an exceptionally balanced, mellow whiskey with a lingering finale of wood, spice and toffee. An elder statesman of our portfolio, each bottle of this unique whiskey is individually numbered.
         </p>
 
@@ -100,7 +100,7 @@
         <!-- The aggreagate rating of the whisky -->
         <p id="rating"><span property="hasRating">4.6</span> (38)</p>
 
-        <!-- The aggreagate rating of the whisky; schema -->
+        <!-- The aggreagate rating of the sch:Product -->
         <span property="sch:aggregateRating" typeof="sch:AggregateRating">
           <span property="sch:ratingValue" content="4.6"></span>
           <span property="sch:ratingCount" content="38"></span>
@@ -110,7 +110,7 @@
     </tr>
     <tr>
       <td width="238" height="152" rowspan="12">
-        <!-- Image depicting the whisky -->
+        <!-- Image depicting the sch:Product -->
         <img property="sch:image" src="jameson.jpg"/>
       </td>
       <td height="28" colspan="3" class="block">Details about this bottle</td>
@@ -118,7 +118,7 @@
     <tr>
       <td width="150" height="22" class="blockToDetails">WhiskeyID:</td>
       <td width="602" height="22" class="blockToDetails">
-        <!-- The id belonging to the whisky -->
+        <!-- The id belonging to the whisky/sch:Product -->
         <p property="hasID sch:productID">1330</p>
       </td>
     </tr>
@@ -181,6 +181,9 @@
       <td height="44" class="blockToDetails">Bottler:</td>
       <td height="44" class="blockToDetails">
         <!-- Original bottling means that the distillery is the bottler -->
+        <span property="hasBottler" typeof="WhiskyBottler">
+          <span property="hasName" content="Midleton"></span>
+        </span>
         <p>Original bottling</p>
       </td>
     </tr>
@@ -188,11 +191,9 @@
       <td height="44" class="blockToDetails">Maturing</td>
       <td height="44" class="blockToDetails">
         <p>
+          <!-- The whisky has been matured with type; Sherry - Oloroso -->
           <span property="hasMaturingType" typeof="MaturingType">
             <span property="hasName">Sherry - Oloroso</span>
-          </span>,
-          <span property="hasMaturingType" typeof="MaturingType" property="hasName">
-            <span property="hasName">Sherry</span>
           </span>
         </p>
       </td>
@@ -200,9 +201,12 @@
     <tr>
       <td height="28" class="blockToDetails">Post treatment:</td>
       <td height="28" class="blockToDetails">
-        <!-- The whisky has a been treated with ChillFiltration -->
+        <!-- The whisky has a been treated with ChillFiltration & ArtificalColouring -->
         <span property="hasTreatment" typeof="WhiskyTreatment">
           <span property="hasName" content="ChillFiltration"></span>
+        </span>
+        <span property="hasTreatment" typeof="WhiskyTreatment">
+          <span property="hasName" content="ArtificalColouring"></span>
         </span>
         <img title="Chill filtration - With" alt="Chill filtration - With" src="snowflake.png" width="16" height="17">
         <img title="Artifical colouring - With" alt="Artifical colouring - With" src="stain.png" width="20" height="20">
