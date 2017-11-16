@@ -1,0 +1,100 @@
+@charset "utf-8";
+body {
+	background-color: #fbe0bc;
+}
+.bottom {
+	background-color: #472509;
+	color: #FBE0BC;
+	text-indent: 0px;
+}
+.block {
+	background-color: #824F26;
+	color: #FBE0BC;
+	text-indent: 10px;
+}
+.whiskyMenu {
+	background-color: #346C83;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin: 0px;
+	padding: 0px;
+	font-family: Verdana, Geneva, sans-serif;
+	color: #FBE0BC;
+	text-indent: 10px;
+}
+menuBlocks {
+	text-align: right;
+	display: inline;
+}
+blockMenu {
+	text-align: right;
+	display: inline;
+}
+.test {
+	text-align: right;
+	vertical-align: baseline;
+	padding: 0px;
+	margin: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	float: right;
+	white-space: normal;
+	display: compact;
+	position: static;
+	width: 10%;
+}
+head {
+	font-size: 20px;
+}
+.header {
+	font-size: 36px;
+	font-weight: lighter;
+	color: #333;
+}
+.whiskeyThings {
+	color: #735B46;
+	text-indent: 20;
+	font-weight: bold;
+}
+block {
+	background-color: #FFF2E1;
+}
+.blockToDetails {
+	background-color: #FFF2E1;
+	text-indent: 12px;
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: solid;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-top-color: #FBE0BC;
+	border-right-color: #FBE0BC;
+	border-bottom-color: #FBE0BC;
+	border-left-color: #FBE0BC;
+	font-weight: bold;
+	color: #735B46;
+}
+.header span {
+	font-size: 12px;
+}
+.header span {
+	font-size: 16px;
+}
+#rating {
+	display:inline;
+}

@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Whisky</title>
+  <link rel="stylesheet" type="text/css" href="whiskyCSS.css">
+
+  <!-- JSON-LD MARKUP FOR DESCRIBING THE WHISKY WITH SCHEMA.ORG
+       local-files are used as hypothetical urls -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Product",
+      "url": "Lagavulin_16Years.html",
+      "productID": "6",
+      "brand": "Lagavulin",
+      "manufacturer": "Lagavulin",
+      "name": "Lagavulin 16 Years",
+      "image": "whiskypic.png",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "ratingCount": "841",
+        "bestRating": "5"
+      },
+      "description": "The Lagavulin 16 is an Islay classic with a high peat content. The stills of the distillery are pear-shaped, so all the flavours are kept in the malt. The Lagavulin 16 single malt is matured in bourbon and sherry casks."
+    }
+  </script>
+
+  <!-- JSON-LD MARKUP FOR DESCRIBING THE WHISKY WITH OUR ONTOLOGY
+       local-files are used as hypothetical urls -->
+
+  <!-- Duplicate "hasMaturingType" was not allowed
+        "hasMaturingType": {
+        "@type": "MaturingType",
+        "hasName": "Sherry" }                    -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://www.whisky.com/ontologies/whisky.owl#",
+      "@type": "SingleMaltWhisky",
+      "url": "Lagavulin_16Years.html",
+      "hasAge": "16",
+      "hasABV": "43",
+      "hasBottlesize": "0.7",
+      "hasName": "Lagavulin 16 Years",
+      "hasMaturingType": {
+        "@type": "MaturingType",
+        "hasName": "Bourbon"
+      },
+      "hasTreatment": {
+        "@type": "WhiskyTreatment",
+        "hasName": "ChillFiltration"
+      },
+      "producedIn": {
+        "@type": "Region",
+        "hasName": "Islands",
+        "isRegionOf": {
+          "@type": "Country",
+          "hasName": "Scotland"
+        }
+      },
+      "distilledBy": {
+        "@type": "Distillery",
+        "hasName": "Lagavulin"
+      },
+      "hasBottler": {
+        "@type": "WhiskyBottler",
+        "hasName": "Lagavulin"
+      }
+    }
+  </script>
+
+</head>
+
+<body vocab="http://www.whisky.com/ontologies/whisky.owl#" prefix="sch: http://schema.org/">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" typeof="SingleMaltWhisky sch:Product">
+    <tr>
+      <td height="125" colspan="2"><img src="logo.png" width="342" height="80" /></td>
+      <td height="125" colspan="5" class="test">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="50" colspan="2">&nbsp;</td>
+      <td colspan="5" class="test"> <img src="7cfd60ac211bdd8cae564f12d4ab7a1b.png" width="500" height="50" /></td>
+    </tr>
+    <tr>
+      <td height="55" colspan="2" class="whiskyMenu"><img src="40f18a6b4109961c7a4261987e216f37.png" width="454" height="33" /></td>
+      <td height="55" colspan="5" class="whiskyMenu">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="34" colspan="4">&nbsp;</td>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="226" height="309" rowspan="17">&nbsp;</td>
+      <!-- The name of the whisky is "Highland Park 12 Years" -->
+      <td colspan="4" class="header" property="hasName sch:name">Lagavulin 16 Years</td>
+      <td width="39" height="41">&nbsp;</td>
+      <td width="348" height="41" class="block">About the distillery<img src="map.png" width="375" height="237" /></td>
+    </tr>
+    <tr>
+      <td width="20%">
+
+        <!-- The description of the whisky -->
+        <p property="sch:description">The Lagavulin 16 is an Islay classic with a high peat content. 
+          The stills of the distillery are pear-shaped, so all the flavours are kept in the malt. 
+          The Lagavulin 16 single malt is matured in bourbon and sherry casks.
+        </p>
+
+        <img src="rating.png" />
+        <!-- The aggreagate rating of the whisky -->
+        <p id="rating"><span property="hasRating">4.5</span> (841)</p>
+
+        <!-- The aggreagate rating of the whisky; schema -->
+        <span property="sch:aggregateRating" typeof="sch:AggregateRating">
+          <span property="sch:ratingValue" content="3.7"></span>
+          <span property="sch:ratingCount" content="624"></span>
+        </span>
+
+      </td>
+    </tr>
+    <tr>
+      <td width="238" height="152" rowspan="12">
+        <!-- Image depicting the whisky -->
+        <img property="sch:image" src="whiskypic.jpg"/>
+      </td>
+      <td height="28" colspan="3" class="block">Details about this bottle</td>
+    </tr>
+    <tr>
+      <td width="150" height="22" class="blockToDetails">WhiskeyID:</td>
+      <td width="602" height="22" class="blockToDetails">
+        <!-- The id belonging to the whisky -->
+        <p property="hasID sch:productID">6</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="29" class="blockToDetails">Distillery:</td>
+      <td height="29" class="blockToDetails">
+        <!-- Whisky is distilled by a distillery named "Lagavulin" -->
+        <span property="distilledBy" typeof="Distillery">
+          <p property="hasName sch:manufacturer sch:brand">Lagavulin</p>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td height="32" class="blockToDetails">Country, Region:</td>
+      <td height="32" class="blockToDetails">
+        <!-- Whisky is produced in the region Islands, which is
+             a region in Scotland -->
+        <span property="producedIn" typeof="Region">
+          <p>
+            <span property="isRegionOf" typeof="Country">
+              <span property="hasName">Scotland</span>
+        </span>,
+        <span property="hasName">Islands</span>
+        </p>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td height="30" class="blockToDetails">Type:</td>
+      <td height="30" class="blockToDetails">
+        <!-- Type of whisky declared at top (table) -->
+        <p>Single Malt</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="35" class="blockToDetails">Age:</td>
+      <td height="35" class="blockToDetails">
+        <!-- The whisky's age is 12 years -->
+        <p><span property="hasAge">12</span> Years</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">ABV:</td>
+      <!-- Whisky has a alcohol percentage 40% -->
+
+      <td height="44" class="blockToDetails">
+        <p><span property="hasABV">40</span>%</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">Bottle size:</td>
+      <td height="44" class="blockToDetails">
+        <!-- Whisky has a bottle size of 0.7 litres -->
+        <p><span property="hasBottleSize">0.7</span> l</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">Bottler:</td>
+      <td height="44" class="blockToDetails">
+        <!-- Original bottling means that the distillery is the bottler -->
+        <p>Original bottling</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">Maturing</td>
+      <td height="44" class="blockToDetails">
+        <p>
+          <span property="hasMaturingType" typeof="MaturingType">
+            <span property="hasName">Bourbon</span>
+          </span>,
+          <span property="hasMaturingType" typeof="MaturingType" property="hasName">
+            <span property="hasName">Sherry</span>
+          </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td height="28" class="blockToDetails">Post treatment:</td>
+      <td height="28" class="blockToDetails">
+        <!-- The whisky has a been treated with ChillFiltration -->
+        <span property="hasTreatment" typeof="WhiskyTreatment">
+          <span property="hasName" content="ChillFiltration"></span>
+        </span>
+        <img title="Chill filtration - With" alt="Chill filtration - With" src="snowflake.png" width="16" height="17">
+        <img title="Artifical colouring - With" alt="Artifical colouring - With" src="stain.png" width="20" height="20">
+      </td>
+    </tr>
+    <tr>
+      <td height="30" colspan="2">&nbsp;</td>
+      <td height="30">&nbsp;</td>
+      <td width="39">&nbsp;</td>
+      <td width="348" class="block">Top 10 collected</td>
+      <td height="30">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="26" class="block">Average tasting notes</td>
+      <td height="26" class="block">&nbsp;</td>
+      <td height="26" class="block">&nbsp;</td>
+      <td colspan="2" rowspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="33" class="blockToDetails">Nosing</td>
+      <td height="33" class="blockToDetails">Tasting</td>
+      <td height="33" class="blockToDetails">Finish</td>
+    </tr>
+    <tr>
+
+      <td height="44" class="blockToDetails">
+        <!-- The whisky has a certain smell -->
+        <span property="hasNosingSpecification" typeof="Specification">
+          <!-- describe the smell -->
+          <p><span property="hasSpecificationContent">Peat Smoke</span>:</p>
+        <img title "Peat Smoke" alt="Peat Smoke 5" src="Specifications/ps_5.png">
+        <!-- describe the value presented by the picture -->
+        <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sea weed</span>:</p>
+        <img title "Sea weed" alt="Seaweed 2.5" src="Specifications/seaweed_25.png">
+        <span property="hasSpecificationValue" content="3"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Iodine</span>:</p>
+        <img title "Iodine" alt="Iodine 2.5" src="Specifications/iodine_25.png">
+        <span property="hasSpecificationValue" content="2.5"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sweet</span>:</p>
+        <img title "Sweet" alt="Sweet 2.5" src="Specifications/sweet_25.png">
+        <span property="hasSpecificationValue" content="2.5"></span>
+        </span>
+      </td>
+
+      <td height="44" class="blockToDetails">
+        <!-- The whisky has a certain taste -->
+        <span property="hasTasteSpecification" typeof="Specification">
+          <!-- describe the taste -->
+          <p><span property="hasSpecificationContent">Peat Smoke</span>:</p>
+        <img title "Peat Smoke" alt="Peat Smoke 5" src="Specifications/ps_5.png">
+        <!-- describe the value presented by the picture -->
+        <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sweet</span>:</p>
+        <img title "Sweet" alt="Sweet 3" src="Specifications/sweet_3.png">
+        <span property="hasSpecificationValue" content="3"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Spices</span>:</p>
+        <img title "Spices" alt="Spices 1.5" src="Specifications/spices_15.png">
+        <span property="hasSpecificationValue" content="3"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Salt</span>:</p>
+        <img title "Salt" alt="Salt 1.5" src="Specifications/salt_15.png">
+        <span property="hasSpecificationValue" content="2"></span>
+        </span>
+      </td>
+
+      <td height="44" class="blockToDetails">
+        <!-- The whisky has a certain finish -->
+        <span property="hasFinishSpecification" typeof="Specification">
+          <!-- describe the finish -->
+          <p><span property="hasSpecificationContent">Peat Smoke</span>:</p>
+        <img title "Peat Smoke" alt="Peat Smoke 5" src="Specifications/ps_5.png">
+        <!-- describe the value presented by the picture -->
+        <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Malt</span>:</p>
+        <img title "Malt" alt="Malt 2" src="Specifications/malt_2.png">
+        <span property="hasSpecificationValue" content="2"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Oak</span>:</p>
+        <img title "Oak" alt="Oak 2" src="Specifications/oak_2.png">
+        <span property="hasSpecificationValue" content="2"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sweet</span>:</p>
+        <img title "Sweet" alt="Sweet 2" src="Specifications/sweet_2.png">
+        <span property="hasSpecificationValue" content="2"></span>
+        </span>
+      </td>
+
+    </tr>
+
+
+    <tr>
+      <td height="365" colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="23" colspan="6" class="block">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="208" colspan="6" class="bottom">
+        <p class="bottom">Copyright © 1994-2017<br /> Whisky.com Media GmbH &amp; Co. KG <br /> Am Grundwassersee 4 · DE 82402 Seeshaupt · Germany<br />
+          <a href="https://www.whisky.com/information/about-us/legal-notice.html" title="Öffnet internen Link im aktuellen Fenster">Legal Notice</a></p>
+        <p><a href="https://www.whisky.com/information/about-us/media-kit.html" title="Advertising on Whisky.com">Advertising on Whisky.com</a></p>
+      </td>
+      <td width="4" height="208" class="bottom">&nbsp;</td>
+    </tr>
+  </table>
+</body>
+
+</html>
