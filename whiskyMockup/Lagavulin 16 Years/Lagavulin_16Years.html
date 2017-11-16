@@ -30,11 +30,6 @@
 
   <!-- JSON-LD MARKUP FOR DESCRIBING THE WHISKY WITH OUR ONTOLOGY
        local-files are used as hypothetical urls -->
-
-  <!-- Duplicate "hasMaturingType" was not allowed
-        "hasMaturingType": {
-        "@type": "MaturingType",
-        "hasName": "Sherry" }                    -->
   <script type="application/ld+json">
     {
       "@context": "http://www.whisky.com/ontologies/whisky.owl#",
@@ -44,14 +39,8 @@
       "hasABV": "43",
       "hasBottlesize": "0.7",
       "hasName": "Lagavulin 16 Years",
-      "hasMaturingType": {
-        "@type": "MaturingType",
-        "hasName": "Bourbon"
-      },
-      "hasTreatment": {
-        "@type": "WhiskyTreatment",
-        "hasName": "ChillFiltration"
-      },
+      "hasMaturingType": [{"@type": "MaturingType", "hasName": "Bourbon"}, {"@type": "MaturingType", "hasName": "Sherry"}],
+      "hasTreatment": [{"@type": "WhiskyTreatment", "hasName": "ChillFiltration"}, {"@type": "WhiskyTreatment", "hasName": "ArtificialColoring"}],
       "producedIn": {
         "@type": "Region",
         "hasName": "Islands",
