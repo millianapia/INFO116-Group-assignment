@@ -39,24 +39,33 @@
       "hasABV": "40",
       "hasBottlesize": "0.7",
       "hasName": "Highland Park 12 Years",
-      "hasMaturingType": [{"@type": "MaturingType","hasName": "Bourbon"}, {"@type": "MaturingType","hasName": "Sherry" }],
-      "hasTreatment": [{ "@type": "WhiskyTreatment", "hasName": "ChillFiltration"}],
-      "producedIn": {
-        "@type": "Region",
+      "hasMaturingType": [{"@type": "MaturingType","hasName": "Bourbon"},
+         {"@type": "MaturingType","hasName": "Sherry"}],
+      "hasTreatment": [{
+        "@type": "WhiskyTreatment",
+        "hasName": "ChillFiltration"
+      }],
+      "producedIn": {"@type": "Region",
         "hasName": "Islands",
         "isRegionOf": {
           "@type": "Country",
           "hasName": "Scotland"
         }
       },
-      "distilledBy": {
-        "@type": "Distillery",
-        "hasName": "Highland Park"
-      },
-      "hasBottler": {
-        "@type": "WhiskyBottler",
-        "hasName": "Highland Park"
-      }
+      "distilledBy": {"@type": "Distillery","hasName": "Highland Park"},
+      "hasBottler": {"@type": "WhiskyBottler","hasName": "Highland Park"},
+      "hasNosingSpecification": [{"@type": "Specification", "hasSpecificationContent": "Peat Smoke", "hasSpecificationValue": "5"},
+        {"@type": "Specification","hasSpecificationContent": "Sherry","hasSpecificationValue": "3"},
+        {"@type": "Specification","hasSpecificationContent": "Heather","hasSpecificationValue": "2.5"},
+        {"@type": "Specification","hasSpecificationContent": "Sweet","hasSpecificationValue": "2.5"}],
+      "hasTasteSpecification": [{"@type": "Specification","hasSpecificationContent": "Peat Smoke","hasSpecificationValue": "5"},
+       {"@type": "Specification","hasSpecificationContent": "Sweet","hasSpecificationValue": "3"},
+       {"@type": "Specification","hasSpecificationContent": "Malt","hasSpecificationValue": "3"},
+       {"@type": "Specification","hasSpecificationContent": "Sherry","hasSpecificationValue": "2"}],
+      "hasFinishSpecification": [{"@type": "Specification","hasSpecificationContent": "Peat Smoke","hasSpecificationValue": "5"},
+       {"@type": "Specification","hasSpecificationContent": "Malt","hasSpecificationValue": "2.5"},
+       {"@type": "Specification","hasSpecificationContent": "Spices","hasSpecificationValue": "2"},
+       {"@type": "Specification","hasSpecificationContent": "Heather","hasSpecificationValue": "2"}]
     }
   </script>
 
@@ -91,9 +100,7 @@
       <td width="20%">
 
         <!-- The description of sch:Product -->
-        <p property="sch:description">In 1979 Highland Park protected their
-          standard bottling, the 12-year-old single malt, with a copyright.
-          Today it is still the most important malt in the range of the distillery.
+        <p property="sch:description">In 1979 Highland Park protected their standard bottling, the 12-year-old single malt, with a copyright. Today it is still the most important malt in the range of the distillery.
         </p>
 
         <img src="rating.png" />
@@ -103,7 +110,7 @@
         <!-- The aggreagate rating of the sch:Product -->
         <span property="sch:aggregateRating" typeof="sch:AggregateRating">
           <span property="sch:ratingValue" content="3.7"></span>
-          <span property="sch:ratingCount" content="624"></span>
+        <span property="sch:ratingCount" content="624"></span>
         </span>
 
       </td>
@@ -111,7 +118,7 @@
     <tr>
       <td width="238" height="152" rowspan="12">
         <!-- sch:Product has image depicting the product -->
-        <img property="sch:image" src="whiskypic.jpg"/>
+        <img property="sch:image" src="whiskypic.jpg" />
       </td>
       <td height="28" colspan="3" class="block">Details about this bottle</td>
     </tr>
