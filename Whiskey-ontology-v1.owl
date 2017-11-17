@@ -212,7 +212,7 @@
 :hasSpecificationValue rdf:type owl:DatatypeProperty ;
                        rdfs:domain :Specification ;
                        rdfs:range xsd:double ;
-                       rdfs:comment "Gives the value of a given specification" .
+                       rdfs:comment "Gives the value of a given specification; strength." .
 
 
 #################################################################
