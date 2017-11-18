@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Whisky</title>
+  <link rel="stylesheet" type="text/css" href="whiskyCSS.css">
+
+  <!-- JSON-LD MARKUP FOR DESCRIBING THE WHISKY WITH SCHEMA.ORG
+       local-files are used as hypothetical urls -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Product",
+      "url": "Suntory-yamazaki.html",
+      "productID": "1699",
+      "brand": "Yamazaki",
+      "manufacturer": "Yamazaki",
+      "name": "Suntory 18 years Yamazaki",
+      "image": "Suntory_18years.jpg",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "ratingCount": "55",
+        "bestRating": "5"
+      },
+      "description": "Yamazaki 18 Year Old is an award winning Japanese single malt. Yamazaki’s legendary 18 year old earned a Gold at the 2007 International Spirits Challenge and a Double Gold at the 2005 San Francisco World Spirits Competition. Being one of Suntory’s most popular products, you know you have quality when you have Yamazaki."
+    }
+  </script>
+
+  <!-- JSON-LD MARKUP FOR DESCRIBING THE WHISKY WITH OUR ONTOLOGY
+       local-files are used as hypothetical urls -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://www.whisky.com/ontologies/whisky.owl#",
+      "@type": "SingleMaltWhisky",
+      "url": "Santory_Yamazaki.html",
+      "hasABV": "43",
+      "hasBottlesize": "0.7",
+      "hasName": "Suntory 18 Years Yamazaki",
+      "hasTreatment": [{ "@type": "WhiskyTreatment", "hasName": "ChillFiltration"}, {"@type": "WhiskyTreatment", "hasName": "ArtificialColoring"}],
+      "producedIn": {
+        "@type": "Country",
+        "hasName": "Japan",
+      },
+      "distilledBy": {
+        "@type": "Distillery",
+        "hasName": "Yamazaki"
+      },
+      "hasBottler": {
+        "@type": "WhiskyBottler",
+        "hasName": "Yamazaki"
+      },
+      "hasNosingSpecification": [{"@type": "Specification", "hasSpecificationContent": "Fruit", "hasSpecificationValue": "5"},
+        {"@type": "Specification","hasSpecificationContent": "Dried Fruit","hasSpecificationValue": "2.5"},
+        {"@type": "Specification","hasSpecificationContent": "Oak","hasSpecificationValue": "3"}
+		{"@type": "Specification","hasSpecificationContent": "Cherry","hasSpecificationValue": "3"},],
+      "hasTasteSpecification": [{"@type": "Specification","hasSpecificationContent": "Fruit","hasSpecificationValue": "5"},
+       {"@type": "Specification","hasSpecificationContent": "Oak","hasSpecificationValue": "5"},
+       {"@type": "Specification","hasSpecificationContent": "Sherry","hasSpecificationValue": "4.5"},
+       {"@type": "Specification","hasSpecificationContent": "Spices","hasSpecificationValue": "4"}],
+      "hasFinishSpecification": [{"@type": "Specification","hasSpecificationContent": "Oak","hasSpecificationValue": "5"},
+       {"@type": "Specification","hasSpecificationContent": "Chocolate","hasSpecificationValue": "4.5"},
+       {"@type": "Specification","hasSpecificationContent": "Spices","hasSpecificationValue": "3.5"},
+       {"@type": "Specification","hasSpecificationContent": "Fruit","hasSpecificationValue": "2.5"}]
+    }
+  </script>
+
+</head>
+
+<body vocab="http://www.whisky.com/ontologies/whisky.owl#" prefix="sch: http://schema.org/">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" typeof="SingleMaltWhisky sch:Product">
+    <tr>
+      <td height="125" colspan="2"><img src="logo.png" width="342" height="80" /></td>
+      <td height="125" colspan="5" class="test">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="50" colspan="2">&nbsp;</td>
+      <td colspan="5" class="test"> <img src="7cfd60ac211bdd8cae564f12d4ab7a1b.png" width="500" height="50" /></td>
+    </tr>
+    <tr>
+      <td height="55" colspan="2" class="whiskyMenu"><img src="40f18a6b4109961c7a4261987e216f37.png" width="454" height="33" /></td>
+      <td height="55" colspan="5" class="whiskyMenu">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="34" colspan="4">&nbsp;</td>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="226" height="309" rowspan="17">&nbsp;</td>
+      <!-- The name of the whisky/sch:Product is "Suntory 18 Years Yamazaki" -->
+      <td colspan="4" class="header" property="hasName sch:name">Suntory 18 Years Yamazaki</td>
+      <td width="39" height="41">&nbsp;</td>
+      <td width="348" height="41" class="block">About the distillery<img src="map.png" width="375" height="237" /></td>
+    </tr>
+    <tr>
+      <td width="20%">
+
+        <!-- The description of sch:Product -->
+        <p property="sch:description">Yamazaki 18 Year Old is an award winning Japanese single malt. Yamazaki’s legendary 18 year old earned a Gold at the 2007 International Spirits Challenge and a Double Gold at the 2005 San Francisco World Spirits Competition. Being one of Suntory’s most popular products, you know you have quality when you have Yamazaki.
+        </p>
+
+        <img src="rating.png" />
+        <!-- The aggreagate rating of the whisky -->
+        <p id="rating"><span property="hasRating">4.7</span> (55)</p>
+
+        <!-- The aggreagate rating of the sch:Product -->
+        <span property="sch:aggregateRating" typeof="sch:AggregateRating">
+          <span property="sch:ratingValue" content="4.7"></span>
+          <span property="sch:ratingCount" content="55"></span>
+        </span>
+
+      </td>
+    </tr>
+   <tr>
+      <td width="238" height="152" rowspan="12">
+        <!-- sch:Product has image depicting the product -->
+        <img property="sch:image" src="suntory_18years.jpg" />
+      </td>
+      <td height="28" colspan="3" class="block">Details about this bottle</td>
+    </tr>
+    <tr>
+      <td width="150" height="22" class="blockToDetails">WhiskeyID:</td>
+      <td width="602" height="22" class="blockToDetails">
+        <!-- The id belonging to the whisky (and sch:Product) -->
+        <p property="hasID sch:productID">1699</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="29" class="blockToDetails">Distillery:</td>
+      <td height="29" class="blockToDetails">
+        <!-- Whisky is distilled by a distillery named "Yamazaki" -->
+        <span property="distilledBy" typeof="Distillery">
+          <p property="hasName">Yamazaki</p>
+        </span>
+        <!-- sch:Product has brand and manufacturer -->
+        <span property="sch:manufacturer sch:brand" content="Jack Daniel's"></span>
+      </td>
+    </tr>
+    <tr>
+      <td height="32" class="blockToDetails">Country, Region:</td>
+      <td height="32" class="blockToDetails">
+        <!-- Whisky is produced in Japan -->
+        <span property="producedIn" typeof="Country">
+          <p>
+        <span property="hasName">Japan</span>
+        </p>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td height="30" class="blockToDetails">Type:</td>
+      <td height="30" class="blockToDetails">
+        <!-- Type of whisky declared at top (table) -->
+        <p>Single Malt</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">ABV:</td>
+      <!-- Whisky has a alcohol percentage 43% -->
+      <td height="44" class="blockToDetails">
+        <p><span property="hasABV">43</span>%</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">Bottle size:</td>
+      <td height="44" class="blockToDetails">
+        <!-- Whisky has a bottle size of 0.7 litres -->
+        <p><span property="hasBottleSize">0.7</span> l</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">Bottler:</td>
+      <td height="44" class="blockToDetails">
+        <!-- Original bottling means that the distillery is the bottler -->
+        <span property="hasBottler" typeof="WhiskyBottler">
+          <span property="hasName" content="Jack Daniel's"></span>
+        </span>
+        <p>Original bottling</p>
+      </td>
+    </tr>
+    <tr>
+      <td height="28" class="blockToDetails">Post treatment:</td>
+      <td height="28" class="blockToDetails">
+        <!-- The whisky has a been treated with ChillFiltration and Artificial Coloring -->
+        <span property="hasTreatment" typeof="WhiskyTreatment">
+          <span property="hasName" content="ChillFiltration"></span>
+        </span>
+         <span property="hasName" content="ArtificialColoring"></span>
+        </span>
+        <img title="Chill filtration - With" alt="Chill filtration - With" src="snowflake.png" width="16" height="17">
+        <img title="Artifical colouring - With" alt="Artifical colouring - With" src="stain.png" width="20" height="20">
+      </td>
+    </tr>
+	<tr>
+      <td height="30" colspan="2">&nbsp;</td>
+      <td height="30">&nbsp;</td>
+      <td width="39">&nbsp;</td>
+      <td width="348" class="block">Top 10 collected</td>
+      <td height="30">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="26" class="block">Average tasting notes</td>
+      <td height="26" class="block">&nbsp;</td>
+      <td height="26" class="block">&nbsp;</td>
+      <td colspan="2" rowspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="33" class="blockToDetails">Nosing</td>
+      <td height="33" class="blockToDetails">Tasting</td>
+      <td height="33" class="blockToDetails">Finish</td>
+    </tr>
+    <tr>
+      <td height="44" class="blockToDetails">
+        <!-- The whisky has a certain smell -->
+        <span property="hasNosingSpecification" typeof="Specification">
+          <!-- describe the smell -->
+          <p><span property="hasSpecificationContent">Fruit</span>:</p>
+        <img title "Fruit" alt="Fruit 5" src="Specifications/fruit-5.png">
+        <!-- describe the value presented by the picture -->
+        <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Dried Fruit</span>:</p>
+        <img title "Dried Fruit" alt="Dried Fruit 3" src="Specifications/driedfruit-3.png">
+        <span property="hasSpecificationValue" content="3"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Oak</span>:</p>
+        <img title "Oak" alt="Oak 3" src="Specifications/oak-3.png">
+        <span property="hasSpecificationValue" content="3"></span>
+        </span>
+        <span property="hasNosingSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Cherry</span>:</p>
+        <img title "Cherry" alt="Cherry 3" src="Specifications/cherry-3.png">
+        <span property="hasSpecificationValue" content="3"></span>
+        </span>
+      </td>
+
+      <td height="44" class="blockToDetails">
+        <!-- The whisky has a certain taste -->
+        <span property="hasTasteSpecification" typeof="Specification">
+          <!-- describe the taste -->
+          <p><span property="hasSpecificationContent">Fruit</span>:</p>
+        <img title "Fruit" alt="Fruit 5" src="Specifications/fruit-5.png">
+        <!-- describe the value presented by the picture -->
+        <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Oak</span>:</p>
+        <img title "Oak" alt="Oak 5" src="Specifications/oak-5.png">
+        <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Sherry</span>:</p>
+        <img title "Sherry" alt="Sherry 4.5" src="Specifications/sherry-4.5.png">
+        <span property="hasSpecificationValue" content="4.5"></span>
+        </span>
+        <span property="hasTasteSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Spices</span>:</p>
+        <img title "Spices" alt="Spices 4" src="Specifications/spices-4.png">
+        <span property="hasSpecificationValue" content="4"></span>
+        </span>
+      </td>
+
+      <td height="44" class="blockToDetails">
+        <!-- The whisky has a certain finish -->
+        <span property="hasFinishSpecification" typeof="Specification">
+          <!-- describe the finish -->
+          <p><span property="hasSpecificationContent">Oak</span>:</p>
+        <img title "Oak" alt="Oak 5" src="Specifications/oak-5.png">
+        <!-- describe the value presented by the picture -->
+        <span property="hasSpecificationValue" content="5"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Chocolate</span>:</p>
+        <img title "Chocolate" alt="Chocolate 4.5" src="Specifications/chocolate-4.5.png">
+        <span property="hasSpecificationValue" content="4.5"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Spices</span>:</p>
+        <img title "Spices" alt="Spices 3.5" src="Specifications/spices-3.5.png">
+        <span property="hasSpecificationValue" content="3.5"></span>
+        </span>
+        <span property="hasFinishSpecification" typeof="Specification">
+          <p><span property="hasSpecificationContent">Fruit</span>:</p>
+        <img title "Fruit" alt="Fruit 2.5" src="Specifications/fruit-2.5.png">
+        <span property="hasSpecificationValue" content="2.5"></span>
+        </span>
+      </td>
+    </tr>
+
+    <tr>
+      <td height="365" colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="23" colspan="6" class="block">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="208" colspan="6" class="bottom">
+        <p class="bottom">Copyright © 1994-2017<br /> Whisky.com Media GmbH &amp; Co. KG <br /> Am Grundwassersee 4 · DE 82402 Seeshaupt · Germany<br />
+          <a href="https://www.whisky.com/information/about-us/legal-notice.html" title="Öffnet internen Link im aktuellen Fenster">Legal Notice</a></p>
+        <p><a href="https://www.whisky.com/information/about-us/media-kit.html" title="Advertising on Whisky.com">Advertising on Whisky.com</a></p>
+      </td>
+      <td width="4" height="208" class="bottom">&nbsp;</td>
+    </tr>
+  </table>
+</body>
+
+</html>
