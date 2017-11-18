@@ -5,7 +5,7 @@ body {
 .bottom {
 	background-color: #472509;
 	color: #FBE0BC;
-	text-indent: 0px;
+	text-indent: 10;
 }
 .block {
 	background-color: #824F26;
@@ -88,4 +88,19 @@ block {
 	border-left-color: #FBE0BC;
 	font-weight: bold;
 	color: #735B46;
+}
+.header span {
+	font-size: 12px;
+}
+.header span {
+	font-size: 16px;
+}
+#rating {
+	display:inline;
+}
+topPicture {
+	position: absolute;
+}
+.blocktest {
+	vertical-align: top;
 }
