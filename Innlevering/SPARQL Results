@@ -14,7 +14,7 @@ SELECT DISTINCT ?name
 
 RESULTAT:
 -------------------------------------------------------------------------------
-
+"Bakers 7 Years Case Proof"^^<http://www.w3.org/2001/XMLSchema#string>
 -------------------------------------------------------------------------------
 
 •	Finn whiskyer innenfor samme whisky-typer som det opprinnelige søket
@@ -30,7 +30,19 @@ SELECT ?allNames
 
 RESULTAT:
 -------------------------------------------------------------------------------
-
+"Maker's Mark Red Seal"^^<http://www.w3.org/2001/XMLSchema#string>
+"Elijah Craig 12 Years"^^<http://www.w3.org/2001/XMLSchema#string>
+"Bakers 7 Years Case Proof"^^<http://www.w3.org/2001/XMLSchema#string>
+"Highland Park 18 Years"^^<http://www.w3.org/2001/XMLSchema#string>
+"Slyrs 3 Years - 2008"^^<http://www.w3.org/2001/XMLSchema#string>
+"Loch Lomond - 2002 Inchfad"^^<http://www.w3.org/2001/XMLSchema#string>
+"Lagavulin 16 years"^^<http://www.w3.org/2001/XMLSchema#string>
+"Laphroaig 10 Years - 2000 Cask Strength"^^<http://www.w3.org/2001/XMLSchema#string>
+"Suntory 18 Years Yamazaki"^^<http://www.w3.org/2001/XMLSchema#string>
+"16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^<http://www.w3.org/2001/XMLSchema#string>
+"Belgian Owl 3 Years"^^<http://www.w3.org/2001/XMLSchema#string>
+"Port Charlotte 10 Years - 2005"^^<http://www.w3.org/2001/XMLSchema#string>
+"Säntis Malt 3 Years - 2011 Dreifaltikeit"^^<http://www.w3.org/2001/XMLSchema#string>
 -------------------------------------------------------------------------------
 
 •	Finn whiskyer fra samme produsent som det opprinnelige søket
@@ -49,7 +61,7 @@ RESULTAT:
 
 -------------------------------------------------------------------------------
 
-CASE 2
+CASE 2 (I Jena-Fuseki)
 
 •	Gjennomsnittsrating på produsent
 SELECT AVG(?ratings)
@@ -59,7 +71,7 @@ SELECT AVG(?ratings)
 
 RESULTAT:
 -------------------------------------------------------------------------------
-
+"3.3e0"^^xsd:double
 -------------------------------------------------------------------------------
 
 •	Gjennomsnittsrating på bottler
@@ -70,7 +82,7 @@ SELECT AVG(?ratings)
 
 RESULTAT:
 -------------------------------------------------------------------------------
-
+"3.53333333333e0"^^xsd:double
 -------------------------------------------------------------------------------
 
 -----
@@ -87,7 +99,12 @@ ORDER BY DESC (?age)
 
 RESULTAT:
 -------------------------------------------------------------------------------
-
+"Highland Park 18 Years"^^<http://www.w3.org/2001/XMLSchema#string>	                                "18"^^<http://www.w3.org/2001/XMLSchema#int>
+"Suntory 18 Years Yamazaki"^^<http://www.w3.org/2001/XMLSchema#string>	                            "18"^^<http://www.w3.org/2001/XMLSchema#int>
+"Lagavulin 16 years"^^<http://www.w3.org/2001/XMLSchema#string>	                                    "16"^^<http://www.w3.org/2001/XMLSchema#int>
+"16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^<http://www.w3.org/2001/XMLSchema#string>	"16"^^<http://www.w3.org/2001/XMLSchema#int>
+"Port Charlotte 10 Years - 2005"^^<http://www.w3.org/2001/XMLSchema#string>	                        "10"^^<http://www.w3.org/2001/XMLSchema#int>
+"Laphroaig 10 Years - 2000 Cask Strength"^^<http://www.w3.org/2001/XMLSchema#string>	              "10"^^<http://www.w3.org/2001/XMLSchema#int>
 -------------------------------------------------------------------------------
 
 •	Her er brukeren også ute etter whiskytypen SingleMaltWhisky med alkoholprosent over 20. Resultatet er sortert etter alkoholprosent i stigende rekkefølge. I kolonnene vises whiskies, navn og alkoholprosent.
@@ -100,7 +117,14 @@ ORDER BY ASC(?abv)
 
 RESULTAT:
 -------------------------------------------------------------------------------
-
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Lagavulin_16_Years	                "Lagavulin 16 years"^^<http://www.w3.org/2001/XMLSchema#string>	                                    "43.0"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Slyrs_3Years	                      "Slyrs 3 Years - 2008"^^<http://www.w3.org/2001/XMLSchema#string>	                                  "43.0"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Suntory_18Years_Yamazaki	          "Suntory 18 Years Yamazaki"^^<http://www.w3.org/2001/XMLSchema#string>	                            "43.0"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_LL_2002Inchfad	                    "Loch Lomond - 2002 Inchfad"^^<http://www.w3.org/2001/XMLSchema#string>	                            "45.0"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Belgian_Owl_3_Years	              "Belgian Owl 3 Years"^^<http://www.w3.org/2001/XMLSchema#string>	                                  "46.0"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_PC_10Years_2005	                  "Port Charlotte 10 Years - 2005"^^<http://www.w3.org/2001/XMLSchema#string>	                        "48.4"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Laphroaig_10_Years_2000Cask	      "Laphroaig 10 Years - 2000 Cask Strength"^^<http://www.w3.org/2001/XMLSchema#string>	              "58.3"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Glenlivet_Chivas_Brothers_16Years	"16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^<http://www.w3.org/2001/XMLSchema#string>	"58.4"^^<http://www.w3.org/2001/XMLSchema#double>
 -------------------------------------------------------------------------------
 
 •	Her har brukeren veldig lyst på en whisky som inneholder Peat Smoke. Men brukeren er veldig glad i å velge whiskier etter type sted der de tapper. Så resultatet er i rekkefølge synkende etter tapper.
@@ -113,7 +137,24 @@ ORDER BY DESC (?bottler)
 
 RESULTAT:
 -------------------------------------------------------------------------------
-
+"Suntory 18 Years Yamazaki"^^<http://www.w3.org/2001/XMLSchema#string>	                            http://www.whisky.com/ontologies/whisky.owl#Distillery_Yamazaki	      "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Slyrs 3 Years - 2008"^^<http://www.w3.org/2001/XMLSchema#string>	                                  http://www.whisky.com/ontologies/whisky.owl#Distillery_Slyrs	        "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Säntis Malt 3 Years - 2011 Dreifaltikeit"^^<http://www.w3.org/2001/XMLSchema#string>	              http://www.whisky.com/ontologies/whisky.owl#Distillery_Santis	        "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Belgian Owl 3 Years"^^<http://www.w3.org/2001/XMLSchema#string>	                                  http://www.whisky.com/ontologies/whisky.owl#Distillery_Owl	          "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Nikka From the Barrel"^^<http://www.w3.org/2001/XMLSchema#string>	                                http://www.whisky.com/ontologies/whisky.owl#Distillery_Miyagikyo	    "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Jameson 18 Years"^^<http://www.w3.org/2001/XMLSchema#string>	                                      http://www.whisky.com/ontologies/whisky.owl#Distillery_Midleton	      "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Maker's Mark Red Seal"^^<http://www.w3.org/2001/XMLSchema#string>	                                http://www.whisky.com/ontologies/whisky.owl#Distillery_Makers_Mark	  "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Loch Lomond - 2002 Inchfad"^^<http://www.w3.org/2001/XMLSchema#string>	                            http://www.whisky.com/ontologies/whisky.owl#Distillery_Loch_Lomond	  "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Laphroaig 10 Years - 2000 Cask Strength"^^<http://www.w3.org/2001/XMLSchema#string>	              http://www.whisky.com/ontologies/whisky.owl#Distillery_Laphroaig	    "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Lagavulin 16 years"^^<http://www.w3.org/2001/XMLSchema#string>	                                    http://www.whisky.com/ontologies/whisky.owl#Distillery_Lagavulin	    "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Bakers 7 Years Case Proof"^^<http://www.w3.org/2001/XMLSchema#string>	                            http://www.whisky.com/ontologies/whisky.owl#Distillery_Jim_Beam	      "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Jack Daniel's Gentleman Jack"^^<http://www.w3.org/2001/XMLSchema#string>	                          http://www.whisky.com/ontologies/whisky.owl#Distillery_Jack_Daniels	  "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Highland Park 18 Years"^^<http://www.w3.org/2001/XMLSchema#string>	                                http://www.whisky.com/ontologies/whisky.owl#Distillery_Highland_Park	"Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Elijah Craig 12 Years"^^<http://www.w3.org/2001/XMLSchema#string>	                                http://www.whisky.com/ontologies/whisky.owl#Distillery_Heaven_Hill	  "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^<http://www.w3.org/2001/XMLSchema#string>	http://www.whisky.com/ontologies/whisky.owl#Distillery_Glenlivet	    "Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Port Charlotte 10 Years - 2005"^^<http://www.w3.org/2001/XMLSchema#string>                        	http://www.whisky.com/ontologies/whisky.owl#Distillery_Douglas_Laing	"Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Scallywag"^^<http://www.w3.org/2001/XMLSchema#string>	                                            http://www.whisky.com/ontologies/whisky.owl#Distillery_Douglas_Laing	"Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
+"Timorous Beastie"^^<http://www.w3.org/2001/XMLSchema#string>	                                      http://www.whisky.com/ontologies/whisky.owl#Distillery_Douglas_Laing	"Peat Smoke"^^<http://www.w3.org/2001/XMLSchema#string>
 -------------------------------------------------------------------------------
 
 •	Her har brukeren virkelig ikke lyst på Peat Smoke whisky, men er fortsatt veldig glad i å velge whiskier etter type sted der de tapper. Men denne gangen er resultatet i økende rekkefølge etter tapper
@@ -126,7 +167,24 @@ ORDER BY ASC(?bottler)
 
 RESULTAT:
 -------------------------------------------------------------------------------
-
+"Port Charlotte 10 Years - 2005"^^<http://www.w3.org/2001/XMLSchema#string>	                        http://www.whisky.com/ontologies/whisky.owl#Distillery_Douglas_Laing
+"Scallywag"^^<http://www.w3.org/2001/XMLSchema#string>	                                            http://www.whisky.com/ontologies/whisky.owl#Distillery_Douglas_Laing
+"Timorous Beastie"^^<http://www.w3.org/2001/XMLSchema#string>	                                      http://www.whisky.com/ontologies/whisky.owl#Distillery_Douglas_Laing
+"16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^<http://www.w3.org/2001/XMLSchema#string>	http://www.whisky.com/ontologies/whisky.owl#Distillery_Glenlivet
+"Elijah Craig 12 Years"^^<http://www.w3.org/2001/XMLSchema#string>	                                http://www.whisky.com/ontologies/whisky.owl#Distillery_Heaven_Hill
+"Highland Park 18 Years"^^<http://www.w3.org/2001/XMLSchema#string>	                                http://www.whisky.com/ontologies/whisky.owl#Distillery_Highland_Park
+"Jack Daniel's Gentleman Jack"^^<http://www.w3.org/2001/XMLSchema#string>	                          http://www.whisky.com/ontologies/whisky.owl#Distillery_Jack_Daniels
+"Bakers 7 Years Case Proof"^^<http://www.w3.org/2001/XMLSchema#string>	                            http://www.whisky.com/ontologies/whisky.owl#Distillery_Jim_Beam
+"Lagavulin 16 years"^^<http://www.w3.org/2001/XMLSchema#string>	                                    http://www.whisky.com/ontologies/whisky.owl#Distillery_Lagavulin
+"Laphroaig 10 Years - 2000 Cask Strength"^^<http://www.w3.org/2001/XMLSchema#string>	              http://www.whisky.com/ontologies/whisky.owl#Distillery_Laphroaig
+"Loch Lomond - 2002 Inchfad"^^<http://www.w3.org/2001/XMLSchema#string>	                            http://www.whisky.com/ontologies/whisky.owl#Distillery_Loch_Lomond
+"Maker's Mark Red Seal"^^<http://www.w3.org/2001/XMLSchema#string>	                                http://www.whisky.com/ontologies/whisky.owl#Distillery_Makers_Mark
+"Jameson 18 Years"^^<http://www.w3.org/2001/XMLSchema#string>	                                      http://www.whisky.com/ontologies/whisky.owl#Distillery_Midleton
+"Nikka From the Barrel"^^<http://www.w3.org/2001/XMLSchema#string>	                                http://www.whisky.com/ontologies/whisky.owl#Distillery_Miyagikyo
+"Belgian Owl 3 Years"^^<http://www.w3.org/2001/XMLSchema#string>	                                  http://www.whisky.com/ontologies/whisky.owl#Distillery_Owl
+"Säntis Malt 3 Years - 2011 Dreifaltikeit"^^<http://www.w3.org/2001/XMLSchema#string>	              http://www.whisky.com/ontologies/whisky.owl#Distillery_Santis
+"Slyrs 3 Years - 2008"^^<http://www.w3.org/2001/XMLSchema#string>	                                  http://www.whisky.com/ontologies/whisky.owl#Distillery_Slyrs
+"Suntory 18 Years Yamazaki"^^<http://www.w3.org/2001/XMLSchema#string>	                            http://www.whisky.com/ontologies/whisky.owl#Distillery_Yamazaki
 -------------------------------------------------------------------------------
 
 -----
@@ -141,7 +199,23 @@ ORDER BY DESC (?rating)
 
 RESULTAT:
 -------------------------------------------------------------------------------
-
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Glenlivet_Chivas_Brothers_16Years	"5.0"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_LL_2002Inchfad	                    "5.0"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Suntory_18Years_Yamazaki	          "4.7"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Jameson_18_Years                 	"4.6"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Lagavulin_16_Years	                "4.5"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_HP_18Years	                        "4.5"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Slyrs_3Years	                      "4.2"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Bakers_7Years	                    "4.1"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_PC_10Years_2005	                  "4.0"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Nikka_FromTheBarrel	              "3.9"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_EC_12Years	                        "3.8"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Belgian_Owl_3_Years	              "3.8"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Laphroaig_10_Years_2000Cask	      "3.7"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Santis_Malt_3_Years_Dreifaltigkeit	"3.6"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Scallywag	                        "3.5"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Makers_Mark_Red_Seal	              "3.2"^^<http://www.w3.org/2001/XMLSchema#double>
+http://www.whisky.com/ontologies/whisky.owl#Whisky_Timorous_Beastie	                  "3.1"^^<http://www.w3.org/2001/XMLSchema#double>
 -------------------------------------------------------------------------------
 
 -----
@@ -158,7 +232,7 @@ LIMIT 1
 
 RESULTAT:
 -------------------------------------------------------------------------------
-
+"16 Years - 1992 Chivas Brothers, Cask Strenght Edition"^^<http://www.w3.org/2001/XMLSchema#string>	"58.4"^^<http://www.w3.org/2001/XMLSchema#double>
 -------------------------------------------------------------------------------
 
 •	Her har brukeren valgt å finne en whisky av typen Bourbon, og deretter kan han med denne spørringen få servert den som har lavest alkoholinnhold.
@@ -171,7 +245,7 @@ LIMIT 1
 
 RESULTAT:
 -------------------------------------------------------------------------------
-
+"Maker's Mark Red Seal"^^<http://www.w3.org/2001/XMLSchema#string>	"45.0"^^<http://www.w3.org/2001/XMLSchema#double>
 -------------------------------------------------------------------------------
 
 •	Her har brukeren et ønske om å finne den whiskyer med mye røyklukt. I spørringen hentes det ut alt som er whiskyer for så å få individene som disse er knytt til som spesifiserer lukt-aspektet.
@@ -188,5 +262,6 @@ ORDER BY DESC (?value)
 
 RESULTAT:
 -------------------------------------------------------------------------------
-
+"Lagavulin 16 years"^^<http://www.w3.org/2001/XMLSchema#string>	    "5.0"^^<http://www.w3.org/2001/XMLSchema#double>
+"Highland Park 18 Years"^^<http://www.w3.org/2001/XMLSchema#string>	"4.0"^^<http://www.w3.org/2001/XMLSchema#double>
 -------------------------------------------------------------------------------

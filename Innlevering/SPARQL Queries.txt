@@ -1,14 +1,14 @@
 SPARQL
 Setting
-Vi har sett for oss at vi har et scenario der vi i prosessen med å utvikle en app for et nettsted som omhandler whisky. 
-Dataene er per dags dato relativt ustrukturerte. Via vår løsning er målet å kunne kjøre nyttige spørringer som kan ta høyde mange ulike aspekt ved de gitte whiskyene på nettstedet.
+Vi har sett for oss at vi har et scenario der vi i prosessen med ï¿½ utvikle en app for et nettsted som omhandler whisky.
+Dataene er per dags dato relativt ustrukturerte. Via vï¿½r lï¿½sning er mï¿½let ï¿½ kunne kjï¿½re nyttige spï¿½rringer som kan ta hï¿½yde mange ulike aspekt ved de gitte whiskyene pï¿½ nettstedet.
 
 -----
 
 CASE 1
-Kunden ønsker å ha et enkelt recommender-system for å finne lignende whiskyer som brukeren også kan være interessert i, etter et søk allerede har forekommet.
+Kunden ï¿½nsker ï¿½ ha et enkelt recommender-system for ï¿½ finne lignende whiskyer som brukeren ogsï¿½ kan vï¿½re interessert i, etter et sï¿½k allerede har forekommet.
 
-•	Finn whiskyer med lignende smak
+ï¿½	Finn whiskyer med lignende smak
 SELECT DISTINCT ?name
       WHERE { ?whisky whi:producedIn ?place .
 	      ?place whi:hasName "Islay"^^xsd:string .
@@ -18,12 +18,12 @@ SELECT DISTINCT ?name
 	      ?similarWhiskies whi:hasTasteSpecification ?otherSpecification .
     	      ?otherSpecification whi:hasSpecificationContent ?originalContent .
     	      ?similarWhiskies whi:hasName ?name .
-    	      FILTER (?similarWhiskies != ?whisky) } 
+    	      FILTER (?similarWhiskies != ?whisky) }
 
-Forklaring: Her ser vi et til at kunden har et søk der han ville ha tak i whiskyer som ble produsert i “Islay”. Etter dette spør vi hvilke smaker som tilhører de gitte whiskyene som kunden fann. 
-Så spør vi hvilke av whiskyene i ontologien som har smaker til felles med de som kunden hadde søkt etter, og så viser vi navnet til disse.
+Forklaring: Her ser vi et til at kunden har et sï¿½k der han ville ha tak i whiskyer som ble produsert i ï¿½Islayï¿½. Etter dette spï¿½r vi hvilke smaker som tilhï¿½rer de gitte whiskyene som kunden fann.
+Sï¿½ spï¿½r vi hvilke av whiskyene i ontologien som har smaker til felles med de som kunden hadde sï¿½kt etter, og sï¿½ viser vi navnet til disse.
 
-•	Finn whiskyer innenfor samme whisky-typer som det opprinnelige søket
+ï¿½	Finn whiskyer innenfor samme whisky-typer som det opprinnelige sï¿½ket
 SELECT ?allNames
     WHERE { { SELECT DISTINCT ?whiskyTypes
 	WHERE {?search whi:hasMaturingType ?maturingTypes .
@@ -34,50 +34,50 @@ SELECT ?allNames
               ?allEqual a ?whiskyTypes;
                whi:hasName ?allNames }
 
-Forklaring: Her har vi et tilfelle der brukeren har hatt et søk etter whiskyer som har blitt lagret på tønne av slaget “oak”. 
-Her henter vi ut hvilke typer whisky som ble lagret på en slik tønne, for så å finne alle whiskyer som har samme type som disse.
+Forklaring: Her har vi et tilfelle der brukeren har hatt et sï¿½k etter whiskyer som har blitt lagret pï¿½ tï¿½nne av slaget ï¿½oakï¿½.
+Her henter vi ut hvilke typer whisky som ble lagret pï¿½ en slik tï¿½nne, for sï¿½ ï¿½ finne alle whiskyer som har samme type som disse.
 
-•	Finn whiskyer fra samme produsent som det opprinnelige søket
+ï¿½	Finn whiskyer fra samme produsent som det opprinnelige sï¿½ket
 SELECT ?all
   WHERE { ?whisky whi:hasTreatment ?treatment .
           ?treatment whi:hasName "ChillFiltration"^^xsd:string .
      	  ?whisky whi:hasABV ?abv .
           FILTER(?abv > 48)
-   
+
        	  ?whisky whi:hasBottler ?bottler .
           ?all whi:hasBottler ?bottler .
           FILTER (?all != ?whisky) }
 
-Forklaring: Her ser vi et søk etter alle whiskyer som har behandlingen “Chill Filtration” og at whiskyene skal ha en alkoholprosent over 48%. 
-Etter søket finner vi hvem som produserte whiskyene i søkeresultatet, og så finner vi alle andre whiskyer som de produserer som ikke er i resultatet som kunden fikk.
+Forklaring: Her ser vi et sï¿½k etter alle whiskyer som har behandlingen ï¿½Chill Filtrationï¿½ og at whiskyene skal ha en alkoholprosent over 48%.
+Etter sï¿½ket finner vi hvem som produserte whiskyene i sï¿½keresultatet, og sï¿½ finner vi alle andre whiskyer som de produserer som ikke er i resultatet som kunden fikk.
 
 -----
 
 CASE 2
-I appen skal det også være mulig å kunne finne ut hva en gitt produsent eller destilleri sin gjennomsnittsrating er, på grunnlag av hva de har produsert.
+I appen skal det ogsï¿½ vï¿½re mulig ï¿½ kunne finne ut hva en gitt produsent eller destilleri sin gjennomsnittsrating er, pï¿½ grunnlag av hva de har produsert.
 
-•	Gjennomsnittsrating på produsent
+ï¿½	Gjennomsnittsrating pï¿½ produsent
 SELECT AVG(?ratings)
     WHERE { ?whisky whi:distilledBy ?distillery .
-            ?distillery whi:hasName "Blend-Scotch"^^xsd:string .     
+            ?distillery whi:hasName "Blend-Scotch"^^xsd:string .
              ?whisky whi:hasRating ?ratings    }
 
-•	Gjennomsnittsrating på bottler
+ï¿½	Gjennomsnittsrating pï¿½ bottler
 SELECT AVG(?ratings)
     WHERE { ?whisky whi:hasBottler ?bottler .
-            ?bottler whi:hasName "Douglas Laing"^^xsd:string . 
+            ?bottler whi:hasName "Douglas Laing"^^xsd:string .
              ?whisky whi:hasRating ?ratings    }
 
-Disse spørringene fungerer fint i Jena Fuseki, men i protege fungerer det ikke. Det ser ikke ut til at protege støtter AVG-funksjonen.
+Disse spï¿½rringene fungerer fint i Jena Fuseki, men i protege fungerer det ikke. Det ser ikke ut til at protege stï¿½tter AVG-funksjonen.
 
 -----
 
 CASE 3
-Kunden ønsker å kunne finne whiskyer basert spørringer med mange faktorer.
-I vår ontologi har vi beskrevet whiskyene med følgende informasjon: produsent, destilleri, etterbehandling, modning (les: cask), 
-produksjonssted, lukt, smak, ettersmak, rating (vurdering), alkoholprosent, alder, navn, flaskestørrelse, destillerings dato og tappe dato.
-    
-•	Her er brukeren ute etter whisky typen SingleMaltWhisky med alder til og med 4 og over. Resultatet er sortert etter alder på whiskeyen i nedgående rekkefølge. Kolonnene navn og alder vises til brukeren. 
+Kunden ï¿½nsker ï¿½ kunne finne whiskyer basert spï¿½rringer med mange faktorer.
+I vï¿½r ontologi har vi beskrevet whiskyene med fï¿½lgende informasjon: produsent, destilleri, etterbehandling, modning (les: cask),
+produksjonssted, lukt, smak, ettersmak, rating (vurdering), alkoholprosent, alder, navn, flaskestï¿½rrelse, destillerings dato og tappe dato.
+
+ï¿½	Her er brukeren ute etter whisky typen SingleMaltWhisky med alder til og med 4 og over. Resultatet er sortert etter alder pï¿½ whiskeyen i nedgï¿½ende rekkefï¿½lge. Kolonnene navn og alder vises til brukeren.
 
 SELECT ?name ?age
     WHERE { ?whiskies a whi:SingleMaltWhisky;
@@ -86,7 +86,7 @@ SELECT ?name ?age
     FILTER(?age >=4) }
 ORDER BY DESC (?age)
 
-•	Her er brukeren også ute etter whiskytypen SingleMaltWhisky med alkoholprosent over 20. Resultatet er sortert etter alkoholprosent i stigende rekkefølge. I kolonnene vises whiskies, navn og alkoholprosent.
+ï¿½	Her er brukeren ogsï¿½ ute etter whiskytypen SingleMaltWhisky med alkoholprosent over 20. Resultatet er sortert etter alkoholprosent i stigende rekkefï¿½lge. I kolonnene vises whiskies, navn og alkoholprosent.
 
 SELECT ?whiskies ?name ?abv
     WHERE { ?whiskies a whi:SingleMaltWhisky;
@@ -95,7 +95,7 @@ SELECT ?whiskies ?name ?abv
     FILTER(?abv >=20) }
 ORDER BY ASC(?abv)
 
-•	Her har brukeren veldig lyst på en whisky som inneholder Peat Smoke. Men brukeren er veldig glad i å velge whiskier etter type sted der de tapper. Så resultatet er i rekkefølge synkende etter tapper. 
+ï¿½	Her har brukeren veldig lyst pï¿½ en whisky som inneholder Peat Smoke. Men brukeren er veldig glad i ï¿½ velge whiskier etter type sted der de tapper. Sï¿½ resultatet er i rekkefï¿½lge synkende etter tapper.
 
 SELECT  DISTINCT?name ?bottler ?specContent
     WHERE {?Specification whi:hasName ?name;
@@ -104,9 +104,9 @@ SELECT  DISTINCT?name ?bottler ?specContent
     FILTER(?specContent="Peat Smoke"^^xsd:string) }
 ORDER BY DESC (?bottler)
 
-•	Her har brukeren virkelig ikke lyst på Peat Smoke whisky, men er fortsatt veldig glad i å velge whiskier etter type sted der de tapper. Men denne gangen er resultatet i økende rekkefølge etter tapper
+ï¿½	Her har brukeren virkelig ikke lyst pï¿½ Peat Smoke whisky, men er fortsatt veldig glad i ï¿½ velge whiskier etter type sted der de tapper. Men denne gangen er resultatet i ï¿½kende rekkefï¿½lge etter tapper
 
-SELECT  DISTINCT?name ?bottler ?specContent
+SELECT  DISTINCT?name ?bottler
     WHERE {?Specification whi:hasName ?name;
     whi:hasBottler ?bottler;
     OPTIONAL{?whiskies whi:hasSpecificationContent ?specContent}
@@ -116,9 +116,9 @@ ORDER BY ASC(?bottler)
 -----
 
 CASE 4
-Siden vi har støtte for å beskrive whiskyer med “rating” så har vi lyst å kunne sortere de ulike resultatene (se case 3) på denne variabelen.
+Siden vi har stï¿½tte for ï¿½ beskrive whiskyer med ï¿½ratingï¿½ sï¿½ har vi lyst ï¿½ kunne sortere de ulike resultatene (se case 3) pï¿½ denne variabelen.
 
-•	Denne queryen henter alle whiskeyene, og gir oss rating som er høyere enn 3, og sorterer resultatet etter høyest verdi først.
+ï¿½	Denne queryen henter alle whiskeyene, og gir oss rating som er hï¿½yere enn 3, og sorterer resultatet etter hï¿½yest verdi fï¿½rst.
 SELECT ?whisky ?rating
     WHERE { ?whisky whi:hasRating ?rating
     FILTER(?rating >=3) }
@@ -127,9 +127,9 @@ ORDER BY DESC (?rating)
 -----
 
 Case 5
-I appen skal der være funksjonalitet som kan tillate en gitt bruker å finne en whisky (basert på faktorer gitt i case 3) men også kunne velge å få vist den som har høyest/minst alkoholprosent og høyest/minst lukt, smak eller ettersmak.
+I appen skal der vï¿½re funksjonalitet som kan tillate en gitt bruker ï¿½ finne en whisky (basert pï¿½ faktorer gitt i case 3) men ogsï¿½ kunne velge ï¿½ fï¿½ vist den som har hï¿½yest/minst alkoholprosent og hï¿½yest/minst lukt, smak eller ettersmak.
 
-•	Her har brukeren valgt å finne en whisky med høyest alkoholprosent innenfor alle Single Malt Whisky.
+ï¿½	Her har brukeren valgt ï¿½ finne en whisky med hï¿½yest alkoholprosent innenfor alle Single Malt Whisky.
 SELECT ?name ?abv
     WHERE { ?whiskies a whi:SingleMaltWhisky;
 		        whi:hasABV ?abv;
@@ -137,7 +137,7 @@ SELECT ?name ?abv
 ORDER BY DESC (?abv)
 LIMIT 1
 
-•	Her har brukeren valgt å finne en whisky av typen Bourbon, og deretter kan han med denne spørringen få servert den som har lavest alkoholinnhold.
+ï¿½	Her har brukeren valgt ï¿½ finne en whisky av typen Bourbon, og deretter kan han med denne spï¿½rringen fï¿½ servert den som har lavest alkoholinnhold.
 
 SELECT ?name ?abv
        WHERE { ?whiskies a whi:BourbonWhisky;
@@ -146,8 +146,8 @@ SELECT ?name ?abv
 ORDER BY ASC (?abv)
 LIMIT 1
 
-•	Her har brukeren et ønske om å finne den whiskyer med mye røyklukt. I spørringen hentes det ut alt som er whiskyer for så å få individene som disse er knytt til som spesifiserer lukt-aspektet. 
-	Deretter sørges det for de er knytt til en med røyklukt som definisjon. Deretter finner vi styrker og sorterer fra sterkest til svakest.
+ï¿½	Her har brukeren et ï¿½nske om ï¿½ finne den whiskyer med mye rï¿½yklukt. I spï¿½rringen hentes det ut alt som er whiskyer for sï¿½ ï¿½ fï¿½ individene som disse er knytt til som spesifiserer lukt-aspektet.
+	Deretter sï¿½rges det for de er knytt til en med rï¿½yklukt som definisjon. Deretter finner vi styrker og sorterer fra sterkest til svakest.
 
 SELECT ?name ?value
 WHERE {?whiskies a ?type.
@@ -158,5 +158,3 @@ WHERE {?whiskies a ?type.
 	?specification whi:hasSpecificationContent "Peat Smoke"^^xsd:string;
 		       whi:hasSpecificationValue ?value }
 ORDER BY DESC (?value)
-    
-
