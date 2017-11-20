@@ -1,0 +1,192 @@
+CASE 1
+
+•	Finn whiskyer med lignende smak
+SELECT DISTINCT ?name
+      WHERE { ?whisky whi:producedIn ?place .
+	      ?place whi:hasName "Islay"^^xsd:string .
+    	      ?whisky whi:hasTasteSpecification ?tasteSpecification .
+              ?tasteSpecification whi:hasSpecificationContent ?originalContent .
+
+	      ?similarWhiskies whi:hasTasteSpecification ?otherSpecification .
+    	      ?otherSpecification whi:hasSpecificationContent ?originalContent .
+    	      ?similarWhiskies whi:hasName ?name .
+    	      FILTER (?similarWhiskies != ?whisky) }
+
+RESULTAT:
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+•	Finn whiskyer innenfor samme whisky-typer som det opprinnelige søket
+SELECT ?allNames
+    WHERE { { SELECT DISTINCT ?whiskyTypes
+	WHERE {?search whi:hasMaturingType ?maturingTypes .
+              ?maturingTypes whi:hasName "Oak"^^xsd:string .
+              ?search a ?whiskyTypes .
+
+              ?whiskyTypes rdfs:subClassOf whi:Whisky . } }
+              ?allEqual a ?whiskyTypes;
+               whi:hasName ?allNames }
+
+RESULTAT:
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+•	Finn whiskyer fra samme produsent som det opprinnelige søket
+SELECT ?all
+  WHERE { ?whisky whi:hasTreatment ?treatment .
+          ?treatment whi:hasName "ChillFiltration"^^xsd:string .
+     	  ?whisky whi:hasABV ?abv .
+          FILTER(?abv > 48)
+
+       	  ?whisky whi:hasBottler ?bottler .
+          ?all whi:hasBottler ?bottler .
+          FILTER (?all != ?whisky) }
+
+RESULTAT:
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+CASE 2
+
+•	Gjennomsnittsrating på produsent
+SELECT AVG(?ratings)
+    WHERE { ?whisky whi:distilledBy ?distillery .
+            ?distillery whi:hasName "Blend-Scotch"^^xsd:string .
+             ?whisky whi:hasRating ?ratings    }
+
+RESULTAT:
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+•	Gjennomsnittsrating på bottler
+SELECT AVG(?ratings)
+    WHERE { ?whisky whi:hasBottler ?bottler .
+            ?bottler whi:hasName "Douglas Laing"^^xsd:string .
+             ?whisky whi:hasRating ?ratings    }
+
+RESULTAT:
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+-----
+
+CASE 3
+
+•	Her er brukeren ute etter whisky typen SingleMaltWhisky med alder til og med 4 og over. Resultatet er sortert etter alder på whiskeyen i nedgående rekkefølge. Kolonnene navn og alder vises til brukeren.
+SELECT ?name ?age
+    WHERE { ?whiskies a whi:SingleMaltWhisky;
+    whi:hasAge ?age;
+    whi:hasName ?name;
+    FILTER(?age >=4) }
+ORDER BY DESC (?age)
+
+RESULTAT:
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+•	Her er brukeren også ute etter whiskytypen SingleMaltWhisky med alkoholprosent over 20. Resultatet er sortert etter alkoholprosent i stigende rekkefølge. I kolonnene vises whiskies, navn og alkoholprosent.
+SELECT ?whiskies ?name ?abv
+    WHERE { ?whiskies a whi:SingleMaltWhisky;
+    whi:hasABV ?abv;
+    whi:hasName ?name;
+    FILTER(?abv >=20) }
+ORDER BY ASC(?abv)
+
+RESULTAT:
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+•	Her har brukeren veldig lyst på en whisky som inneholder Peat Smoke. Men brukeren er veldig glad i å velge whiskier etter type sted der de tapper. Så resultatet er i rekkefølge synkende etter tapper.
+SELECT  DISTINCT?name ?bottler ?specContent
+    WHERE {?Specification whi:hasName ?name;
+    whi:hasBottler ?bottler;
+    OPTIONAL{?whiskies whi:hasSpecificationContent ?specContent}
+    FILTER(?specContent="Peat Smoke"^^xsd:string) }
+ORDER BY DESC (?bottler)
+
+RESULTAT:
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+•	Her har brukeren virkelig ikke lyst på Peat Smoke whisky, men er fortsatt veldig glad i å velge whiskier etter type sted der de tapper. Men denne gangen er resultatet i økende rekkefølge etter tapper
+SELECT  DISTINCT?name ?bottler ?specContent
+    WHERE {?Specification whi:hasName ?name;
+    whi:hasBottler ?bottler;
+    OPTIONAL{?whiskies whi:hasSpecificationContent ?specContent}
+    FILTER(?specContent!="Peat Smoke"^^xsd:string) }
+ORDER BY ASC(?bottler)
+
+RESULTAT:
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+-----
+
+CASE 4
+
+•	Denne queryen henter alle whiskeyene, og gir oss rating som er høyere enn 3, og sorterer resultatet etter høyest verdi først.
+SELECT ?whisky ?rating
+    WHERE { ?whisky whi:hasRating ?rating
+    FILTER(?rating >=3) }
+ORDER BY DESC (?rating)
+
+RESULTAT:
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+-----
+
+Case 5
+
+•	Her har brukeren valgt å finne en whisky med høyest alkoholprosent innenfor alle Single Malt Whisky.
+SELECT ?name ?abv
+    WHERE { ?whiskies a whi:SingleMaltWhisky;
+		        whi:hasABV ?abv;
+			whi:hasName ?name }
+ORDER BY DESC (?abv)
+LIMIT 1
+
+RESULTAT:
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+•	Her har brukeren valgt å finne en whisky av typen Bourbon, og deretter kan han med denne spørringen få servert den som har lavest alkoholinnhold.
+SELECT ?name ?abv
+       WHERE { ?whiskies a whi:BourbonWhisky;
+      whi:hasABV ?abv;
+      whi:hasName ?name }
+ORDER BY ASC (?abv)
+LIMIT 1
+
+RESULTAT:
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+•	Her har brukeren et ønske om å finne den whiskyer med mye røyklukt. I spørringen hentes det ut alt som er whiskyer for så å få individene som disse er knytt til som spesifiserer lukt-aspektet.
+	Deretter sørges det for de er knytt til en med røyklukt som definisjon. Deretter finner vi styrker og sorterer fra sterkest til svakest.
+SELECT ?name ?value
+WHERE {?whiskies a ?type.
+	?type rdfs:subClassOf whi:Whisky.
+	?whiskies  whi:hasName ?name;
+                   whi:hasNosingSpecification ?specification.
+
+	?specification whi:hasSpecificationContent "Peat Smoke"^^xsd:string;
+		             whi:hasSpecificationValue ?value }
+ORDER BY DESC (?value)
+
+RESULTAT:
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
