@@ -1,53 +1,59 @@
 SPARQL
 Setting
-Vi har sett for oss at vi har et scenario der vi i prosessen med å utvikle en app for et nettsted som omhandler whisky. Dataene er per dags dato relativt ustrukturerte. Via vår løsning er målet å kunne kjøre nyttige spørringer som kan ta høyde mange ulike aspekt ved de gitte whiskyene på nettstedet.
+Vi har sett for oss at vi har et scenario der vi i prosessen med å utvikle en app for et nettsted som omhandler whisky. 
+Dataene er per dags dato relativt ustrukturerte. Via vår løsning er målet å kunne kjøre nyttige spørringer som kan ta høyde mange ulike aspekt ved de gitte whiskyene på nettstedet.
 
 -----
 
-Case 1
+CASE 1
 Kunden ønsker å ha et enkelt recommender-system for å finne lignende whiskyer som brukeren også kan være interessert i, etter et søk allerede har forekommet.
+
 •	Finn whiskyer med lignende smak
 SELECT DISTINCT ?name
       WHERE { ?whisky whi:producedIn ?place .
-    ?place whi:hasName "Islay"^^xsd:string .
-    ?whisky whi:hasTasteSpecification ?tasteSpecification .
-           ?tasteSpecification whi:hasSpecificationContent ?originalContent .
+	      ?place whi:hasName "Islay"^^xsd:string .
+    	      ?whisky whi:hasTasteSpecification ?tasteSpecification .
+              ?tasteSpecification whi:hasSpecificationContent ?originalContent .
 
-    ?similarWhiskies whi:hasTasteSpecification ?otherSpecification .
-    ?otherSpecification whi:hasSpecificationContent ?originalContent .
-    ?similarWhiskies whi:hasName ?name .
-    FILTER (?similarWhiskies != ?whisky) } 
+	      ?similarWhiskies whi:hasTasteSpecification ?otherSpecification .
+    	      ?otherSpecification whi:hasSpecificationContent ?originalContent .
+    	      ?similarWhiskies whi:hasName ?name .
+    	      FILTER (?similarWhiskies != ?whisky) } 
 
-Forklaring: Her ser vi et til at kunden har et søk der han ville ha tak i whiskyer som ble produsert i “Islay”. Etter dette spør vi hvilke smaker som tilhører de gitte whiskyene som kunden fann. Så spør vi hvilke av whiskyene i ontologien som har smaker til felles med de som kunden hadde søkt etter, og så viser vi navnet til disse.
+Forklaring: Her ser vi et til at kunden har et søk der han ville ha tak i whiskyer som ble produsert i “Islay”. Etter dette spør vi hvilke smaker som tilhører de gitte whiskyene som kunden fann. 
+Så spør vi hvilke av whiskyene i ontologien som har smaker til felles med de som kunden hadde søkt etter, og så viser vi navnet til disse.
 
 •	Finn whiskyer innenfor samme whisky-typer som det opprinnelige søket
-    SELECT ?allNames
+SELECT ?allNames
     WHERE { { SELECT DISTINCT ?whiskyTypes
-WHERE {?search whi:hasMaturingType ?maturingTypes .
+	WHERE {?search whi:hasMaturingType ?maturingTypes .
               ?maturingTypes whi:hasName "Oak"^^xsd:string .
               ?search a ?whiskyTypes .
-        ?whiskyTypes rdfs:subClassOf whi:Whisky . } }
-         ?allEqual a ?whiskyTypes;
-              whi:hasName ?allNames }
 
-Forklaring: Her har vi et tilfelle der brukeren har hatt et søk etter whiskyer som har blitt lagret på tønne av slaget “oak”. Her henter vi ut hvilke typer whisky som ble lagret på en slik tønne, for så å finne alle whiskyer som har samme type som disse.
+              ?whiskyTypes rdfs:subClassOf whi:Whisky . } }
+              ?allEqual a ?whiskyTypes;
+               whi:hasName ?allNames }
+
+Forklaring: Her har vi et tilfelle der brukeren har hatt et søk etter whiskyer som har blitt lagret på tønne av slaget “oak”. 
+Her henter vi ut hvilke typer whisky som ble lagret på en slik tønne, for så å finne alle whiskyer som har samme type som disse.
 
 •	Finn whiskyer fra samme produsent som det opprinnelige søket
 SELECT ?all
   WHERE { ?whisky whi:hasTreatment ?treatment .
-                   ?treatment whi:hasName "ChillFiltration"^^xsd:string .
-       ?whisky whi:hasABV ?abv .
-       FILTER(?abv > 48)
+          ?treatment whi:hasName "ChillFiltration"^^xsd:string .
+     	  ?whisky whi:hasABV ?abv .
+          FILTER(?abv > 48)
    
-       ?whisky whi:hasBottler ?bottler .
-       ?all whi:hasBottler ?bottler .
-       FILTER (?all != ?whisky) }
+       	  ?whisky whi:hasBottler ?bottler .
+          ?all whi:hasBottler ?bottler .
+          FILTER (?all != ?whisky) }
 
-Forklaring: Her ser vi et søk etter alle whiskyer som har behandlingen “Chill Filtration” og at whiskyene skal ha en alkoholprosent over 48%. Etter søket finner vi hvem som produserte whiskyene i søkeresultatet, og så finner vi alle andre whiskyer som de produserer som ikke er i resultatet som kunden fikk.
+Forklaring: Her ser vi et søk etter alle whiskyer som har behandlingen “Chill Filtration” og at whiskyene skal ha en alkoholprosent over 48%. 
+Etter søket finner vi hvem som produserte whiskyene i søkeresultatet, og så finner vi alle andre whiskyer som de produserer som ikke er i resultatet som kunden fikk.
 
 -----
 
-Case 2
+CASE 2
 I appen skal det også være mulig å kunne finne ut hva en gitt produsent eller destilleri sin gjennomsnittsrating er, på grunnlag av hva de har produsert.
 
 •	Gjennomsnittsrating på produsent
@@ -66,10 +72,10 @@ Disse spørringene fungerer fint i Jena Fuseki, men i protege fungerer det ikke. 
 
 -----
 
-Case 3
+CASE 3
 Kunden ønsker å kunne finne whiskyer basert spørringer med mange faktorer.
-I vår ontologi har vi beskrevet whiskyene med følgende informasjon: produsent, destilleri, etterbehandling, modning (les: cask), produksjonssted, lukt, smak, ettersmak, rating (vurdering), alkoholprosent, alder, navn, flaskestørrelse, destillerings dato og tappe dato.
-
+I vår ontologi har vi beskrevet whiskyene med følgende informasjon: produsent, destilleri, etterbehandling, modning (les: cask), 
+produksjonssted, lukt, smak, ettersmak, rating (vurdering), alkoholprosent, alder, navn, flaskestørrelse, destillerings dato og tappe dato.
     
 •	Her er brukeren ute etter whisky typen SingleMaltWhisky med alder til og med 4 og over. Resultatet er sortert etter alder på whiskeyen i nedgående rekkefølge. Kolonnene navn og alder vises til brukeren. 
 
@@ -109,13 +115,13 @@ ORDER BY ASC(?bottler)
 
 -----
 
-Case 4
+CASE 4
 Siden vi har støtte for å beskrive whiskyer med “rating” så har vi lyst å kunne sortere de ulike resultatene (se case 3) på denne variabelen.
 
 •	Denne queryen henter alle whiskeyene, og gir oss rating som er høyere enn 3, og sorterer resultatet etter høyest verdi først.
 SELECT ?whisky ?rating
     WHERE { ?whisky whi:hasRating ?rating
-FILTER(?rating >=3) }
+    FILTER(?rating >=3) }
 ORDER BY DESC (?rating)
 
 -----
@@ -124,11 +130,10 @@ Case 5
 I appen skal der være funksjonalitet som kan tillate en gitt bruker å finne en whisky (basert på faktorer gitt i case 3) men også kunne velge å få vist den som har høyest/minst alkoholprosent og høyest/minst lukt, smak eller ettersmak.
 
 •	Her har brukeren valgt å finne en whisky med høyest alkoholprosent innenfor alle Single Malt Whisky.
-
-    SELECT ?name ?abv
-WHERE { ?whiskies a whi:SingleMaltWhisky;
-whi:hasABV ?abv;
-whi:hasName ?name }
+SELECT ?name ?abv
+    WHERE { ?whiskies a whi:SingleMaltWhisky;
+		        whi:hasABV ?abv;
+			whi:hasName ?name }
 ORDER BY DESC (?abv)
 LIMIT 1
 
@@ -140,16 +145,18 @@ SELECT ?name ?abv
       whi:hasName ?name }
 ORDER BY ASC (?abv)
 LIMIT 1
-•	Her har brukeren et ønske om å finne den whiskyer med mye røyklukt. I spørringen hentes det ut alt som er whiskyer for så å få individene som disse er knytt til som spesifiserer lukt-aspektet. Deretter sørges det for de er knytt til en med røyklukt som definisjon. Deretter finner vi styrker og sorterer fra sterkest til svakest.
+
+•	Her har brukeren et ønske om å finne den whiskyer med mye røyklukt. I spørringen hentes det ut alt som er whiskyer for så å få individene som disse er knytt til som spesifiserer lukt-aspektet. 
+	Deretter sørges det for de er knytt til en med røyklukt som definisjon. Deretter finner vi styrker og sorterer fra sterkest til svakest.
 
 SELECT ?name ?value
 WHERE {?whiskies a ?type.
-?type rdfs:subClassOf whi:Whisky.
-?whiskies  whi:hasName ?name;
-                 whi:hasNosingSpecification ?specification.
+	?type rdfs:subClassOf whi:Whisky.
+	?whiskies  whi:hasName ?name;
+                   whi:hasNosingSpecification ?specification.
 
-?specification whi:hasSpecificationContent "Peat Smoke"^^xsd:string;
-whi:hasSpecificationValue ?value }
+	?specification whi:hasSpecificationContent "Peat Smoke"^^xsd:string;
+		       whi:hasSpecificationValue ?value }
 ORDER BY DESC (?value)
     
 
