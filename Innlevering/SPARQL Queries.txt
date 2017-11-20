@@ -1,7 +1,10 @@
 ﻿SPARQL
+
 Setting
 Vi har sett for oss at vi har et scenario der vi i prosessen med å utvikle en app for et nettsted som omhandler whisky.
 Dataene er per dags dato relativt ustrukturerte. Via vår løsning er målet å kunne kjøre nyttige spørringer som kan ta høyde mange ulike aspekt ved de gitte whiskyene på nettstedet.
+
+NB!: Du finner spørringer sammen med resultat i filen: "./SPARQL Results".
 
 -----
 
@@ -51,7 +54,7 @@ Etter søket finner vi hvem som produserte whiskyene i søkeresultatet, og så f
 
 -----
 
-CASE 2
+CASE 2 (NB: fungerer i Jena-Fuseki)
 I appen skal det også være mulig å kunne finne ut hva en gitt produsent eller destilleri sin gjennomsnittsrating er, på grunnlag av hva de har produsert.
 
 �	Gjennomsnittsrating på produsent
