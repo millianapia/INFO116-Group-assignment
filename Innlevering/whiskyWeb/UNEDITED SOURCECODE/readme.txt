@@ -1,0 +1,1 @@
+Dette er de uredigerte sidene som vi har hentet informasjon ut av fra www.whisky.com
